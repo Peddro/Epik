@@ -1,0 +1,131 @@
+{
+	"scenario": {
+		"width": 980,
+		"height": 800,
+		"name": "4 Questions",
+		"type": "activities",
+		"styles": {
+			"background": {
+				"color": "#FFFFFF"
+			}
+		}
+	},
+	"resources": { 
+		"image": [
+			{
+				"name": "Image",
+				"position": {
+					"aligned": {
+						"horizontal": "center",
+						"vertical": "middle"
+					}
+				},
+				"styles": {
+					"width": 300,
+					"height": 200,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					}
+				}
+			}
+		]
+	},
+	"activities": {
+		"question": [
+			{
+				"name": "Question",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 270,
+							"y": 200
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "bottom-right"
+				}
+			},
+			{
+				"name": "Question",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 700,
+							"y": 200
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "bottom-left"
+				}
+			},
+			{
+				"name": "Question",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 270,
+							"y": 600
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "top-right"
+				}
+			},
+			{
+				"name": "Question",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 700,
+							"y": 600
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "top-left"
+				}
+			}
+		]
+	}
+}

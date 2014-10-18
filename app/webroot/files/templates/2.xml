@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://epik.com/project"
+    xsi:schemaLocation="http://epik.com/project ../schemas/project.xsd">
+    <start><scenario_reference id="S_1"/></start>
+    <status>
+        <selected>
+            <scenario_reference id="S_1"/>
+        </selected>
+    </status>
+    <properties>
+        <logo>
+            <styles>
+                <corner>top-left</corner>
+            </styles>
+        </logo>
+        <scores>
+            <score type="team">
+                <name>Team Score</name>
+                <log>1</log>
+            </score>
+            
+            <score type="reward">
+                <name>Rewards</name>
+                <log>1</log>
+            </score>
+            
+            <score type="penalty">
+                <name>Penalties</name>
+                <log>1</log>
+            </score>
+            
+            <score type="collaboration">
+                <name>Collaborations</name>
+                <log>1</log>
+            </score>
+            
+            <score type="total">
+                <name>Total Score</name>
+                <log>1</log>
+            </score>
+        </scores>
+        <helps>
+            <name>Helps</name>
+            <value>5</value>
+            <log>1</log>
+        </helps>
+        <players>
+            <max>4</max>
+            <styles>
+                <side>right</side>
+                <border>
+                    <thickness>4</thickness>
+                    <color>#000000</color>
+                </border>
+                <background element="bar">
+                    <color>#FFFFFF</color>
+                </background>
+                <background element="normal">
+                    <color>#FFFFFF</color>
+                </background>
+                <background element="current">
+                    <color>#CACACA</color>
+                </background>
+                <background element="collaborating">
+                    <color>#FCD43C</color>
+                </background>
+            </styles>
+        </players>
+        <sounds></sounds>
+    </properties>
+    <scenarios count="2">
+        <scenario id="S_1" type="lecture">
+            <name>First Scenario</name>
+            <contents></contents>
+            <jumps></jumps>
+            <styles>
+                <background>
+                    <color>#FFFFFF</color>
+                </background>
+            </styles>
+        </scenario>
+        <scenario id="S_2" type="activities">
+            <name>Activities Scenario</name>
+            <contents></contents>
+            <jumps></jumps>
+            <styles>
+                <background>
+                    <color>#FFFFFF</color>
+                </background>
+            </styles>
+        </scenario>
+    </scenarios>
+    <texts count="0"></texts>
+    <shapes count="0"></shapes>
+    <resources count="0"></resources>
+    <activities count="0"></activities>
+</project>

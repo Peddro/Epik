@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \GenreActivity</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/app.html"><i class="icon-folder-open"></i> app</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">110</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_getGenreActivities" title="getGenreActivities :: Get the type of activities permitted by a specific game genre."><span class="description">Get the type of activities permitted by a specific game genre.</span><pre>getGenreActivities()</pre></a></li>
+<li class="method public "><a href="#method_hasType" title="hasType :: Check if a game genre permits the specified activity type."><span class="description">Check if a game genre permits the specified activity type.</span><pre>hasType()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method_endsWith" title="endsWith :: Checks if a string ends with a certain string of characters."><span class="description">Checks if a string ends with a certain string of characters.</span><pre>endsWith()</pre></a></li>
+<li class="method protected inherited"><a href="#method_getImagePath" title="getImagePath :: Get an image path for a certain type of item."><span class="description">Get an image path for a certain type of item.</span><pre>getImagePath()</pre></a></li>
+<li class="method protected inherited"><a href="#method_startsWith" title="startsWith :: Checks if a string starts with a certain string of characters."><span class="description">Checks if a string starts with a certain string of characters.</span><pre>startsWith()</pre></a></li>
+<li class="method protected inherited"><a href="#method_wasImported" title="wasImported :: Checks if an item was imported from an external source."><span class="description">Checks if an item was imported from an external source.</span><pre>wasImported()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul>
+<li class="property public "><a href="#property_Genre" title="$Genre :: "><span class="description"></span><pre>$Genre</pre></a></li>
+<li class="property public "><a href="#property_Type" title="$Type :: "><span class="description"></span><pre>$Type</pre></a></li>
+<li class="property public "><a href="#property_belongsTo" title="$belongsTo :: "><span class="description">belongsTo associations</span><pre>$belongsTo</pre></a></li>
+<li class="property public "><a href="#property_displayField" title="$displayField :: "><span class="description">Display field</span><pre>$displayField</pre></a></li>
+<li class="property public "><a href="#property_name" title="$name :: "><span class="description">Model name</span><pre>$name</pre></a></li>
+<li class="property public "><a href="#property_useTable" title="$useTable :: "><span class="description">Table name</span><pre>$useTable</pre></a></li>
+<li class="property public "><a href="#property_validate" title="$validate :: "><span class="description">Validation rules</span><pre>$validate</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\GenreActivity"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GenreActivity.html">GenreActivity</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">GenreActivity Model</p>
+<div class="details">
+<div class="long_description"><p>Add your application-wide methods in the class below, your models
+will inherit them.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/app.Model.html">app.Model</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Bruno Sampaio</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_getGenreActivities"></a><div class="element clickable method public method_getGenreActivities" data-toggle="collapse" data-target=".method_getGenreActivities .collapse">
+<h2>Get the type of activities permitted by a specific game genre.</h2>
+<pre>getGenreActivities(int $genreId, array $icons, array $tools) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$genreId</h4>
+<code>int</code><ul>
+<li>the genre id.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$icons</h4>
+<code>array</code><ul>
+<li>the types of activities permitted.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$tools</h4>
+<code>array</code><ul>
+<li>the types of activities sorted by id.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_hasType"></a><div class="element clickable method public method_hasType" data-toggle="collapse" data-target=".method_hasType .collapse">
+<h2>Check if a game genre permits the specified activity type.</h2>
+<pre>hasType(int $genreId, int $typeId) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$genreId</h4>
+<code>int</code><ul>
+<li>the genre id.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$typeId</h4>
+<code>int</code><ul>
+<li>the activity type id.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_endsWith"></a><div class="element clickable method protected method_endsWith" data-toggle="collapse" data-target=".method_endsWith .collapse">
+<h2>Checks if a string ends with a certain string of characters.</h2>
+<pre>endsWith(string $haystack, string $needle) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppModel::endsWith()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$haystack</h4>
+<code>string</code><ul>
+<li>is the full string.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$needle</h4>
+<code>string</code><ul>
+<li>is the string to check against.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_getImagePath"></a><div class="element clickable method protected method_getImagePath" data-toggle="collapse" data-target=".method_getImagePath .collapse">
+<h2>Get an image path for a certain type of item.</h2>
+<pre>getImagePath(array $data, string $type, string $mainFolder, string $filename, string $field) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppModel::getImagePath()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><ul>
+<li>the item data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><ul>
+<li>the item type (Model Name).</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$mainFolder</h4>
+<code>string</code><ul>
+<li>where to search for the file.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$filename</h4>
+<code>string</code><ul>
+<li>the filename without extension.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$field</h4>
+<code>string</code><ul>
+<li>the field that determines if this item has an image.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>- the image file path.</div>
+</div></div>
+</div>
+<a id="method_startsWith"></a><div class="element clickable method protected method_startsWith" data-toggle="collapse" data-target=".method_startsWith .collapse">
+<h2>Checks if a string starts with a certain string of characters.</h2>
+<pre>startsWith(string $haystack, string $needle) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppModel::startsWith()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$haystack</h4>
+<code>string</code><ul>
+<li>is the full string.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$needle</h4>
+<code>string</code><ul>
+<li>is the string to check against.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_wasImported"></a><div class="element clickable method protected method_wasImported" data-toggle="collapse" data-target=".method_wasImported .collapse">
+<h2>Checks if an item was imported from an external source.</h2>
+<pre>wasImported(array $data) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>For that it must contain the attributes lms_id, lms_url, and external_id.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppModel::wasImported()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><ul>
+<li>the item data.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_Genre"> </a><div class="element clickable property public property_Genre" data-toggle="collapse" data-target=".property_Genre .collapse">
+<h2></h2>
+<pre>$Genre : <a href="../classes/GameGenre.html">\GameGenre</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>magic</th>
+<td></td>
+</tr>
+<tr>
+<th>property</th>
+<td></td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_Type"> </a><div class="element clickable property public property_Type" data-toggle="collapse" data-target=".property_Type .collapse">
+<h2></h2>
+<pre>$Type : <a href="../classes/ActivityType.html">\ActivityType</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>magic</th>
+<td></td>
+</tr>
+<tr>
+<th>property</th>
+<td></td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_belongsTo"> </a><div class="element clickable property public property_belongsTo" data-toggle="collapse" data-target=".property_belongsTo .collapse">
+<h2>belongsTo associations</h2>
+<pre>$belongsTo : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_displayField"> </a><div class="element clickable property public property_displayField" data-toggle="collapse" data-target=".property_displayField .collapse">
+<h2>Display field</h2>
+<pre>$displayField : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_name"> </a><div class="element clickable property public property_name" data-toggle="collapse" data-target=".property_name .collapse">
+<h2>Model name</h2>
+<pre>$name : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_useTable"> </a><div class="element clickable property public property_useTable" data-toggle="collapse" data-target=".property_useTable .collapse">
+<h2>Table name</h2>
+<pre>$useTable : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_validate"> </a><div class="element clickable property public property_validate" data-toggle="collapse" data-target=".property_validate .collapse">
+<h2>Validation rules</h2>
+<pre>$validate : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-02T23:27:11+01:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1227 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \QuizConverterComponent</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/app.html"><i class="icon-folder-open"></i> app</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">110</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_getFiles" title="getFiles :: Get Project/Game Files"><span class="description">Get Project/Game Files</span><pre>getFiles()</pre></a></li>
+<li class="method public "><a href="#method_getGameDefaults" title="getGameDefaults :: Creates an array with the data need by Javascript to play a Game."><span class="description">Creates an array with the data need by Javascript to play a Game.</span><pre>getGameDefaults()</pre></a></li>
+<li class="method public "><a href="#method_getProjectDefaults" title="getProjectDefaults :: Creates an array with all defaults settings plus the default elements properties to be used on Javascript when creating new Elements."><span class="description">Creates an array with all defaults settings plus the default elements properties to be used on Javascript when creating new Elements.</span><pre>getProjectDefaults()</pre></a></li>
+<li class="method public inherited"><a href="#method_json2xml" title="json2xml :: Validates the JSON data and stores it into the XML file"><span class="description">Validates the JSON data and stores it into the XML file</span><pre>json2xml()</pre></a></li>
+<li class="method public inherited"><a href="#method_xml2game" title="xml2game :: Parse Project XML to Game JSON"><span class="description">Parse Project XML to Game JSON</span><pre>xml2game()</pre></a></li>
+<li class="method public inherited"><a href="#method_xml2project" title="xml2project :: Parse Project XML to Project JSON"><span class="description">Parse Project XML to Project JSON</span><pre>xml2project()</pre></a></li>
+<li class="method public inherited"><a href="#method_xml2template" title="xml2template :: Parse Project XML to Template XML"><span class="description">Parse Project XML to Template XML</span><pre>xml2template()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method_getCollectionElementById" title="getCollectionElementById :: Get a Collection Element by its ID"><span class="description">Get a Collection Element by its ID</span><pre>getCollectionElementById()</pre></a></li>
+<li class="method protected inherited"><a href="#method_getUsedElements" title="getUsedElements :: Get Used Elements"><span class="description">Get Used Elements</span><pre>getUsedElements()</pre></a></li>
+<li class="method protected "><a href="#method_parseCollection" title="parseCollection :: Parse Collection Data"><span class="description">Parse Collection Data</span><pre>parseCollection()</pre></a></li>
+<li class="method protected "><a href="#method_parseProperties" title="parseProperties :: Parse Properties"><span class="description">Parse Properties</span><pre>parseProperties()</pre></a></li>
+<li class="method protected "><a href="#method_parseScenarios" title="parseScenarios :: Parse Scenarios Data"><span class="description">Parse Scenarios Data</span><pre>parseScenarios()</pre></a></li>
+<li class="method protected "><a href="#method_parseStart" title="parseStart :: Parse Game Start"><span class="description">Parse Game Start</span><pre>parseStart()</pre></a></li>
+<li class="method protected "><a href="#method_parseStatus" title="parseStatus :: Parse Project Status"><span class="description">Parse Project Status</span><pre>parseStatus()</pre></a></li>
+<li class="method protected inherited"><a href="#method_parseStyles" title="parseStyles :: Parse Element Styles"><span class="description">Parse Element Styles</span><pre>parseStyles()</pre></a></li>
+<li class="method protected inherited"><a href="#method_setTerminalNodes" title="setTerminalNodes :: Set Terminal Nodes of a Node"><span class="description">Set Terminal Nodes of a Node</span><pre>setTerminalNodes()</pre></a></li>
+<li class="method protected inherited"><a href="#method_validateBoolean" title="validateBoolean :: Validates Boolean"><span class="description">Validates Boolean</span><pre>validateBoolean()</pre></a></li>
+<li class="method protected "><a href="#method_validateCollection" title="validateCollection :: Validates and Stores a Collection Data"><span class="description">Validates and Stores a Collection Data</span><pre>validateCollection()</pre></a></li>
+<li class="method protected "><a href="#method_validateElementsCollection" title="validateElementsCollection :: Validates and Stores a Collection Elements"><span class="description">Validates and Stores a Collection Elements</span><pre>validateElementsCollection()</pre></a></li>
+<li class="method protected inherited"><a href="#method_validateFlow" title="validateFlow :: Validate Game Flow"><span class="description">Validate Game Flow</span><pre>validateFlow()</pre></a></li>
+<li class="method protected inherited"><a href="#method_validateId" title="validateId :: Validates a Element ID"><span class="description">Validates a Element ID</span><pre>validateId()</pre></a></li>
+<li class="method protected inherited"><a href="#method_validateJump" title="validateJump :: Validates Scenarios Jump"><span class="description">Validates Scenarios Jump</span><pre>validateJump()</pre></a></li>
+<li class="method protected inherited"><a href="#method_validateName" title="validateName :: Validates Element Name"><span class="description">Validates Element Name</span><pre>validateName()</pre></a></li>
+<li class="method protected "><a href="#method_validateProperties" title="validateProperties :: Validates and Stores the Project Properties"><span class="description">Validates and Stores the Project Properties</span><pre>validateProperties()</pre></a></li>
+<li class="method protected inherited"><a href="#method_validateRange" title="validateRange :: Validates Range"><span class="description">Validates Range</span><pre>validateRange()</pre></a></li>
+<li class="method protected "><a href="#method_validateScenariosCollection" title="validateScenariosCollection :: Validates and Stores the Scenarios"><span class="description">Validates and Stores the Scenarios</span><pre>validateScenariosCollection()</pre></a></li>
+<li class="method protected "><a href="#method_validateStatus" title="validateStatus :: Validates and Stores the Project Status"><span class="description">Validates and Stores the Project Status</span><pre>validateStatus()</pre></a></li>
+<li class="method protected inherited"><a href="#method_validateStyles" title="validateStyles :: Validates Styles"><span class="description">Validates Styles</span><pre>validateStyles()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method_validateQuestionScore" title="validateQuestionScore :: Validates Question Score"><span class="description">Validates Question Score</span><pre>validateQuestionScore()</pre></a></li>
+<li class="method private inherited"><a href="#method_validateRecursiveStyles" title="validateRecursiveStyles :: Validates Styles Recursively"><span class="description">Validates Styles Recursively</span><pre>validateRecursiveStyles()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul><li class="property public inherited"><a href="#property_components" title="$components :: "><span class="description">Components used by this Component.</span><pre>$components</pre></a></li></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected inherited"><a href="#property_defaults" title="$defaults :: "><span class="description">Defines several validation properties needed to validate, read and write projects data.</span><pre>$defaults</pre></a></li>
+<li class="property protected "><a href="#property_name" title="$name :: "><span class="description">Project Game Category.</span><pre>$name</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\QuizConverterComponent"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/QuizConverterComponent.html">QuizConverterComponent</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">QuizConverter Component</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/app.Controller.Component.html">app.Controller.Component</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Bruno Sampaio</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructor</h2>
+<pre>__construct(\ComponentCollection $collection, array $settings) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method creates an array containing all the defaults values necessary in a project.
+IMPORTANT:
+        - Those are also the values for many simple and complex types present in the projects XML SCHEMA file.
+    - New values must always be added to the arrays end because their positions may be referenced on other files.
+    - This is also most of the data present on the E.defaults variable on Javascript files.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$collection</h4>
+<code>\ComponentCollection</code>
+</div>
+<div class="subelement argument">
+<h4>$settings</h4>
+<code>array</code>
+</div>
+</div></div>
+</div>
+<a id="method_getFiles"></a><div class="element clickable method public method_getFiles" data-toggle="collapse" data-target=".method_getFiles .collapse">
+<h2>Get Project/Game Files</h2>
+<pre>getFiles(string $urlBase, bool $isGame) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$urlBase</h4>
+<code>string</code><ul>
+<li>the base url for the files.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$isGame</h4>
+<code>bool</code><ul>
+<li>determines if is loading files for a project or game.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>- images lists for the client and server.</div>
+</div></div>
+</div>
+<a id="method_getGameDefaults"></a><div class="element clickable method public method_getGameDefaults" data-toggle="collapse" data-target=".method_getGameDefaults .collapse">
+<h2>Creates an array with the data need by Javascript to play a Game.</h2>
+<pre>getGameDefaults() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>This data must only be loaded if it will be necessary later.</p></div></div></div>
+</div>
+<a id="method_getProjectDefaults"></a><div class="element clickable method public method_getProjectDefaults" data-toggle="collapse" data-target=".method_getProjectDefaults .collapse">
+<h2>Creates an array with all defaults settings plus the default elements properties to be used on Javascript when creating new Elements.</h2>
+<pre>getProjectDefaults() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>This data must only be loaded if it will be necessary later.</p></div></div></div>
+</div>
+<a id="method_json2xml"></a><div class="element clickable method public method_json2xml" data-toggle="collapse" data-target=".method_json2xml .collapse">
+<h2>Validates the JSON data and stores it into the XML file</h2>
+<pre>json2xml(string $file, object $data) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method iterates over the data received and if valid adds it to the XML document. The order in which the data is read is important.
+- First it reads the properties data (if any provided) and updates the XML contents with the new values if they are valid.
+- Then it reads the data for each elements collection and adds, updates, or removes data from the document.
+- Only after that it will read the scenarios collection data, because now its possible to validate if the scenario contents exist or if they are incorrect.
+- Finally, it reads the status and game start data, because its already possible to validate if the scenarios exist.</p>
+
+<p>IMPORTANT: To be able to validate the scenarios contents, the project status, and the game start, the DOMXpath object must be refreshed and the only way to do this
+is by converting the DOMDocument into a string and loading it again from that string. This is a bug found on PHP 5 which must be corrected on following versions.
+The areas where it is done are highlighted with coments around them.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::json2xml()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$file</h4>
+<code>string</code><ul>
+<li>the XML file path.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the new project data.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<a id="method_xml2game"></a><div class="element clickable method public method_xml2game" data-toggle="collapse" data-target=".method_xml2game .collapse">
+<h2>Parse Project XML to Game JSON</h2>
+<pre>xml2game($file) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method converts a project xml data into an array format.
+IMPORTANT: This method uses the names of several tags in the XML document,
+so if the XML document structure is changed this method must be verified.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::xml2game()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$file</h4><ul>
+<li>the path to the XML file.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_xml2project"></a><div class="element clickable method public method_xml2project" data-toggle="collapse" data-target=".method_xml2project .collapse">
+<h2>Parse Project XML to Project JSON</h2>
+<pre>xml2project($file) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method converts a project XML data into an array format.
+IMPORTANT: This method uses the names of several tags in the XML document,
+so if the XML document structure is changed this method must be verified.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::xml2project()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$file</h4><ul>
+<li>the path to the XML file.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_xml2template"></a><div class="element clickable method public method_xml2template" data-toggle="collapse" data-target=".method_xml2template .collapse">
+<h2>Parse Project XML to Template XML</h2>
+<pre>xml2template($file, $newFile) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method converts a project XML data into template XML.
+IMPORTANT: This method uses the names of several tags in the XML document,
+so if the XML document structure is changed this method must be verified.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::xml2template()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$file</h4><ul>
+<li>the path to the XML file.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$newFile</h4><ul>
+<li>the path to the new XML template file.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_getCollectionElementById"></a><div class="element clickable method protected method_getCollectionElementById" data-toggle="collapse" data-target=".method_getCollectionElementById .collapse">
+<h2>Get a Collection Element by its ID</h2>
+<pre>getCollectionElementById(\DOMXpath $xpath, string $collection, string $id) : <a href="http://php.net/manual/en/class.domnodelist.php">\DOMNodeList</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::getCollectionElementById()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$xpath</h4>
+<code>\DOMXpath</code><ul>
+<li>the xpath object used for queries.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$collection</h4>
+<code>string</code><ul>
+<li>collection name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$id</h4>
+<code>string</code><ul>
+<li>element id.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="http://php.net/manual/en/class.domnodelist.php">\DOMNodeList</a></code></div>
+</div></div>
+</div>
+<a id="method_getUsedElements"></a><div class="element clickable method protected method_getUsedElements" data-toggle="collapse" data-target=".method_getUsedElements .collapse">
+<h2>Get Used Elements</h2>
+<pre>getUsedElements(\DOMXpath $xpath, string $collection, array $used, string $extra) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::getUsedElements()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$xpath</h4>
+<code>\DOMXpath</code><ul>
+<li>the xpath object used for queries.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$collection</h4>
+<code>string</code><ul>
+<li>collection name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$used</h4>
+<code>array</code><ul>
+<li>this list where to store ids.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$extra</h4>
+<code>string</code><ul>
+<li>extra query.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<a id="method_parseCollection"></a><div class="element clickable method protected method_parseCollection" data-toggle="collapse" data-target=".method_parseCollection .collapse">
+<h2>Parse Collection Data</h2>
+<pre>parseCollection(string $collection, array $elements, \SimpleXML $xml, array $data, array $server, array $used, array $errors) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A collection contains a group of different types of elements. This method loads all those types of elements into an array.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$collection</h4>
+<code>string</code><ul>
+<li>the collection name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$elements</h4>
+<code>array</code><ul>
+<li>an array with keys for each type of elements contained on this collection and each key must have an empty array associated.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code>\SimpleXML</code><ul>
+<li>the XML element with the collection data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><ul>
+<li>the project data in array format.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$server</h4>
+<code>array</code><ul>
+<li>the array where to store the server data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$used</h4>
+<code>array</code><ul>
+<li>the array where to store the used resources and activities ids.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_parseProperties"></a><div class="element clickable method protected method_parseProperties" data-toggle="collapse" data-target=".method_parseProperties .collapse">
+<h2>Parse Properties</h2>
+<pre>parseProperties(\SimpleXML $xml, array $data, array $server, array $used, array $errors) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method loads all project properties into an array.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code>\SimpleXML</code><ul>
+<li>the XML element with the scenarios data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><ul>
+<li>the array where to store the data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$server</h4>
+<code>array</code><ul>
+<li>the array where to store the server data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$used</h4>
+<code>array</code><ul>
+<li>the array where to store the used resources and activities ids.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_parseScenarios"></a><div class="element clickable method protected method_parseScenarios" data-toggle="collapse" data-target=".method_parseScenarios .collapse">
+<h2>Parse Scenarios Data</h2>
+<pre>parseScenarios(\SimpleXML $xml, array $data, array $server, array $errors) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method loads all project scenarios into an array.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code>\SimpleXML</code><ul>
+<li>the XML element with the scenarios data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><ul>
+<li>the array where to store the data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$server</h4>
+<code>array</code><ul>
+<li>the array where to store the server data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_parseStart"></a><div class="element clickable method protected method_parseStart" data-toggle="collapse" data-target=".method_parseStart .collapse">
+<h2>Parse Game Start</h2>
+<pre>parseStart(\SimpleXML $xml, array $data, array $errors) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method loads the project start into an array.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code>\SimpleXML</code><ul>
+<li>the XML element with the scenarios data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><ul>
+<li>the array where to store the data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_parseStatus"></a><div class="element clickable method protected method_parseStatus" data-toggle="collapse" data-target=".method_parseStatus .collapse">
+<h2>Parse Project Status</h2>
+<pre>parseStatus(\SimpleXML $xml, array $data) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method loads the project status into an array.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code>\SimpleXML</code><ul>
+<li>the XML element with the status data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><ul>
+<li>the array where to store the data.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_parseStyles"></a><div class="element clickable method protected method_parseStyles" data-toggle="collapse" data-target=".method_parseStyles .collapse">
+<h2>Parse Element Styles</h2>
+<pre>parseStyles(\SimpleXML $styles, array $list) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This method loads one element styles.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::parseStyles()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$styles</h4>
+<code>\SimpleXML</code><ul>
+<li>the styles xml element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$list</h4>
+<code>array</code><ul>
+<li>the array where the styles data must be stored.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_setTerminalNodes"></a><div class="element clickable method protected method_setTerminalNodes" data-toggle="collapse" data-target=".method_setTerminalNodes .collapse">
+<h2>Set Terminal Nodes of a Node</h2>
+<pre>setTerminalNodes(object $data, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $item, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::setTerminalNodes()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the data with terminal nodes.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$item</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the XML element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_validateBoolean"></a><div class="element clickable method protected method_validateBoolean" data-toggle="collapse" data-target=".method_validateBoolean .collapse">
+<h2>Validates Boolean</h2>
+<pre>validateBoolean(int $value) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::validateBoolean()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>int</code><ul>
+<li>integer that must be 0 or 1.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_validateCollection"></a><div class="element clickable method protected method_validateCollection" data-toggle="collapse" data-target=".method_validateCollection .collapse">
+<h2>Validates and Stores a Collection Data</h2>
+<pre>validateCollection(string $collection, object $data, array $used, array $errors, \DOMXpath $xpath, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml, string $callback) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$collection</h4>
+<code>string</code><ul>
+<li>the collection name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the status data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$used</h4>
+<code>array</code><ul>
+<li>the list of elements used with source id.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xpath</h4>
+<code>\DOMXpath</code><ul>
+<li>the xpath object used for queries.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>string</code><ul>
+<li>callback function name.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_validateElementsCollection"></a><div class="element clickable method protected method_validateElementsCollection" data-toggle="collapse" data-target=".method_validateElementsCollection .collapse">
+<h2>Validates and Stores a Collection Elements</h2>
+<pre>validateElementsCollection(string $collection, object $data, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $currentXML, array $used, array $errors, \DOMXpath $xpath, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$collection</h4>
+<code>string</code><ul>
+<li>the collection name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the status data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$currentXML</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the collection xml element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$used</h4>
+<code>array</code><ul>
+<li>the list of elements used with source id.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xpath</h4>
+<code>\DOMXpath</code><ul>
+<li>the xpath object used for queries.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_validateFlow"></a><div class="element clickable method protected method_validateFlow" data-toggle="collapse" data-target=".method_validateFlow .collapse">
+<h2>Validate Game Flow</h2>
+<pre>validateFlow(<a href="../classes/Graph.html">\Graph</a> $graph) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Check if game has cycles.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::validateFlow()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$graph</h4>
+<code><a href="../classes/Graph.html">\Graph</a></code><ul>
+<li>the game flow graph.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>- true if is acyclic and false if is cyclic.</div>
+</div></div>
+</div>
+<a id="method_validateId"></a><div class="element clickable method protected method_validateId" data-toggle="collapse" data-target=".method_validateId .collapse">
+<h2>Validates a Element ID</h2>
+<pre>validateId(string $value, string $sample) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Checks if the id starts with the string 'sample'.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::validateId()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code><ul>
+<li>the id to be validated.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$sample</h4>
+<code>string</code><ul>
+<li>the first two characters for the id.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_validateJump"></a><div class="element clickable method protected method_validateJump" data-toggle="collapse" data-target=".method_validateJump .collapse">
+<h2>Validates Scenarios Jump</h2>
+<pre>validateJump(string $name, object $data, string $scenarioName, array $buttons, array $errors, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $item, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::validateJump()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><ul>
+<li>the jump type.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the jump data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$scenarioName</h4>
+<code>string</code><ul>
+<li>the jump scenario name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$buttons</h4>
+<code>array</code><ul>
+<li>contains the ids of the existing buttons in the scenario.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$item</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the scenario XML element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_validateName"></a><div class="element clickable method protected method_validateName" data-toggle="collapse" data-target=".method_validateName .collapse">
+<h2>Validates Element Name</h2>
+<pre>validateName(bool $valid, object $data, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $old, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $new, array $errors, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::validateName()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$valid</h4>
+<code>bool</code><ul>
+<li>determines if previous validated data is valid.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the element data which contains its name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$old</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the old XML element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$new</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the new XML element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_validateProperties"></a><div class="element clickable method protected method_validateProperties" data-toggle="collapse" data-target=".method_validateProperties .collapse">
+<h2>Validates and Stores the Project Properties</h2>
+<pre>validateProperties(object $data, array $collections, array $properties, array $used, array $errors, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the status data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$collections</h4>
+<code>array</code><ul>
+<li>the collections names list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$properties</h4>
+<code>array</code><ul>
+<li>the properties names list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$used</h4>
+<code>array</code><ul>
+<li>the list of elements used with source id.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_validateRange"></a><div class="element clickable method protected method_validateRange" data-toggle="collapse" data-target=".method_validateRange .collapse">
+<h2>Validates Range</h2>
+<pre>validateRange(\int/string $value, int $min, int $max) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Checks if a certain value is in a certain range.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::validateRange()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>\int/string</code><ul>
+<li>the integer or string to check. If string checks if its lenght is on provided range.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$min</h4>
+<code>int</code><ul>
+<li>the minimum value allowed.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$max</h4>
+<code>int</code><ul>
+<li>the maximum value allowed.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_validateScenariosCollection"></a><div class="element clickable method protected method_validateScenariosCollection" data-toggle="collapse" data-target=".method_validateScenariosCollection .collapse">
+<h2>Validates and Stores the Scenarios</h2>
+<pre>validateScenariosCollection(string $collection, object $data, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $currentXML, array $used, array $errors, \DOMXpath $xpath, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$collection</h4>
+<code>string</code><ul>
+<li>the collection name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the status data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$currentXML</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the collection xml element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$used</h4>
+<code>array</code><ul>
+<li>the list of elements used with source id.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xpath</h4>
+<code>\DOMXpath</code><ul>
+<li>the xpath object used for queries.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_validateStatus"></a><div class="element clickable method protected method_validateStatus" data-toggle="collapse" data-target=".method_validateStatus .collapse">
+<h2>Validates and Stores the Project Status</h2>
+<pre>validateStatus(object $data, array $collections, array $properties, array $screens, array $errors, \DOMXpath $xpath, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the status data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$collections</h4>
+<code>array</code><ul>
+<li>the collections names list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$properties</h4>
+<code>array</code><ul>
+<li>the properties names list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$screens</h4>
+<code>array</code><ul>
+<li>the screens names list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xpath</h4>
+<code>\DOMXpath</code><ul>
+<li>the xpath object used for queries.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_validateStyles"></a><div class="element clickable method protected method_validateStyles" data-toggle="collapse" data-target=".method_validateStyles .collapse">
+<h2>Validates Styles</h2>
+<pre>validateStyles(bool $valid, object $data, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $item, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml, bool $replace) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::validateStyles()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$valid</h4>
+<code>bool</code><ul>
+<li>determines if previous validated data is valid.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the element data which contains its styles.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$item</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the XML element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$replace</h4>
+<code>bool</code><ul>
+<li>determines if the new styles must replace old ones or if they must be appended to the item.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_validateQuestionScore"></a><div class="element clickable method private method_validateQuestionScore" data-toggle="collapse" data-target=".method_validateQuestionScore .collapse">
+<h2>Validates Question Score</h2>
+<pre>validateQuestionScore(string $elementName, string $name, int $max, object $data, array $errors, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $item, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$elementName</h4>
+<code>string</code><ul>
+<li>the element name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><ul>
+<li>the score type name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$max</h4>
+<code>int</code><ul>
+<li>the maximum value allowed.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the score data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><ul>
+<li>the errors list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$item</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the question scores XML element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_validateRecursiveStyles"></a><div class="element clickable method private method_validateRecursiveStyles" data-toggle="collapse" data-target=".method_validateRecursiveStyles .collapse">
+<h2>Validates Styles Recursively</h2>
+<pre>validateRecursiveStyles(object $data, <a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a> $item, <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a> $xml) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::validateRecursiveStyles()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>object</code><ul>
+<li>the element data which contains its styles.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$item</h4>
+<code><a href="http://php.net/manual/en/class.domelement.php">\DOMElement</a></code><ul>
+<li>the XML element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$xml</h4>
+<code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code><ul>
+<li>the XML object with document data.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_components"> </a><div class="element clickable property public property_components" data-toggle="collapse" data-target=".property_components .collapse">
+<h2>Components used by this Component.</h2>
+<pre>$components : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::$$components</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_defaults"> </a><div class="element clickable property protected property_defaults" data-toggle="collapse" data-target=".property_defaults .collapse">
+<h2>Defines several validation properties needed to validate, read and write projects data.</h2>
+<pre>$defaults : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\ProjectConverterComponent::$$defaults</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_name"> </a><div class="element clickable property protected property_name" data-toggle="collapse" data-target=".property_name .collapse">
+<h2>Project Game Category.</h2>
+<pre>$name : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-02T23:27:11+01:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,749 @@
+/* Home
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#pages-home #screenshot,
+#pages-home #about {
+	text-align: center;
+}
+
+#pages-home #screenshot,
+#pages-home #featured {
+	padding: 1em 2.5em;
+	position: relative;
+}
+
+
+/* Screenshot
+----------------*/
+#pages-home #screenshot .picture {
+	position: relative;
+	display:-moz-inline-stack;
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+}
+
+#pages-home #screenshot .picture,
+#pages-home #screenshot .picture img {
+	max-width: 100%;
+}
+
+#pages-home #screenshot .picture .featured-message {
+	width: 100%;
+	height: 5em;
+	bottom: 0;
+	position: absolute;
+	background-color: black;
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, top, bottom, color-stop(0%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0.9))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.9) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.9) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.9) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCCCCC', endColorstr='#000000', GradientType=0 ); /* IE6-9 */
+}
+
+#pages-home #screenshot .picture .featured-message p {
+	font-size: 1.8em;
+	line-height: 2.8em;
+	padding: 0px 0.55em;
+	margin:0;
+	text-align: left;
+	vertical-align: middle;
+	color: white;
+}
+
+
+/* Featured
+----------------*/
+#pages-home #featured .featured {
+	height: 600px;
+}
+
+#pages-home #featured .featured a {
+	color: #BBB;
+}
+
+#pages-home #featured .featured.left .picture {
+	background-image: url('../img/static/home/games.png');
+}
+
+#pages-home #featured .featured.centered .picture {
+	background-image: url('../img/static/home/collaboration.png');
+}
+
+#pages-home #featured .featured.right .picture {
+	background-image: url('../img/static/home/moodle.png');
+}
+
+
+/* About
+----------------*/
+#pages-home #about {
+	padding: 0.5em 5em;
+	padding-bottom: 0;
+}
+
+#pages-home #about p {
+	font-size: 0.75em;
+	line-height: 1.3em;
+	color: #666;
+}
+
+
+/* Static Pages
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+.static-page #content {
+	text-align: justify;
+}
+
+.static-page #content h2:first-child {
+	margin-top: 0;
+}
+
+.static-page #content h2 {
+	margin-top: 1.5em;
+}
+
+.static-page #content h3 {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	color: #D8461B;
+}
+
+.static-page #content .logos {
+	padding: 10px 0px;
+	text-align: center;
+}
+
+.static-page #content .logos img {
+	height: 75px;
+	margin: 0 1em;
+}
+
+.static-page #content ol li {
+	font-weight: bold;
+}
+
+.static-page #content ol li p {
+	font-weight: normal;
+	margin: 5px 0px;
+}
+
+.static-page #content table td {
+	padding: 1em;
+}
+
+.static-page #content table td img {
+	max-width: none;
+	max-height: none;
+}
+
+
+/* Create Account and Edit User
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#content > .create .edit .input:not(.checkbox) label {
+	font-size: 0.8em;
+	line-height: 1.3em;
+	display: block;
+}
+
+#content > .create .edit .input.checkbox label {
+	font-weight: normal;
+}
+
+#content > .create .edit .input {
+	margin-bottom: 15px;
+}
+
+#content > .create .edit .input input,
+#content > .create .edit .input select,
+#content > .create .edit .input button {
+	font-size: 0.7em;
+	line-height: 1.3em;
+	margin: 5px 5px 0px;
+	display:-moz-inline-stack;
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+}
+
+#users-signup #content > .create .edit input[type=text],
+#users-signup #content > .create .edit input[type=email],
+#users-signup #content > .create .edit input[type=password],
+#users-signup #content > .create .edit select {
+	width: 70%;
+}
+
+#users-edit #content > .create .edit input,
+#users-edit #content > .create .edit select {
+	width: 85%;
+}
+
+#users-edit #content > .create .edit input[type=file] {
+	width: 100%;
+	margin: 0;
+}
+
+#users-signup #content > .create .edit input[type=submit] {
+	width: 40%;
+	margin-right: 2%;
+}
+
+#users-signup #content > .create .edit button[type=reset] {
+	width: 28%;
+}
+
+#users-signup #content > .create .edit form .error-message {
+	right: 30%;
+}
+
+#users-edit #content > .create .edit form .error-message {
+	right: 15%;
+}
+
+
+/* Success
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#users-success #content {
+	text-align: center;
+}
+
+#users-success #content p {
+	font-size: 0.8em;
+	line-height: 1.3em;
+}
+
+#users-success #content a.button {
+	margin-top: 10px;
+	display:-moz-inline-stack;
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+}
+
+
+/* OAuthentication
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#users-oauthentication #content {
+	text-align: center;
+}
+
+#users-oauthentication #content #user-data-comparison {
+	margin: 1em auto;
+}
+
+#users-oauthentication #content #user-data-comparison th {
+	font-size: 0.9em;
+	line-height: 1.3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+#users-oauthentication #content #user-data-comparison th:nth-child(1) {
+	font-size: 0.7em;
+	line-height: 1.3em;
+	text-align: right;
+}
+
+#users-oauthentication #content #user-data-comparison th,
+#users-oauthentication #content #user-data-comparison td {
+	padding: 10px 20px;
+}
+
+#users-oauthentication #content #user-data-comparison td {
+	min-width: 150px;
+}
+
+
+/* Sign in and Reset
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#users-reset #content .reset,
+#users-signin #content .login {
+	margin: 10% auto 0;
+}
+
+#modal_content .signin .list .login {
+	height: 260px;
+	margin-top: -130px;
+	margin-left: -150px;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+}
+
+#users-signin .login {
+	width: 300px;
+}
+
+#users-signin.complete .login {
+	width: 100%;
+}
+
+#users-reset .reset {
+	width: 320px;
+}
+
+#users-signin .login form {
+	margin-bottom: 10px;
+}
+
+#users-reset .reset .input label,
+#users-signin .login .input label {
+	font-size: 1em;
+	margin-bottom: 0.3em;
+	display: block;
+}
+
+#users-reset .reset .input input,
+#users-signin .login .input input,
+#users-signin .login a {
+	font-size: 0.7em;
+}
+
+#users-reset .reset input,
+#users-signin .login input {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 1em;
+	display: block;
+}
+
+#users-signin .login a {
+	text-align: center;
+	display: block;
+}
+
+#users-signup iframe,
+#users-reset iframe {
+	display: none;
+}
+
+
+/* User Profile, Edit User and Game Profile
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#content > .profile table {
+	width: 100%;
+}
+
+#content > .profile .view table td {
+	font-size: 0.7em;
+	line-height: 1.3em;
+}
+
+#content > .profile table td {
+	padding: 10px;
+}
+
+#content > .profile table td:nth-child(1) {
+	font-weight: bold;
+	text-align: left;
+}
+
+#content > .profile .left #picture,
+#content > .profile .left #info {
+	height: 100%;
+}
+
+#content > .profile .left #picture {
+	width: 160px;
+	margin-right: 20px;
+}
+
+#content > .profile .left #picture img {
+	width: 100%;
+}
+
+#content > .profile .left #picture .options {
+	margin-top: 0.5em;
+	text-align: center;
+}
+
+#content > .profile .left #picture .options > div {
+	height: 24px;
+	margin: 0 0.25em;
+	display: inline-block;
+}
+
+#content > .profile .left #info {
+	margin-left: 180px;
+}
+
+#content > .profile .view.left #info h1 {
+	margin-top: 0;
+}
+
+#content > .profile .view .description-text {
+	text-align: left;
+	font-weight: normal;
+}
+
+#content > .profile .view .description-text p {
+	margin-top: 0;
+}
+
+
+/* Games Sessions
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#sessions-index #content .highlights,
+#sessions-view #content .highlights {
+	margin-bottom: 1.5em;
+}
+
+#sessions-index #content .highlights > div,
+#sessions-view #content .highlights > div {
+	margin-bottom: 0.8em;
+}
+
+#sessions-index #content .section .header,
+#sessions-view #content .section .header {
+	height: auto;
+	padding: 0;
+	margin-bottom: 0.5em;
+	border-bottom-width: 2px;
+}
+
+#sessions-index #content .section .header .title,
+#sessions-view #content .section .header .title {
+	width: 90%;
+}
+
+#sessions-index #content .section .header .options,
+#sessions-view #content .section .header .options {
+	width: 10%;
+}
+
+#sessions-index #content .section .list,
+#sessions-view #content .section .list {
+	margin-bottom: 1em;
+}
+
+#sessions-index #content .section .list > .item {
+	width: 100%;
+	display: table;
+	color: #000;
+}
+
+#sessions-index #content .section .list > .item:hover,
+#sessions-view #content .section .list table tr:hover {
+	background-color: #E0E0E0;
+	cursor: default;
+}
+
+#sessions-index #content .section .list > .item:nth-child(1),
+#sessions-view #content .section .list table tr:nth-child(1) {
+	border-bottom: 1px solid #BBB;
+}
+
+#sessions-index #content .section .list > .item:nth-child(1):hover {
+	background-color: transparent;
+}
+
+#sessions-index #content .section .list > .item > div {
+	vertical-align: middle;
+	display: table-cell;
+	position: relative;
+}
+
+#sessions-index #content .section .list > .item:nth-child(1) b,
+#sessions-view #content .section .list table th {
+	font-size: 16px;
+	line-height: 1.3em;
+}
+
+#sessions-index #content .section .list > .item > .name {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.3em;
+	text-align: left;
+	width: 30%;
+}
+
+#sessions-index #content .section .list > .item > .date {
+	width: 30%;
+	text-align: center;
+}
+
+#sessions-index #content .section .list > .item > .score {
+	width: 20%;
+	text-align: center;
+}
+
+#sessions-index #content .section .list > .item > .options {
+	width: 20%;
+	text-align: right;
+}
+
+#sessions-index #content .section .list > .item > .options > div {
+	display: none;
+}
+
+#sessions-index #content .section .list > .item:hover > .options > div {
+	display: inline-block;
+}
+
+#sessions-view #content .section .list h3 {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	color: #D8461B;
+}
+
+#sessions-view #content .section .list table {
+	width: 100%;
+}
+
+#sessions-view #content .section .list table tr:nth-child(1):hover {
+	background-color: transparent;
+}
+
+#sessions-view #content .section .list table th {
+	text-align: center;
+}
+
+#sessions-view #content .section .list table.bonus th:nth-child(1),
+#sessions-view #content .section .list table.bonus td:nth-child(1),
+#sessions-view #content .section .list table.activities th:nth-child(1),
+#sessions-view #content .section .list table.activities td:nth-child(1) {
+	text-align: left;
+}
+
+#sessions-view #content .section .list table td {
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#sessions-view #content .section .list form > div {
+	display: inline-block;
+}
+
+#sessions-view #content .section .list form label,
+#sessions-view #content .section .list form select {
+	margin-right: 10px;
+}
+
+
+/* Dashboard, Feedback e Helper
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+.dashboard #navigation {
+	float: left;
+	width: 100px;
+}
+
+.feedback,
+.dashboard #navigation,
+.dashboard #helper {
+	background-color: #262626;
+}
+
+.dashboard #navigation a {
+	font-size: 0.7em;
+	line-height: 1.3em;
+	width: 100%;
+	height: 85px;
+	padding: 12px 10px;
+	position: relative;
+	text-align: center;
+	display: inline-block;
+	opacity: 0.5;
+}
+
+.feedback a,
+.dashboard #navigation a {
+	text-decoration: none;
+	color: white;
+}
+
+.feedback a,
+.dashboard #navigation a,
+.dashboard #helper > div {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+
+.dashboard #navigation a:hover,
+.dashboard #navigation a.selected {
+	opacity: 1;
+}
+
+.dashboard #navigation a.selected:after {
+	font-family: Monaco, Consolas, Courier, monospace;
+	font-size: 18px;
+	content: '◀';
+	margin-top: -16px;
+	top:50%;
+	right: -4px;
+	position: absolute;
+	color: #EBEBEB;
+}
+
+.msie.dashboard #navigation a.selected:after {
+	font-size: 40px;
+}
+
+.moz.dashboard #navigation a.selected:after,
+.opera.dashboard #navigation a.selected:after {
+	font-size: 28px;
+}
+
+.dashboard #navigation a .icon-big {
+	margin: 0 auto;
+}
+
+.dashboard #navigation a .name {
+	width: 100%;
+	margin-top: 5px;
+}
+
+.dashboard #content,
+.dashboard #footer {
+	width: auto;
+	margin-left: 100px;
+	position: relative;
+	clear: none;
+}
+
+.dashboard #content > .one-column {
+	width: 100%;
+	height: 100%;
+}
+
+.dashboard #content .section .header .title table {
+	height: 100%;
+}
+
+.dashboard #content .section .header .title table td:nth-child(2) {
+	width: 30px;
+}
+
+.dashboard #content .section .header .title a {
+	margin-left: 5px;
+}
+
+.dashboard #content .list {
+	margin: 10px 0px;
+}
+
+.dashboard #content .list .item {
+	width: 100%;
+	display: table;
+}
+
+.dashboard #content .list .item:hover {
+	background-color: #E0E0E0;
+}
+
+.dashboard #content .list .item > div {
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.dashboard #content .list .item .name {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.3em;
+	text-align: left;
+	width: 30%;
+}
+
+.dashboard #content .list .item .date {
+	width: 40%;
+	text-align: center;
+}
+
+.dashboard #content .list .item .options {
+	width: 30%;
+	text-align: right;
+}
+
+.dashboard #content .list .item .options > div {
+	width: 16px;
+	height: 16px;
+	margin-left: 5px;
+	display:-moz-inline-stack;
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+	position: relative;
+}
+
+.dashboard #content .list .item .options .icon-small {
+	display: none;
+}
+
+.dashboard #helper {
+	height: 52px;
+	top: 150px;
+	right: -285px;
+	-webkit-border-radius: 5px 0px 0px 5px;
+	-moz-border-radius: 5px 0px 0px 5px;
+	border-radius: 5px 0px 0px 5px;
+	clear: both;
+}
+
+.feedback,
+.dashboard #helper {
+	border: 2px solid #CCC;
+	border-right: 0;
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 0 20px rgba(0,0,0,0.4);
+	-o-box-shadow: 0 0 20px rgba(0,0,0,0.4);
+	box-shadow: 0 0 20px rgba(0,0,0,0.4);
+	position: fixed;
+	z-index: 1000;
+}
+
+.feedback {
+	width: 25px;
+	height: 100px;
+	padding: 5px;
+	top: 300px;
+	right: 0;
+	text-align: center;
+}
+
+.feedback a {
+	width: 100px;
+	height: 25px;
+	-webkit-transform: rotate(-90deg) translate(-100%,0px); /* Safari and Chrome */
+	-webkit-transform-origin:0% 0%; /* Safari and Chrome */
+	-moz-transform: rotate(-90deg) translate(-100%,0px); /* Firefox */
+	-moz-transform-origin:0% 0%; /* Firefox */
+	-ms-transform: rotate(-90deg) translate(-100%,0px); /* IE 9 */
+	-ms-transform-origin:0% 0%; /* IE 9 */
+	-o-transform: rotate(-90deg) translate(-100%,0px); /* Opera */
+	-o-transform-origin:0% 0%; /* Opera */
+	transform: rotate(-90deg) translate(-100%,0px);
+	transform-origin:0% 0%;
+	display: block;
+}
+
+.dashboard #helper.selected {
+	right: 0;
+}
+
+.dashboard #helper > div {
+	height: 100%;
+	padding: 9px 10px 11px;
+}
+
+.dashboard #helper > .picture {
+	float: left;
+	opacity: 0.8;
+}
+
+.dashboard #helper:hover > .picture,
+.dashboard #helper.selected > .picture {
+	opacity: 1;
+}
+
+.dashboard #helper > .item {
+	margin-left: 52px;
+}
+
+.dashboard #helper > .item a {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1.3em;
+	color: white;
+}

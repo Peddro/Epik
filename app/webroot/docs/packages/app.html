@@ -1,0 +1,1018 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » app</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/app.html"><i class="icon-folder-open"></i> app</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">110</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<span class="empty-package"><i class="icon-folder-close"></i>app</span><ul class="nav nav-list nav-packages">
+<li>
+<a href="../packages/app.Config.html" title="Config"><i class="icon-folder-open"></i>Config</a><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/app.Config.Schema.html" title="Schema"><i class="icon-folder-open"></i>Schema</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
+</li>
+<li>
+<span class="empty-package"><i class="icon-folder-close"></i>Console</span><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/app.Console.Command.html" title="Command"><i class="icon-folder-open"></i>Command</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
+</li>
+<li>
+<a href="../packages/app.Controller.html" title="Controller"><i class="icon-folder-open"></i>Controller</a><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/app.Controller.Component.html" title="Component"><i class="icon-folder-open"></i>Component</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
+</li>
+<li>
+<a href="../packages/app.Lib.html" title="Lib"><i class="icon-folder-open"></i>Lib</a><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/app.Lib.Error.html" title="Error"><i class="icon-folder-open"></i>Error</a><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/app.Lib.Error.Exception.html" title="Exception"><i class="icon-folder-open"></i>Exception</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
+</li></ul>
+</li>
+<li>
+<a href="../packages/app.Model.html" title="Model"><i class="icon-folder-open"></i>Model</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+<li>
+<a href="../packages/app.Vendor.html" title="Vendor"><i class="icon-folder-open"></i>Vendor</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+<li>
+<span class="empty-package"><i class="icon-folder-close"></i>View</span><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/app.View.Helper.html" title="Helper"><i class="icon-folder-open"></i>Helper</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
+</li>
+<li>
+<a href="../packages/app.webroot.html" title="webroot"><i class="icon-folder-open"></i>webroot</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li class="active"><a href="../packages/app.html">app</a></li>
+</li></ul>
+<div class="package-indent">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Config.html">Config</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="DATABASE_CONFIG" class="element ajax clickable class">
+<h1>DATABASE_CONFIG<a href="../classes/DATABASE_CONFIG.html">¶</a>
+</h1>
+<p class="short_description">Database configuration class.</p>
+<div class="details collapse"></div>
+<a href="../classes/DATABASE_CONFIG.html" class="more">« More »</a>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_FILES"> </a><div class="element clickable constant  constant_FILES" data-toggle="collapse" data-target=".constant_FILES .collapse">
+<h2>FILES</h2>
+<pre>FILES </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_FILES_URL"> </a><div class="element clickable constant  constant_FILES_URL" data-toggle="collapse" data-target=".constant_FILES_URL .collapse">
+<h2>FILES_URL</h2>
+<pre>FILES_URL </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_LOG_ERROR"> </a><div class="element clickable constant  constant_LOG_ERROR" data-toggle="collapse" data-target=".constant_LOG_ERROR .collapse">
+<h2>LOG_ERROR</h2>
+<pre>LOG_ERROR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/app.Config.html">Config</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Config.Schema.html">Schema</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="DbAclSchema" class="element ajax clickable class">
+<h1>DbAclSchema<a href="../classes/DbAclSchema.html">¶</a>
+</h1>
+<p class="short_description">Using the Schema command line utility
+Cake schema run create DbAcl</p>
+<div class="details collapse"></div>
+<a href="../classes/DbAclSchema.html" class="more">« More »</a>
+</div>
+<div id="SessionsSchema" class="element ajax clickable class">
+<h1>SessionsSchema<a href="../classes/SessionsSchema.html">¶</a>
+</h1>
+<p class="short_description">Using the Schema command line utility
+cake schema run create Sessions</p>
+<div class="details collapse"></div>
+<a href="../classes/SessionsSchema.html" class="more">« More »</a>
+</div>
+<div id="i18nSchema" class="element ajax clickable class">
+<h1>i18nSchema<a href="../classes/i18nSchema.html">¶</a>
+</h1>
+<p class="short_description">Using the Schema command line utility
+cake schema run create i18n</p>
+<div class="details collapse"></div>
+<a href="../classes/i18nSchema.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Console.html">Console</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/app.Console.html">Console</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Console.Command.html">Command</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="AppShell" class="element ajax clickable class">
+<h1>AppShell<a href="../classes/AppShell.html">¶</a>
+</h1>
+<p class="short_description">Application Shell</p>
+<div class="details collapse"></div>
+<a href="../classes/AppShell.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Controller.html">Controller</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="ActivitiesController" class="element ajax clickable class">
+<h1>ActivitiesController<a href="../classes/ActivitiesController.html">¶</a>
+</h1>
+<p class="short_description">Activities Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/ActivitiesController.html" class="more">« More »</a>
+</div>
+<div id="AppController" class="element ajax clickable class">
+<h1>AppController<a href="../classes/AppController.html">¶</a>
+</h1>
+<p class="short_description">Application Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/AppController.html" class="more">« More »</a>
+</div>
+<div id="GamesController" class="element ajax clickable class">
+<h1>GamesController<a href="../classes/GamesController.html">¶</a>
+</h1>
+<p class="short_description">Games Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/GamesController.html" class="more">« More »</a>
+</div>
+<div id="GenresController" class="element ajax clickable class">
+<h1>GenresController<a href="../classes/GenresController.html">¶</a>
+</h1>
+<p class="short_description">Genres Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/GenresController.html" class="more">« More »</a>
+</div>
+<div id="LMSController" class="element ajax clickable class">
+<h1>LMSController<a href="../classes/LMSController.html">¶</a>
+</h1>
+<p class="short_description">LMS Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/LMSController.html" class="more">« More »</a>
+</div>
+<div id="PagesController" class="element ajax clickable class">
+<h1>PagesController<a href="../classes/PagesController.html">¶</a>
+</h1>
+<p class="short_description">Pages Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/PagesController.html" class="more">« More »</a>
+</div>
+<div id="PlayersController" class="element ajax clickable class">
+<h1>PlayersController<a href="../classes/PlayersController.html">¶</a>
+</h1>
+<p class="short_description">Players Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/PlayersController.html" class="more">« More »</a>
+</div>
+<div id="ProjectsController" class="element ajax clickable class">
+<h1>ProjectsController<a href="../classes/ProjectsController.html">¶</a>
+</h1>
+<p class="short_description">Projects Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/ProjectsController.html" class="more">« More »</a>
+</div>
+<div id="QuestionsController" class="element ajax clickable class">
+<h1>QuestionsController<a href="../classes/QuestionsController.html">¶</a>
+</h1>
+<p class="short_description">Questions Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/QuestionsController.html" class="more">« More »</a>
+</div>
+<div id="QuestionsGroupsController" class="element ajax clickable class">
+<h1>QuestionsGroupsController<a href="../classes/QuestionsGroupsController.html">¶</a>
+</h1>
+<p class="short_description">QuestionsGroups Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/QuestionsGroupsController.html" class="more">« More »</a>
+</div>
+<div id="ResourcesController" class="element ajax clickable class">
+<h1>ResourcesController<a href="../classes/ResourcesController.html">¶</a>
+</h1>
+<p class="short_description">Resources Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/ResourcesController.html" class="more">« More »</a>
+</div>
+<div id="ScenariosController" class="element ajax clickable class">
+<h1>ScenariosController<a href="../classes/ScenariosController.html">¶</a>
+</h1>
+<p class="short_description">Scenarios Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/ScenariosController.html" class="more">« More »</a>
+</div>
+<div id="SessionsController" class="element ajax clickable class">
+<h1>SessionsController<a href="../classes/SessionsController.html">¶</a>
+</h1>
+<p class="short_description">Sessions Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/SessionsController.html" class="more">« More »</a>
+</div>
+<div id="TemplatesController" class="element ajax clickable class">
+<h1>TemplatesController<a href="../classes/TemplatesController.html">¶</a>
+</h1>
+<p class="short_description">Templates Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/TemplatesController.html" class="more">« More »</a>
+</div>
+<div id="UsersController" class="element ajax clickable class">
+<h1>UsersController<a href="../classes/UsersController.html">¶</a>
+</h1>
+<p class="short_description">Users Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/UsersController.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/app.Controller.html">Controller</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Controller.Component.html">Component</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="CollaborativeQuizConverterComponent" class="element ajax clickable class">
+<h1>CollaborativeQuizConverterComponent<a href="../classes/CollaborativeQuizConverterComponent.html">¶</a>
+</h1>
+<p class="short_description">Projects Component</p>
+<div class="details collapse"></div>
+<a href="../classes/CollaborativeQuizConverterComponent.html" class="more">« More »</a>
+</div>
+<div id="FilesComponent" class="element ajax clickable class">
+<h1>FilesComponent<a href="../classes/FilesComponent.html">¶</a>
+</h1>
+<p class="short_description">Files Component</p>
+<div class="details collapse"></div>
+<a href="../classes/FilesComponent.html" class="more">« More »</a>
+</div>
+<div id="IndividualQuizConverterComponent" class="element ajax clickable class">
+<h1>IndividualQuizConverterComponent<a href="../classes/IndividualQuizConverterComponent.html">¶</a>
+</h1>
+<p class="short_description">Projects Component</p>
+<div class="details collapse"></div>
+<a href="../classes/IndividualQuizConverterComponent.html" class="more">« More »</a>
+</div>
+<div id="LMSServicesComponent" class="element ajax clickable class">
+<h1>LMSServicesComponent<a href="../classes/LMSServicesComponent.html">¶</a>
+</h1>
+<p class="short_description">LMSServices Component</p>
+<div class="details collapse"></div>
+<a href="../classes/LMSServicesComponent.html" class="more">« More »</a>
+</div>
+<div id="MoodleServicesComponent" class="element ajax clickable class">
+<h1>MoodleServicesComponent<a href="../classes/MoodleServicesComponent.html">¶</a>
+</h1>
+<p class="short_description">LMSServices Component</p>
+<div class="details collapse"></div>
+<a href="../classes/MoodleServicesComponent.html" class="more">« More »</a>
+</div>
+<div id="ProjectConverterComponent" class="element ajax clickable class">
+<h1>ProjectConverterComponent<a href="../classes/ProjectConverterComponent.html">¶</a>
+</h1>
+<p class="short_description">ProjectConverter Component</p>
+<div class="details collapse"></div>
+<a href="../classes/ProjectConverterComponent.html" class="more">« More »</a>
+</div>
+<div id="QuizConverterComponent" class="element ajax clickable class">
+<h1>QuizConverterComponent<a href="../classes/QuizConverterComponent.html">¶</a>
+</h1>
+<p class="short_description">QuizConverter Component</p>
+<div class="details collapse"></div>
+<a href="../classes/QuizConverterComponent.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Lib.html">Lib</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="Graph" class="element ajax clickable class">
+<h1>Graph<a href="../classes/Graph.html">¶</a>
+</h1>
+<p class="short_description">Oriented Graph</p>
+<div class="details collapse"></div>
+<a href="../classes/Graph.html" class="more">« More »</a>
+</div>
+<div id="Queue" class="element ajax clickable class">
+<h1>Queue<a href="../classes/Queue.html">¶</a>
+</h1>
+<p class="short_description">Queue</p>
+<div class="details collapse"></div>
+<a href="../classes/Queue.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/app.Lib.html">Lib</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Lib.Error.html">Error</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="AppExceptionRenderer" class="element ajax clickable class">
+<h1>AppExceptionRenderer<a href="../classes/AppExceptionRenderer.html">¶</a>
+</h1>
+<p class="short_description">Application Exception Renderer</p>
+<div class="details collapse"></div>
+<a href="../classes/AppExceptionRenderer.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/app.Lib.html">Lib</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../packages/app.Lib.Error.html">Error</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Lib.Error.Exception.html">Exception</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="InvalidRequestException" class="element ajax clickable class">
+<h1>InvalidRequestException<a href="../classes/InvalidRequestException.html">¶</a>
+</h1>
+<p class="short_description">Invalid Request Exception</p>
+<div class="details collapse"></div>
+<a href="../classes/InvalidRequestException.html" class="more">« More »</a>
+</div>
+<div id="PermissionDeniedException" class="element ajax clickable class">
+<h1>PermissionDeniedException<a href="../classes/PermissionDeniedException.html">¶</a>
+</h1>
+<p class="short_description">Permission Denied Exception</p>
+<div class="details collapse"></div>
+<a href="../classes/PermissionDeniedException.html" class="more">« More »</a>
+</div>
+<div id="SecurityBreachException" class="element ajax clickable class">
+<h1>SecurityBreachException<a href="../classes/SecurityBreachException.html">¶</a>
+</h1>
+<p class="short_description">Security Breach Exception</p>
+<div class="details collapse"></div>
+<a href="../classes/SecurityBreachException.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Model.html">Model</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="Activity" class="element ajax clickable class">
+<h1>Activity<a href="../classes/Activity.html">¶</a>
+</h1>
+<p class="short_description">Activity Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Activity.html" class="more">« More »</a>
+</div>
+<div id="ActivityHint" class="element ajax clickable class">
+<h1>ActivityHint<a href="../classes/ActivityHint.html">¶</a>
+</h1>
+<p class="short_description">ActivityHint Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ActivityHint.html" class="more">« More »</a>
+</div>
+<div id="ActivityLog" class="element ajax clickable class">
+<h1>ActivityLog<a href="../classes/ActivityLog.html">¶</a>
+</h1>
+<p class="short_description">ActivityLog Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ActivityLog.html" class="more">« More »</a>
+</div>
+<div id="ActivityResource" class="element ajax clickable class">
+<h1>ActivityResource<a href="../classes/ActivityResource.html">¶</a>
+</h1>
+<p class="short_description">ActivityResource Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ActivityResource.html" class="more">« More »</a>
+</div>
+<div id="ActivityType" class="element ajax clickable class">
+<h1>ActivityType<a href="../classes/ActivityType.html">¶</a>
+</h1>
+<p class="short_description">ActivityType Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ActivityType.html" class="more">« More »</a>
+</div>
+<div id="Answer" class="element ajax clickable class">
+<h1>Answer<a href="../classes/Answer.html">¶</a>
+</h1>
+<p class="short_description">Answer Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Answer.html" class="more">« More »</a>
+</div>
+<div id="AppModel" class="element ajax clickable class">
+<h1>AppModel<a href="../classes/AppModel.html">¶</a>
+</h1>
+<p class="short_description">Application model for Cake.</p>
+<div class="details collapse"></div>
+<a href="../classes/AppModel.html" class="more">« More »</a>
+</div>
+<div id="BonusType" class="element ajax clickable class">
+<h1>BonusType<a href="../classes/BonusType.html">¶</a>
+</h1>
+<p class="short_description">BonusType Model</p>
+<div class="details collapse"></div>
+<a href="../classes/BonusType.html" class="more">« More »</a>
+</div>
+<div id="Game" class="element ajax clickable class">
+<h1>Game<a href="../classes/Game.html">¶</a>
+</h1>
+<p class="short_description">Game Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Game.html" class="more">« More »</a>
+</div>
+<div id="GameActivity" class="element ajax clickable class">
+<h1>GameActivity<a href="../classes/GameActivity.html">¶</a>
+</h1>
+<p class="short_description">GameActivity Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameActivity.html" class="more">« More »</a>
+</div>
+<div id="GameActivityHint" class="element ajax clickable class">
+<h1>GameActivityHint<a href="../classes/GameActivityHint.html">¶</a>
+</h1>
+<p class="short_description">GameActivityHint Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameActivityHint.html" class="more">« More »</a>
+</div>
+<div id="GameActivityResource" class="element ajax clickable class">
+<h1>GameActivityResource<a href="../classes/GameActivityResource.html">¶</a>
+</h1>
+<p class="short_description">GameActivityResource Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameActivityResource.html" class="more">« More »</a>
+</div>
+<div id="GameGenre" class="element ajax clickable class">
+<h1>GameGenre<a href="../classes/GameGenre.html">¶</a>
+</h1>
+<p class="short_description">GameGenre Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameGenre.html" class="more">« More »</a>
+</div>
+<div id="GameMode" class="element ajax clickable class">
+<h1>GameMode<a href="../classes/GameMode.html">¶</a>
+</h1>
+<p class="short_description">GameMode Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameMode.html" class="more">« More »</a>
+</div>
+<div id="GameQuestion" class="element ajax clickable class">
+<h1>GameQuestion<a href="../classes/GameQuestion.html">¶</a>
+</h1>
+<p class="short_description">GameQuestion Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameQuestion.html" class="more">« More »</a>
+</div>
+<div id="GameQuestionAnswer" class="element ajax clickable class">
+<h1>GameQuestionAnswer<a href="../classes/GameQuestionAnswer.html">¶</a>
+</h1>
+<p class="short_description">GameQuestionAnswer Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameQuestionAnswer.html" class="more">« More »</a>
+</div>
+<div id="GameReference" class="element ajax clickable class">
+<h1>GameReference<a href="../classes/GameReference.html">¶</a>
+</h1>
+<p class="short_description">Game Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameReference.html" class="more">« More »</a>
+</div>
+<div id="GameResource" class="element ajax clickable class">
+<h1>GameResource<a href="../classes/GameResource.html">¶</a>
+</h1>
+<p class="short_description">GameResource Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameResource.html" class="more">« More »</a>
+</div>
+<div id="GameSession" class="element ajax clickable class">
+<h1>GameSession<a href="../classes/GameSession.html">¶</a>
+</h1>
+<p class="short_description">Session Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GameSession.html" class="more">« More »</a>
+</div>
+<div id="GenreActivity" class="element ajax clickable class">
+<h1>GenreActivity<a href="../classes/GenreActivity.html">¶</a>
+</h1>
+<p class="short_description">GenreActivity Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GenreActivity.html" class="more">« More »</a>
+</div>
+<div id="GenreQuestion" class="element ajax clickable class">
+<h1>GenreQuestion<a href="../classes/GenreQuestion.html">¶</a>
+</h1>
+<p class="short_description">GenreQuestion Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GenreQuestion.html" class="more">« More »</a>
+</div>
+<div id="GenreResource" class="element ajax clickable class">
+<h1>GenreResource<a href="../classes/GenreResource.html">¶</a>
+</h1>
+<p class="short_description">GenreResource Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GenreResource.html" class="more">« More »</a>
+</div>
+<div id="GenreScenario" class="element ajax clickable class">
+<h1>GenreScenario<a href="../classes/GenreScenario.html">¶</a>
+</h1>
+<p class="short_description">GenreScenario Model</p>
+<div class="details collapse"></div>
+<a href="../classes/GenreScenario.html" class="more">« More »</a>
+</div>
+<div id="LMS" class="element ajax clickable class">
+<h1>LMS<a href="../classes/LMS.html">¶</a>
+</h1>
+<p class="short_description">LMS Model</p>
+<div class="details collapse"></div>
+<a href="../classes/LMS.html" class="more">« More »</a>
+</div>
+<div id="LearningSubject" class="element ajax clickable class">
+<h1>LearningSubject<a href="../classes/LearningSubject.html">¶</a>
+</h1>
+<p class="short_description">LearningSubject Model</p>
+<div class="details collapse"></div>
+<a href="../classes/LearningSubject.html" class="more">« More »</a>
+</div>
+<div id="Log" class="element ajax clickable class">
+<h1>Log<a href="../classes/Log.html">¶</a>
+</h1>
+<p class="short_description">Log Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Log.html" class="more">« More »</a>
+</div>
+<div id="Login" class="element ajax clickable class">
+<h1>Login<a href="../classes/Login.html">¶</a>
+</h1>
+<p class="short_description">Login Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Login.html" class="more">« More »</a>
+</div>
+<div id="Player" class="element ajax clickable class">
+<h1>Player<a href="../classes/Player.html">¶</a>
+</h1>
+<p class="short_description">Player Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Player.html" class="more">« More »</a>
+</div>
+<div id="PlayerBonus" class="element ajax clickable class">
+<h1>PlayerBonus<a href="../classes/PlayerBonus.html">¶</a>
+</h1>
+<p class="short_description">PlayerBonus Model</p>
+<div class="details collapse"></div>
+<a href="../classes/PlayerBonus.html" class="more">« More »</a>
+</div>
+<div id="PlayerScore" class="element ajax clickable class">
+<h1>PlayerScore<a href="../classes/PlayerScore.html">¶</a>
+</h1>
+<p class="short_description">PlayerScore Model</p>
+<div class="details collapse"></div>
+<a href="../classes/PlayerScore.html" class="more">« More »</a>
+</div>
+<div id="Project" class="element ajax clickable class">
+<h1>Project<a href="../classes/Project.html">¶</a>
+</h1>
+<p class="short_description">Project Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Project.html" class="more">« More »</a>
+</div>
+<div id="ProjectActivity" class="element ajax clickable class">
+<h1>ProjectActivity<a href="../classes/ProjectActivity.html">¶</a>
+</h1>
+<p class="short_description">ProjectActivity Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ProjectActivity.html" class="more">« More »</a>
+</div>
+<div id="ProjectResource" class="element ajax clickable class">
+<h1>ProjectResource<a href="../classes/ProjectResource.html">¶</a>
+</h1>
+<p class="short_description">ProjectResource Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ProjectResource.html" class="more">« More »</a>
+</div>
+<div id="Question" class="element ajax clickable class">
+<h1>Question<a href="../classes/Question.html">¶</a>
+</h1>
+<p class="short_description">Question Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Question.html" class="more">« More »</a>
+</div>
+<div id="QuestionType" class="element ajax clickable class">
+<h1>QuestionType<a href="../classes/QuestionType.html">¶</a>
+</h1>
+<p class="short_description">QuestionType Model</p>
+<div class="details collapse"></div>
+<a href="../classes/QuestionType.html" class="more">« More »</a>
+</div>
+<div id="QuestionsGroup" class="element ajax clickable class">
+<h1>QuestionsGroup<a href="../classes/QuestionsGroup.html">¶</a>
+</h1>
+<p class="short_description">QuestionsGroup Model</p>
+<div class="details collapse"></div>
+<a href="../classes/QuestionsGroup.html" class="more">« More »</a>
+</div>
+<div id="Resource" class="element ajax clickable class">
+<h1>Resource<a href="../classes/Resource.html">¶</a>
+</h1>
+<p class="short_description">Resource Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Resource.html" class="more">« More »</a>
+</div>
+<div id="ResourceType" class="element ajax clickable class">
+<h1>ResourceType<a href="../classes/ResourceType.html">¶</a>
+</h1>
+<p class="short_description">ResourceType Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ResourceType.html" class="more">« More »</a>
+</div>
+<div id="ScenarioTemplate" class="element ajax clickable class">
+<h1>ScenarioTemplate<a href="../classes/ScenarioTemplate.html">¶</a>
+</h1>
+<p class="short_description">Scenario Template Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ScenarioTemplate.html" class="more">« More »</a>
+</div>
+<div id="ScoreType" class="element ajax clickable class">
+<h1>ScoreType<a href="../classes/ScoreType.html">¶</a>
+</h1>
+<p class="short_description">ScoreType Model</p>
+<div class="details collapse"></div>
+<a href="../classes/ScoreType.html" class="more">« More »</a>
+</div>
+<div id="SessionLMS" class="element ajax clickable class">
+<h1>SessionLMS<a href="../classes/SessionLMS.html">¶</a>
+</h1>
+<p class="short_description">SessionLMS Model</p>
+<div class="details collapse"></div>
+<a href="../classes/SessionLMS.html" class="more">« More »</a>
+</div>
+<div id="Template" class="element ajax clickable class">
+<h1>Template<a href="../classes/Template.html">¶</a>
+</h1>
+<p class="short_description">Project Template Model</p>
+<div class="details collapse"></div>
+<a href="../classes/Template.html" class="more">« More »</a>
+</div>
+<div id="User" class="element ajax clickable class">
+<h1>User<a href="../classes/User.html">¶</a>
+</h1>
+<p class="short_description">User Model</p>
+<div class="details collapse"></div>
+<a href="../classes/User.html" class="more">« More »</a>
+</div>
+<div id="VisibilityType" class="element ajax clickable class">
+<h1>VisibilityType<a href="../classes/VisibilityType.html">¶</a>
+</h1>
+<p class="short_description">VisibilityType Model</p>
+<div class="details collapse"></div>
+<a href="../classes/VisibilityType.html" class="more">« More »</a>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.Vendor.html">Vendor</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="OAuthConsumer" class="element ajax clickable class">
+<h1>OAuthConsumer<a href="../classes/OAuthConsumer.html">¶</a>
+</h1>
+<p class="short_description">Generic OAuth Consumer Class</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthConsumer.html" class="more">« More »</a>
+</div>
+<div id="OAuthDataStore" class="element ajax clickable class">
+<h1>OAuthDataStore<a href="../classes/OAuthDataStore.html">¶</a>
+</h1>
+<p class="short_description">Generic OAuth Data Store Class</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthDataStore.html" class="more">« More »</a>
+</div>
+<div id="OAuthException" class="element ajax clickable class">
+<h1>OAuthException<a href="../classes/OAuthException.html">¶</a>
+</h1>
+<p class="short_description">Generic OAuth Exception Class</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthException.html" class="more">« More »</a>
+</div>
+<div id="OAuthRequest" class="element ajax clickable class">
+<h1>OAuthRequest<a href="../classes/OAuthRequest.html">¶</a>
+</h1>
+<p class="short_description">Generic OAuth Request Class</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthRequest.html" class="more">« More »</a>
+</div>
+<div id="OAuthServer" class="element ajax clickable class">
+<h1>OAuthServer<a href="../classes/OAuthServer.html">¶</a>
+</h1>
+<p class="short_description">Generic OAuth Server Class</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthServer.html" class="more">« More »</a>
+</div>
+<div id="OAuthSignatureMethod" class="element ajax clickable class">
+<h1>OAuthSignatureMethod<a href="../classes/OAuthSignatureMethod.html">¶</a>
+</h1>
+<p class="short_description">Generic OAuth Signature Method Class</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthSignatureMethod.html" class="more">« More »</a>
+</div>
+<div id="OAuthSignatureMethod_HMAC_SHA1" class="element ajax clickable class">
+<h1>OAuthSignatureMethod_HMAC_SHA1<a href="../classes/OAuthSignatureMethod_HMAC_SHA1.html">¶</a>
+</h1>
+<p class="short_description">The HMAC-SHA1 signature method uses the HMAC-SHA1 signature algorithm as defined in [RFC2104]
+where the Signature Base String is the text and the key is the concatenated values (each first
+encoded per Parameter Encoding) of the Consumer Secret and Token Secret, separated by an '&'
+character (ASCII code 38) even if empty.</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthSignatureMethod_HMAC_SHA1.html" class="more">« More »</a>
+</div>
+<div id="OAuthSignatureMethod_PLAINTEXT" class="element ajax clickable class">
+<h1>OAuthSignatureMethod_PLAINTEXT<a href="../classes/OAuthSignatureMethod_PLAINTEXT.html">¶</a>
+</h1>
+<p class="short_description">The PLAINTEXT method does not provide any security protection and SHOULD only be used
+over a secure channel such as HTTPS.</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthSignatureMethod_PLAINTEXT.html" class="more">« More »</a>
+</div>
+<div id="OAuthSignatureMethod_RSA_SHA1" class="element ajax clickable class">
+<h1>OAuthSignatureMethod_RSA_SHA1<a href="../classes/OAuthSignatureMethod_RSA_SHA1.html">¶</a>
+</h1>
+<p class="short_description">The RSA-SHA1 signature method uses the RSASSA-PKCS1-v1_5 signature algorithm as defined in
+[RFC3447] section 8.2 (more simply known as PKCS#1), using SHA-1 as the hash function for
+EMSA-PKCS1-v1_5.</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthSignatureMethod_RSA_SHA1.html" class="more">« More »</a>
+</div>
+<div id="OAuthToken" class="element ajax clickable class">
+<h1>OAuthToken<a href="../classes/OAuthToken.html">¶</a>
+</h1>
+<p class="short_description">Generic OAuth Token Class</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthToken.html" class="more">« More »</a>
+</div>
+<div id="OAuthUtil" class="element ajax clickable class">
+<h1>OAuthUtil<a href="../classes/OAuthUtil.html">¶</a>
+</h1>
+<p class="short_description">Generic OAuth Utils Class</p>
+<div class="details collapse"></div>
+<a href="../classes/OAuthUtil.html" class="more">« More »</a>
+</div>
+<div id="curl" class="element ajax clickable class">
+<h1>curl<a href="../classes/curl.html">¶</a>
+</h1>
+<p class="short_description">cURL class</p>
+<div class="details collapse"></div>
+<a href="../classes/curl.html" class="more">« More »</a>
+</div>
+<div id="curl_cache" class="element ajax clickable class">
+<h1>curl_cache<a href="../classes/curl_cache.html">¶</a>
+</h1>
+<p class="short_description">This class is used by cURL class, use case:</p>
+<div class="details collapse"></div>
+<a href="../classes/curl_cache.html" class="more">« More »</a>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.View.html">View</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/app.View.html">View</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.View.Helper.html">Helper</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="AppHelper" class="element ajax clickable class">
+<h1>AppHelper<a href="../classes/AppHelper.html">¶</a>
+</h1>
+<p class="short_description">Application helper</p>
+<div class="details collapse"></div>
+<a href="../classes/AppHelper.html" class="more">« More »</a>
+</div>
+<div id="ElementsHelper" class="element ajax clickable class">
+<h1>ElementsHelper<a href="../classes/ElementsHelper.html">¶</a>
+</h1>
+<p class="short_description">Elements Helper</p>
+<div class="details collapse"></div>
+<a href="../classes/ElementsHelper.html" class="more">« More »</a>
+</div>
+<div id="LayoutsHelper" class="element ajax clickable class">
+<h1>LayoutsHelper<a href="../classes/LayoutsHelper.html">¶</a>
+</h1>
+<p class="short_description">Layouts Helper</p>
+<div class="details collapse"></div>
+<a href="../classes/LayoutsHelper.html" class="more">« More »</a>
+</div>
+<div id="ModalHelper" class="element ajax clickable class">
+<h1>ModalHelper<a href="../classes/ModalHelper.html">¶</a>
+</h1>
+<p class="short_description">Modal Helper</p>
+<div class="details collapse"></div>
+<a href="../classes/ModalHelper.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/app.html">app</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/app.webroot.html">webroot</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_APP_DIR"> </a><div class="element clickable constant  constant_APP_DIR" data-toggle="collapse" data-target=".constant_APP_DIR .collapse">
+<h2>APP_DIR</h2>
+<pre>APP_DIR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_APP_DIR"> </a><div class="element clickable constant  constant_APP_DIR" data-toggle="collapse" data-target=".constant_APP_DIR .collapse">
+<h2>APP_DIR</h2>
+<pre>APP_DIR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_DS"> </a><div class="element clickable constant  constant_DS" data-toggle="collapse" data-target=".constant_DS .collapse">
+<h2>DS</h2>
+<pre>DS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_DS"> </a><div class="element clickable constant  constant_DS" data-toggle="collapse" data-target=".constant_DS .collapse">
+<h2>DS</h2>
+<pre>DS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ROOT"> </a><div class="element clickable constant  constant_ROOT" data-toggle="collapse" data-target=".constant_ROOT .collapse">
+<h2>ROOT</h2>
+<pre>ROOT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ROOT"> </a><div class="element clickable constant  constant_ROOT" data-toggle="collapse" data-target=".constant_ROOT .collapse">
+<h2>ROOT</h2>
+<pre>ROOT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_WEBROOT_DIR"> </a><div class="element clickable constant  constant_WEBROOT_DIR" data-toggle="collapse" data-target=".constant_WEBROOT_DIR .collapse">
+<h2>WEBROOT_DIR</h2>
+<pre>WEBROOT_DIR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_WEBROOT_DIR"> </a><div class="element clickable constant  constant_WEBROOT_DIR" data-toggle="collapse" data-target=".constant_WEBROOT_DIR .collapse">
+<h2>WEBROOT_DIR</h2>
+<pre>WEBROOT_DIR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_WWW_ROOT"> </a><div class="element clickable constant  constant_WWW_ROOT" data-toggle="collapse" data-target=".constant_WWW_ROOT .collapse">
+<h2>WWW_ROOT</h2>
+<pre>WWW_ROOT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_WWW_ROOT"> </a><div class="element clickable constant  constant_WWW_ROOT" data-toggle="collapse" data-target=".constant_WWW_ROOT .collapse">
+<h2>WWW_ROOT</h2>
+<pre>WWW_ROOT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-02T23:27:10+01:00.<br></footer></div>
+</div>
+</body>
+</html>

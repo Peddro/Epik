@@ -1,0 +1,153 @@
+{
+	"scenario": {
+		"width": 980,
+		"height": 800,
+		"name": "4 Questions + 2 Images",
+		"type": "activities",
+		"styles": {
+			"background": {
+				"color": "#FFFFFF"
+			}
+		}
+	},
+	"resources": { 
+		"image": [
+		    {
+				"name": "Image Left",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 230,
+							"y": "middle"
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"height": 200,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					}
+				}
+			},
+			{
+				"name": "Image Right",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 750,
+							"y": "middle"
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"height": 200,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					}
+				}
+			}
+		]
+	},
+	"activities": {
+		"question": [
+			{
+				"name": "Question 1",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 230,
+							"y": 200
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "bottom-right"
+				}
+			},
+			{
+				"name": "Question 2",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 230,
+							"y": 600
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "top-left"
+				}
+			},
+			{
+				"name": "Question 3",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 750,
+							"y": 200
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "bottom-left"
+				}
+			},
+			{
+				"name": "Question 4",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 750,
+							"y": 600
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "top-right"
+				}
+			}
+		]
+	}
+}

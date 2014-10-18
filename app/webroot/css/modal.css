@@ -1,0 +1,360 @@
+/* Collumns and Sections
+----------------*/
+#modal_content .section .header .options .left p {
+	margin: 2px 0px;
+}
+
+#modal_content .section .header .options .right > * {
+	margin-left: 5px;
+}
+
+#modal_content .section .list .column {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/* Lists
+----------------*/
+#modal .list {
+	margin-top: 10px;
+}
+
+#modal .list form .error-message {
+	top: 0.5em;
+}
+
+#modal .list form .chooser {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#modal .list form .chooser > div:first-child {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#modal .list form .chooser > div.description {
+	margin-top: 10px;
+}
+
+#modal .list form .chooser .item {
+	float: left;
+	width: 100px;
+	min-height: 100px;
+	margin: 8px;
+	border: 3px solid black;
+	box-shadow: 0 0 1em rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.8);
+	-moz-box-shadow: 0 0 1em rgba(0,0,0,0.8);
+	-o-box-shadow: 0 0 1em rgba(0,0,0,0.8);
+	text-align: center;
+	background-color: #FFF;
+}
+
+#modal .list form .chooser .item,
+#modal .list form .chooser .item > * {
+	cursor: pointer;
+}
+
+#modal .list form .chooser .item:hover {
+	background-color: #EEE;
+}
+
+#modal .list form .chooser .item input[type=radio],
+#modal .list form .chooser .item input[type=checkbox] {
+	display: none;
+}
+
+#modal .list form .chooser .item .picture,
+#modal .list form .chooser .item label {
+	display: block;
+}
+
+#modal .list form .chooser .item .picture {
+	width: 100%;
+	height: 48px;
+	padding: 5px 0px;
+	position: relative;
+}
+
+#modal .list form .chooser .item .picture img {
+	max-width: 90%;
+	max-height: 90%;
+}
+
+#modal .list form .chooser .item .picture .icon {
+	top: 50%;
+	left: 50%;
+	margin-top: -12px;
+	margin-left: -12px;
+	position: absolute;
+}
+
+#modal .list form .chooser .item label {
+	font-size: 1em;
+	width: 100%;
+}
+
+
+/* Boxes
+----------------*/
+#modal .list .box {
+	padding: 0.5em;
+	border-bottom: 2px solid #AAA;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+
+#modal .list .box:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border: 0;
+}
+
+
+/* Buttons
+----------------*/
+#modal .buttons {
+	width: 100%;
+	margin: 0;
+}
+
+#modal .buttons button,
+#modal .buttons input[type=submit] {
+	width: 25%;
+}
+
+#modal .buttons button,
+#modal .buttons input[type=submit] {
+	bottom: 1em;
+	position: absolute;
+}
+
+#modal .buttons button[name=cancel],
+#modal .buttons button[name=previous] {
+	left: 1em;
+}
+
+#modal .buttons button[name=continue],
+#modal .buttons button[name=redirect],
+#modal .buttons button[name=insert],
+#modal .buttons input[type=submit] {
+	right: 1em;
+}
+
+
+/* Info Pages
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#modal .info .list p {
+	font-size: 18px;
+	line-height: 1.3em;
+}
+
+/* Create and Choose Pages
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#modal .info .list,
+#modal .create .list,
+#modal .choose .list,
+#modal .confirm .list {
+	margin-bottom: 40px;
+	position: static;
+}
+
+#modal .create .list form {
+	width: 50%;
+	margin: 5% auto;
+}
+
+#modal .create .list form table th {
+	text-align: left;
+}
+
+#modal .create .list form table td label {
+	display: none;
+}
+
+#modal .create .list form table td:first-child {
+	text-align: center;
+}
+
+#modal .create .list form table,
+#modal .create .list form input[type=text],
+#modal .create .list form input[type=password],
+#modal .create .list form select,
+#modal .create .list form textarea {
+	width: 100%;
+}
+
+#modal .create.file .list form .upload,
+#modal .create.file .list form .external {
+	display: none;
+}
+
+#modal .create.file .list form .upload.selected,
+#modal .create.file .list form .external.selected {
+	display: block;
+}
+
+#modal .create .list .preview {
+	max-width: 100%;
+}
+
+
+/* Confirm Pages
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#modal .confirm .list table {
+	width: 100%;
+}
+
+#modal .confirm .list table tr td:nth-child(1) {
+	font-weight: bold;
+	vertical-align: top;
+	width: 100px;
+}
+
+#modal .confirm .list table tr td:nth-child(2) {
+	padding: 0.5em 0em 0.5em 1em;
+}
+
+#modal .confirm .list table tr td .preview {
+	max-width: 100%;
+	max-height: 280px;
+	text-align: center;
+}
+
+#modal .confirm .list table tr td .item {
+	cursor: auto;
+}
+
+#modal .confirm .list table tr td ul {
+	margin: 0;
+}
+
+/* Error and Comple Pages
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#modal .error h1 {
+	color: #A42834 !important;
+}
+
+#modal .complete p,
+#modal .error p,
+#modal .complete .buttons,
+#modal .error .buttons {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#modal .complete .buttons button {
+	width: auto;
+	position: static;
+}
+
+#modal .complete p,
+#modal .error p {
+	font-size: 0.9em;
+}
+
+#modal .error .list .item {
+	font-size: 18px;
+	padding: 10px;
+	margin: 0;
+	text-align: left;
+	cursor: default;
+}
+
+#modal .error .list p {
+	padding-top: 10px;
+	border-top: 2px solid #AAA;
+}
+
+#modal .complete .button,
+#modal .error .button {
+	margin: 0.5em;
+}
+
+
+/* View Pages
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#modal .view .list .column.section {
+	height: auto;
+	min-height: 100%;
+}
+
+#modal .view .list .box .item {
+	font-size: 0.7em;
+	line-height: 1.3em;
+	padding: 0;
+	padding-bottom: 0.5em;
+	cursor: auto;
+}
+
+#modal .view .list .box ul {
+	margin: 0;
+	margin-top: 0.5em;
+}
+
+#modal .view .list .box ul li {
+	font-size: 0.7em;
+	line-height: 1.3em;
+}
+
+#modal .view .list .box img {
+	max-height: 80%;
+}
+
+#modal .view .list .box p {
+	margin-bottom: 0;
+}
+
+/* Activities Hints Page
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#activities-hints.create .list form {
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+#activities-hints.create .list form .input {
+	width: 40%;
+	margin: 0 0.5em 0.5em;
+}
+
+
+/* Questions View Page
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+#questions-view .list .column.section.left {
+	padding-right: 0.5em;
+	border-right: 2px solid #AAA;
+}
+
+#questions-view .list .column.section.right {
+	padding-left: 0.5em;
+}
+
+#questions-view .list .box .item.question {
+	font-weight: bold;
+}
+
+#questions-view .list .item.answer {
+	overflow: hidden;
+	clear:both;
+}
+
+#questions-view .list .item.answer > .icon {
+	margin-right: 1em;
+}
+
+#questions-view .list .hints li,
+#questions-view .list .resources li {
+	margin-bottom: 5px;
+}
+
+#questions-view .list .hints p,
+#questions-view .list .resources p {
+	text-align: center;
+}
+

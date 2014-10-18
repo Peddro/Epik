@@ -1,0 +1,1096 @@
+# LANGUAGE translation of CakePHP Application
+# Author Bruno Sampaio
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-06-27 00:57+0200\n"
+"PO-Revision-Date: 2012-06-27 00:02+0100\n"
+"Last-Translator: Bruno Sampaio <bens.sampaio@gmail.com>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+
+# MODAL PAGES
+msgid "add-title"
+msgstr "Choose %s to Add"
+
+msgid "create-add-title"
+msgstr "Create New %s"
+
+msgid "create-edit-title"
+msgstr "Edit %s"
+
+msgid "upload-title"
+msgstr "Upload the %s File"
+
+msgid "manage-title"
+msgstr "Manage %s %s"
+
+msgid "import-title"
+msgstr "Import %s from LMS"
+
+msgid "open-title"
+msgstr "Choose %s to Open"
+
+msgid "reload-title"
+msgstr "Reload %s"
+
+msgid "signin-title"
+msgstr "Sign In to Continue"
+
+msgid "select-title"
+msgstr "Select %s Type"
+
+msgid "success-signin-title"
+msgstr "Welcome Back!"
+
+msgid "success-add-title"
+msgstr "%s Created Successfully"
+
+msgid "success-edit-title"
+msgstr "%s Changed Successfully"
+
+msgid "success-import-title"
+msgstr "%s Imported Successfully"
+
+msgid "success-reload-title"
+msgstr "%s Reloaded Successfully"
+
+msgid "error-title"
+msgstr "%s Error"
+
+msgid "create-add-message"
+msgstr "Fill data fields"
+
+msgid "create-edit-message"
+msgstr "Change data fields you want to edit"
+
+msgid "choose-message"
+msgstr "Choose the %s (hover an item to see a description)"
+
+msgid "confirm-message"
+msgstr "If you continue, this %s data will be updated with the one below"
+
+msgid "export-message"
+msgstr "Please read the information below before continuing"
+
+msgid "upload-message"
+msgstr "Select the file below or provide a link to it"
+
+msgid "import-connect-message"
+msgstr "Provide the LMS url and your LMS credentials to get access to your data"
+
+msgid "reload-connect-message"
+msgstr "Provide your LMS credentials to get access to your data"
+
+msgid "signin-message"
+msgstr "Your session was lost, to continue you must sign in again"
+
+msgid "select-message"
+msgstr "Choose the type of %s you want to %s"
+
+msgid "view-message"
+msgstr "Below you can find all the information associated to this %s"
+
+msgid "success-signin-message"
+msgstr "You are back, now you can continue with your work"
+
+msgid "success-message"
+msgstr "Click the button below to open it"
+
+msgid "error-message"
+msgstr "Your request was aborted due to a %s error."
+
+msgid "error-project-message"
+msgstr "The following errors ocurred while %s your project, please correct them before trying again."
+
+msgid "errors-list-message"
+msgstr "If you don't understand or don't know how to correct any of the above errors, please contact an administrator because your project may be corrupted."
+
+msgid "create-file-formats-message"
+msgstr "You can choose from one of the following file formats: %s."
+
+msgid "info-list-export-game-message-1"
+msgstr "Before exporting a project as a game make sure that it has a start, that all scenarios are linked, and that all resources and activities are filled."
+
+msgid "info-list-export-game-message-2"
+msgstr "The game created from this project won\'t be editable, so even if later you change the activities or resources used on this project, the game won\'t change."
+
+msgid "info-list-export-game-message-3"
+msgstr "If you have unsaved progress, please save before exporting."
+
+msgid "reload-connect-list-message"
+msgstr "Reloading a %s allows you to update its information in case you changed it on %s."
+
+msgid "success-list-message-signin-first"
+msgstr "Now that you are back you can continue with your work, but first you must close this window and try to do again what you were doing before."
+
+msgid "success-list-message-signin-second"
+msgstr "We hope you didn't lost any important information!"
+
+msgid "success-list-message-singular"
+msgstr "Your %s was %s successfully, to %s it use the button below or use the %s list in your dashboard."
+
+msgid "success-list-message-plural"
+msgstr "Your %s were %s successfully, to %s then use the buttons below or use the %s list in your dashboard."
+
+
+# SELECTS
+msgid "select-item-create"
+msgstr "Create new %s"
+
+msgid "select-item-create-question"
+msgstr "Create new %s Question"
+
+msgid "select-item-upload"
+msgstr "Upload new %s"
+
+msgid "select-item-import"
+msgstr "Import %s from LMS"
+
+
+# LISTS
+msgid "list-empty"
+msgstr "Your %s list is empty."
+
+msgid "list-empty-search"
+msgstr "No %s found."
+
+msgid "list-empty-create-message"
+msgstr "To create a new one click on the plus icon above."
+
+msgid "list-empty-export-message"
+msgstr "To create a new one you must export a project as a %s."
+
+msgid "list-empty-sessions-message"
+msgstr "This game was never played before, or a session was never finished with a score greater than zero."
+
+
+# HOME
+msgid "home-screenshot-tools"
+msgstr "%s tools for epic games development."
+
+msgid "home-games-title"
+msgstr "CREATE"
+
+msgid "home-games-title-highlight"
+msgstr "EDUCATIONAL GAMES"
+
+msgid "home-games-desc-0"
+msgstr "With %s you can create educational games for your students in a simple and easy way. Our graphical development environment provides you with all the tools necessary for the development process, so you don\'t need any previous programming knowledge. If you don\'t feel ready to start a game from scratch you can always use one of the provided templates, which already do a great part of the work for you."
+
+msgid "home-games-desc-1"
+msgstr "For more information consult this %s. We hope you and your students enjoy the experience."
+
+
+msgid "home-collaboration-title"
+msgstr "STIMULATE"
+
+msgid "home-collaboration-title-highlight"
+msgstr "COLLABORATION"
+
+msgid "home-collaboration-desc-0"
+msgstr "%s offers several ways to stimulate collaboration among players and also some competition. Collaboration is the main focus of %s games, mostly because it allows players to improve their communication, coordination and cooperation skills. These are all important factors in life, whether they are used for personal or professional matters."
+
+msgid "home-collaboration-desc-1"
+msgstr "An example of a collaborative game that can be developed with %s is a collaborative quiz as the one described %s."
+
+
+msgid "home-lms-title"
+msgstr "USE AS"
+
+msgid "home-lms-title-highlight"
+msgstr "MOODLE ACTIVITIES"
+
+msgid "home-lms-desc-0"
+msgstr "The games created with %s can be provided as Moodle activities, so they can be played under a Moodle course context. This way when players finish the game, a grade can be sent to Moodle and %s will log information about players performance that can de used for assessment."
+
+msgid "home-lms-desc-1"
+msgstr "Besides that, Moodle contents such as resource files and questions can also be imported and used for games development."
+
+msgid "home-lms-desc-2"
+msgstr "You can find more information %s and %s."
+
+
+msgid "home-note"
+msgstr "This work was part of a master thesis project in Informatics Engineering undertaken by Bruno Sampaio. For more information consult the thesis report %s (just in Portuguese)."
+
+
+# HELPS
+msgid "help-lms-url"
+msgstr "<b>What is the LMS URL?</b><p>The LMS URL is the main website address to your Learning Management System (LMS). For example, if you use Moodle the url could be something like http://www.mymoodle.com.</p><p>If you're not sure about what to introduce here, leave this field empty. This field is just needed if you want to import contents from your LMS.</p><p>If later you sign in into %s from an LMS this field will be filled automatically.</p>"
+
+msgid "help-lti-use"
+msgstr "If you don't understand this, or you want to know more, please consult this %s from our help section."
+
+msgid "help-activities-title"
+msgstr "What are Activities?"
+
+msgid "help-activities-desc-1"
+msgstr "Actvities can be seen as the challenges you can create for your students in your games. For now an activity can be either a <b>question</b> or a <b>group of questions</b>. The main difference between them is just that by using a group of questions in a game, instead of a question, a random question from this group will be chosen to be presented to the players."
+
+msgid "help-activities-desc-2"
+msgstr "In this area you can manage those kind of activities by creating, editing, or deleting them. If you prefer you can also import your activities from a LMS. Either way, you can then associate hints and resources to questions. Hints can be used in your games for the <b>Request Hints</b> help and resources for the <b>Consult Learning Materials</b> help."
+
+msgid "help-games-title"
+msgstr "What are Games?"
+
+msgid "help-games-desc-1"
+msgstr "Here games refer to all games you have created and that you can edit or remove. To create a game you must export a project as a game."
+
+msgid "help-games-desc-2"
+msgstr "In this section you can consult your games profile, test them by choosing the play option, consult their sessions logs, or remove them."
+
+msgid "help-projects-title"
+msgstr "What are Projects?"
+
+msgid "help-projects-desc-1"
+msgstr "Projects, or games projects, allow you to create your games skeleton. Basically, you need to create a project in order to create a game. In the project you define the game scenarios and their rules and design. After that you can export a project as a game and it will appear on your Games Section in the Dashboard."
+
+msgid "help-projects-desc-2"
+msgstr "In this section you can manage all your projects by creating, editing, or deleting them. You can also open them to make changes or improvements. Besides those options, you can also choose to export them as a game, which will create a new game available on your Games Section in the Dashboard."
+
+msgid "help-resources-title"
+msgstr "What are Resources?"
+
+msgid "help-resources-desc-1"
+msgstr "Resources are files: more precisely, <b>audio</b>, <b>image</b>, <b>video</b>, or <b>PDF</b> files. Those files can be used in your games to display concepts to players, or as design elements. For example, you can use a audio resource as background music, or as a way to present a concept to players. A resource can be either a file you provide or a file from a URL you found on the Web (for videos you can also use Youtube or Vimeo links)."
+
+msgid "help-resources-desc-2"
+msgstr "In this area you can manage those kind of resources by creating, editing, or deleting them. If you prefer you can also import them from a LMS. Resources can also be associated to questions in the Activities Section of your Dashboard to be used in the <b>Consult Learning Materials</b> help in your games."
+
+msgid "help-scenarios-title"
+msgstr "What are Scenarios?"
+
+msgid "help-scenarios-desc-1"
+msgstr "A <b>scenario</b> is a game screen. Think of it as a slide in a presentation, where each slide usually contains text and images, and in some cases animations and other multimedia content. Here scenarios are very similar to the slide concept, but on this case they are interactive, so besides text and multimedia contents you can also add activities to them. The kind of text used must also be different, since we are talking about a game and not a lecture in a classroom."
+
+msgid "help-lecture-scenarios-title"
+msgstr "What are Lecture Scenarios?"
+
+msgid "help-lecture-scenarios-desc"
+msgstr "A lecture scenario can contain texts, shapes and resources. You can use it to present a concept or topic to players. This type of scenario allows two types of jumps: continue to next scenario (button), and a time limit to learn the concept"
+
+msgid "help-activities-scenarios-title"
+msgstr "What are Activities Scenarios?"
+
+msgid "help-activities-scenarios-desc"
+msgstr "An activities scenario can contain texts, shapes, resources and activities. You can use it mainly to create challenges for your students. This type of scenario allows you to set a limit for the number of helps players can use, and several bonus types based on the activities presented. Besides that, it also allows three types of jumps: skip from scenario (button), all players finished activities, and a time limit to finish."
+
+msgid "help-template-scenarios-title"
+msgstr "What is a Scenario Template?"
+
+msgid "help-template-scenarios-desc"
+msgstr "A scenario template is a lecture or activities scenario with several elements already defined and positioned so you just need to fill them."
+
+msgid "help-sessions-title"
+msgstr "What are sessions logs?"
+
+msgid "help-sessions-desc-1"
+msgstr "Sessions logs are the generated logs for each finished game session. A game session is created each time a player starts a game and it can contain one or more players that are playing with each other. Players that cannot interact are on different sessions. The generated logs contain only the information you chose to log while creating the game, which can be used for students assessment. To consult them use the chart button on the game profile page, or on the right side in the Dashboard."
+
+
+# VISIBILITY
+msgid "visibility-type-base"
+msgstr "Is Public"
+
+msgid "visibility-type-private"
+msgstr "Is Private"
+
+msgid "visibility-type-public"
+msgstr "Is Public"
+
+
+# GENERAL ALERTS
+msgid "alert-activity-drag-zoom"
+msgstr "Dragging activities while zoomed out doesn't work properly, we recommend you return to normal zoom to drag them.\n\nWe are sorry for the inconvinience."
+
+msgid "alert-mozilla-zoom"
+msgstr "The zoom tool doesn't work properly on your browser.\n\nWe are sorry for the inconvinience."
+
+msgid "alert-no-support"
+msgstr "%s doesn't support your browser yet, please use another one.\n\nWe are sorry for the inconvinience."
+
+msgid "alert-leaving-project-page"
+msgstr "If you leave this page all unsaved progress will be lost."
+
+msgid "alert-leaving-game-page"
+msgstr "If you leave this page all your progress on this game will be lost."
+
+msgid "alert-delete"
+msgstr "Are you sure you want to delete this %s?"
+
+
+# GENERAL WARNINGS
+msgid "warning-not-found"
+msgstr "No %s found!"
+
+
+# GENERAL ERRORS
+msgid "error-already-exists-email"
+msgstr "This e-mail address already exists."
+
+msgid "error-already-exists-item"
+msgstr "You already have a %s with name %s."
+
+msgid "error-already-exists-username"
+msgstr "This username already exists."
+
+msgid "error-access-permission"
+msgstr "You cannot access this item information because it doesn't belong to you, or because it isn't public."
+
+msgid "error-browser-support"
+msgstr "Your browser does not support the %s tag."
+
+msgid "error-choose-one"
+msgstr "Please choose a %s to continue."
+
+msgid "error-choose-minimum-one"
+msgstr "You must choose at least one %s to continue."
+
+msgid "error-choose-minimum-two"
+msgstr "You must choose at least two %s to continue."
+
+msgid "error-empty-fields"
+msgstr "Please fill all mandatory fields to continue."
+
+msgid "error-file-empty"
+msgstr "No file selected."
+
+msgid "error-file-unknown"
+msgstr "Unknown file type: %s."
+
+msgid "error-file-url"
+msgstr "Invalid file url provided."
+
+msgid "error-file-size"
+msgstr "The file size must be below %s KB."
+
+msgid "error-file-type"
+msgstr "The acceptable file types are: %s."
+
+msgid "error-incorrect-captcha"
+msgstr "The words inserted in the captcha are incorrect."
+
+msgid "error-incorrect-colorcode"
+msgstr "The inserted color code is invalid, it must be 7 characters long, the first character must be a # and the others must have values between 0 and 9, or A and F."
+
+msgid "error-incorrect-credentials"
+msgstr "Incorrect username, e-mail or password."
+
+msgid "error-incorrect-email"
+msgstr "The inserted e-mail address isn't registered on this website."
+
+msgid "error-incorrect-numbercode"
+msgstr "This field allows only numbers."
+
+msgid "error-incorrect-number-range"
+msgstr "This field allows only positive numbers."
+
+msgid "error-incorrect-passwords"
+msgstr "The inserted passwords are different."
+
+msgid "error-lost-connection"
+msgstr "You lost the connection with the %s server, please start again."
+
+msgid "error-lti-invalid-lms"
+msgstr "The provided LMS data has an error, please try again, or contact your LMS administrators."
+
+msgid "error-lti-invalid-request"
+msgstr "The request must use OAuth and IMS LTI standards."
+
+msgid "error-lti-invalid-signature"
+msgstr "The request signature is invalid."
+
+msgid "error-lti-invalid-signature-method"
+msgstr "The signature method used is unknown."
+
+msgid "error-lti-invalid-user-key"
+msgstr "The key provided is invalid, make sure it corresponds to your username."
+
+msgid "error-lti-invalid-game-key"
+msgstr "The key provided is invalid, make sure it corresponds to the game key provided on the game profile page."
+
+msgid "error-lti-no-id"
+msgstr "The request is invalid, it must contain a unique identifier. This problem must be solved by your LMS administrators."
+
+msgid "error-lti-no-lms-url"
+msgstr "The request is invalid, it must contain your LMS url. This problem must be solved by your LMS administrators."
+
+msgid "error-lti-no-outcome-url"
+msgstr "The request is invalid, it must contain your a outcome url. This problem must be solved by your LMS administrators."
+
+msgid "error-lti-no-context-id"
+msgstr "The request is invalid, it must contain a context/course identifier. This problem must be solved by your LMS administrators."
+
+msgid "error-lti-no-user-id"
+msgstr "The request is invalid, it must contain the unique identifier for the LMS user. This problem must be solved by your LMS administrators."
+
+msgid "error-lms-support"
+msgstr "We are sorry but it isn't yet possible to import contents from %s. Only Moodle is supported."
+
+msgid "error-lms-external-item-not-found"
+msgstr "This %s couldn't be found on your LMS, it was probably deleted."
+
+msgid "error-lms-url"
+msgstr "The provided url is incorrect, you must provide just the base url for your %s site. Or maybe it is just down for maintenance."
+
+msgid "error-lms-unknown"
+msgstr "Unknown Learning Management System, please provide a correct LMS."
+
+msgid "error-lms-lost-user"
+msgstr "Your LMS user data was lost, you must provide it again. Close this window and try again please!"
+
+msgid "error-lms-unknown-operation"
+msgstr "You are trying to request an unknown %s operation."
+
+msgid "error-minimum-one"
+msgstr "You must provide at least one answer."
+
+msgid "error-minimum-two"
+msgstr "You must provide at least two answers."
+
+msgid "error-no-answer"
+msgstr "You must select the correct answer."
+
+msgid "error-no-template"
+msgstr "The selected template no longer exists."
+
+msgid "error-no-file"
+msgstr "You must select a file to upload."
+
+msgid "error-not-imported"
+msgstr "This is a local Resource, it wasn\'t imported from any LMS."
+
+msgid "error-reset-password"
+msgstr "The password reset failed. Please try again!"
+
+msgid "error-unknown-provider"
+msgstr "Unknown videos provider, only Youtube and Vimeo are supported."
+
+msgid "error-while-associating"
+msgstr "An unexpected error ocurred while trying to associate %s to this %s."
+
+msgid "error-while-deleting"
+msgstr "An unexpected error ocurred while deleting the %s data."
+
+msgid "error-while-logging-in"
+msgstr "An unexpected error ocurred while logging you in. Please try again!"
+
+msgid "error-while-saving"
+msgstr "An unexpected error ocurred while saving the %s data."
+
+msgid "error-while-saving-export"
+msgstr "An unexpected error ocurred while converting your project into a game."
+
+msgid "error-while-saving-import"
+msgstr "An unexpected error ocurred while saving some of the imported %s."
+
+msgid "error-while-sending-email"
+msgstr "An unexpected error ocurred while sending the e-mail."
+
+msgid "error-while-uploading"
+msgstr "An unexpected error ocurred while uploading %s."
+
+
+# SUCCESS
+msgid "success-account-creation"
+msgstr "Your account was created successfully."
+
+msgid "success-email-sent"
+msgstr "An e-mail was sent to you with the information you requested."
+
+
+# PROJECTS AND GAMES
+msgid "game-distribute-lti-title"
+msgstr "DISTRIBUTE AS LMS ACTIVITY"
+
+msgid "game-distribute-lti-desc"
+msgstr "If your LMS supports the IMS LTI standard you can distribute %s games as activities for your students throught it. This way the students in your course will be able to play only between them and the session logs will be sorted by course. You just need to create a new activity with the following information:"
+
+# COLLECTIONS, PROPERTIES AND SCREENS NAMES
+msgid "collection-activities"
+msgstr "Activities"
+
+msgid "collection-resources"
+msgstr "Resources"
+
+msgid "collection-shapes"
+msgstr "Shapes"
+
+msgid "collection-texts"
+msgstr "Texts"
+
+msgid "property-logo"
+msgstr "Logo"
+
+msgid "property-players"
+msgstr "Players"
+
+msgid "property-scores"
+msgstr "Scores and Helps"
+
+msgid "property-sounds"
+msgstr "Sounds"
+
+msgid "screen-start"
+msgstr "Start"
+
+msgid "screen-start-desc"
+msgstr "This is the first scenario displayed to players.<br/><br/>When you create your game, you'll be able to change the Game Name (on the top) and Icon (on the middle).<br/><br/>When players are on this scenario, they may use the buttons below to switch to the waiting room scenario, instructions scenario, or exit the game, respectively."
+
+msgid "screen-instructions"
+msgstr "Instructions"
+
+msgid "screen-instructions-desc"
+msgstr "This is the scenario where players can read the game instructions. To leave this scenario they can use the buttons on the bottom."
+
+msgid "screen-wait"
+msgstr "Waiting Room"
+
+msgid "screen-wait-desc"
+msgstr "This is the scenario displayed after clicking on \"Play\" in the first scenario. Here players must provide a name and an avatar, and then they must click on \"Start\".<br/><br/>If this is a multiplayer game, they'll stay on this scenario while there aren't enough players to start.<br/><br/>When the game starts, the first scenario to be displayed is the one you specified as first."
+
+msgid "screen-gameover"
+msgstr "Game Over"
+
+msgid "screen-gameover-desc"
+msgstr "This is the scenario displayed when players loose the game. For this to happen they must finish the game with a score lower or equal to zero, or more players than the minimum allowed must leave the game."
+
+msgid "screen-rankings"
+msgstr "Rankings"
+
+msgid "screen-rankings-desc"
+msgstr "This is the scenario displayed when players finish the game successfully, this means that their score was greater then zero.<br/><br/>The first three rankings are the three players (or teams) with best scores, and the last one is the current team score and position. The last one is only displayed if the player/team position is below third place."
+
+# ERRORS
+msgid "error-corrupted-element"
+msgstr "The element \"%s\" is corrupted."
+
+msgid "error-corrupted-game"
+msgstr "The game \"%s\" appears to be corrupted, if this problem persists please contact an administrator."
+
+msgid "error-corrupted-help"
+msgstr "The element \"%s\" cannot have a help of type \"%s\"."
+
+msgid "error-corrupted-identifier"
+msgstr "\"%s\" is an invalid unique identifier"
+
+msgid "error-corrupted-item"
+msgstr "This item is corrupted, please try to open the project again to solve this problem or you may loose some data."
+
+msgid "error-corrupted-jumps"
+msgstr "The jumps information on scenario \"%s\" is corrupted."
+
+msgid "error-corrupted-game-identifier"
+msgstr "Player data must contain the game unique identifier."
+
+msgid "error-corrupted-player"
+msgstr "Player data must contain a name and an avatar image url."
+
+msgid "error-cyclic-game"
+msgstr "The game flow can't have cycles, this is, a scenario can't go back to another scenario already played."
+
+msgid "error-logo-players-overlaid"
+msgstr "The logo and players panel are overlapping."
+
+msgid "error-corrupted-player-lms"
+msgstr "Player data must contain an instance id, a lms url, a lms context id, a lms outcome url, and the lms user id."
+
+msgid "error-corrupted-position"
+msgstr "The position information for element \"%s\" on scenario \"%s\" is corrupted."
+
+msgid "error-corrupted-project"
+msgstr "This project is corrupted."
+
+msgid "error-corrupted-property"
+msgstr "The %s property is corrupted."
+
+msgid "error-corrupted-scenario"
+msgstr "The scenario \"%s\" is corrupted."
+
+msgid "error-corrupted-status-element"
+msgstr "The currently selected element is corrupted."
+
+msgid "error-empty-element-content"
+msgstr "The element \"%s\" must contain text."
+
+msgid "error-empty-scenario"
+msgstr "The scenario \"%s\" is empty, you must use at least a text, shape, resource or activity."
+
+msgid "error-incorrect-element-range"
+msgstr "The %s value for element \"%s\" must be between %s and %s."
+
+msgid "error-incorrect-position-range"
+msgstr "The position value for element \"%s\" on scenario \"%s\" must be between %s and %s."
+
+msgid "error-incorrect-scenario-range"
+msgstr "The %s value for scenario \"%s\" must be between %s and %s."
+
+msgid "error-incorrect-scenario-jump"
+msgstr "The scenario \"%s\" shouldn't have a jump of type \"%s\"."
+
+msgid "error-incorrect-scenario-bonus"
+msgstr "The scenario \"%s\" shouldn't have a bonus of type \"%s\"."
+
+msgid "error-incorrect-text-size"
+msgstr "The %s size for element \"%s\" must be between %s and %s."
+
+msgid "error-inexistent-elements"
+msgstr "One or more resources or activities on this game no longer exist, you must remove them before saving. If this isn't the case try to save again later, please."
+
+msgid "error-isolated-scenarios"
+msgstr "Your project has isolated scenarios, this is, there are scenarios not linked to others, so they aren't part of the game flow."
+
+msgid "error-no-activities"
+msgstr "Your project must contain at least one activity."
+
+msgid "error-lecture-scenario"
+msgstr "The scenario \"%s\" shouldn't have activities."
+
+msgid "error-activities-scenario"
+msgstr "The scenario \"%s\" must have at least one activity."
+
+msgid "error-no-element-source"
+msgstr "The element \"%s\" cannot be empty, it must reference a %s."
+
+msgid "error-no-player-name"
+msgstr "You must provide a nickname to continue."
+
+msgid "error-no-player-avatar"
+msgstr "You must choose an avatar to continue."
+
+msgid "error-no-scenario-element"
+msgstr "The referenced element \"%s\" on scenario \"%s\" does not exist."
+
+msgid "error-no-scenario-jumps"
+msgstr "The scenario \"%s\" has no jump options to other scenarios."
+
+msgid "error-no-start-scenario"
+msgstr "Your project has no starting scenario, you must choose one."
+
+msgid "error-notagree-terms"
+msgstr "You must agree to the Terms & Conditions in order to continue."
+
+msgid "error-not-enough-hints"
+msgstr "The element \"%s\" must have at least two hints selected."
+
+msgid "error-not-enough-scenarios"
+msgstr "Your project must contain at least two scenarios."
+
+msgid "error-notallowed-element"
+msgstr "This kind of element isn't allowed on this type of scenario."
+
+msgid "error-notfound-element"
+msgstr "The data for some resources or activities on this scenario, couldn't be found, they were probably removed.\n\nIf that's not the case try reloading the page without saving."
+
+msgid "error-remove-last-scenario"
+msgstr "This scenario cannot be removed, a project must always have at least one scenario."
+
+msgid "error-unknown-help"
+msgst "The requested help is unknown."
+
+# LOADING TYPES
+msgid "loading-project"
+msgstr "Loading project..."
+
+msgid "loading-game"
+msgstr "Loading game elements..."
+
+msgid "loading-game-resources"
+msgstr "Loading game resources..."
+
+msgid "loading-game-sounds"
+msgstr "Loading game sounds..."
+
+msgid "loading-scenario-resources"
+msgstr "Loading scenario resources..."
+
+msgid "loading-element"
+msgstr "Loading new element..."
+
+# WAITING TYPES
+msgid "waiting-start"
+msgstr "Waiting for more players."
+
+msgid "waiting-help-resource-1"
+msgstr "Waiting for the Learning Material to load."
+
+msgid "waiting-help-hints-1"
+msgstr "Waiting for hint."
+
+msgid "waiting-help-remove-1"
+msgstr "Waiting for answers to be removed."
+
+msgid "waiting-help-resource-2"
+msgstr "Waiting for the Learning Material to load."
+
+msgid "waiting-help-hints-2"
+msgstr "Waiting for other player to send a hint."
+
+msgid "waiting-help-remove-2"
+msgstr "Waiting for other player to remove answers."
+
+msgid "waiting-jump-allFinished"
+msgstr "Waiting for other players to finish activities. Take your time to help them if they request any help."
+
+msgid "waiting-jump-continue"
+msgstr "Waiting for other players to click on continue."
+
+msgid "waiting-jump-skip"
+msgstr "Waiting for other players to click on skip."
+
+msgid "waiting-jump-timeout"
+msgstr "The time is over! Waiting for other players."
+
+# WARNING TYPES
+msgid "warning-already-waiting-for-help"
+msgstr "You must wait for the last help request to be completed before asking for another help."
+
+msgid "warning-incorrect-help-status"
+msgstr "You can't ask for help while being helped or helping someone."
+
+msgid "warning-no-helps"
+msgstr "You already used all your helps."
+
+msgid "warning-no-scenario-helps"
+msgstr "You already used all available helps on this scenario."
+
+msgid "warning-no-players-available"
+msgstr "There aren't players available to help you, probably because they didn't solve this activity yet."
+
+msgid "warning-use-helps"
+msgstr "If you are unsure about your answer, you can always ask for help!"
+
+# MENUS NAMES
+msgid "menu-new-scenario-lecture"
+msgstr "New Lecture Scenario"
+
+msgid "menu-new-scenario-activities"
+msgstr "New Activities Scenario"
+
+msgid "menu-new-scenario-template"
+msgstr "New Scenario from Template"
+
+msgid "menu-new-project"
+msgstr "New Project"
+
+msgid "menu-new-resource"
+msgstr "New Resource"
+
+msgid "menu-new-activity"
+msgstr "New Activity"
+
+msgid "menu-import-activity"
+msgstr "Import Activity"
+
+msgid "menu-import-resource"
+msgstr "Import Resource"
+
+msgid "menu-export-template"
+msgstr "Export as Template"
+
+msgid "menu-export-game"
+msgstr "Export as Game"
+
+# PAGE SECTIONS NAMES
+msgid "section-left-name"
+msgstr "Explorer"
+
+msgid "section-left-option"
+msgstr "Show/Hide"
+
+msgid "section-center-name"
+msgstr "Scenario"
+
+msgid "section-center-option"
+msgstr "Maximize/Minimize"
+
+msgid "section-right-name"
+msgstr "Properties"
+
+msgid "section-right-option"
+msgstr "Show/Hide"
+
+# NEW ELEMENTS NAMES
+msgid "new-scenarios-element"
+msgstr "New Scenario"
+
+msgid "new-activities-element"
+msgstr "New Activity"
+
+msgid "new-resources-element"
+msgstr "New Resources"
+
+msgid "new-shapes-element"
+msgstr "New Shape"
+
+msgid "new-texts-element"
+msgstr "New Text"
+
+# BONUS TYPES LABELS
+msgid "scenario-bonus-collaboration"
+msgstr "Bonus for helping others"
+
+msgid "scenario-bonus-firstToFinish"
+msgstr "Bonus for first to finish the scenario"
+
+# JUMP TYPES LABELS
+msgid "scenario-jump-continue"
+msgstr "When all click on continue"
+
+msgid "scenario-jump-continue-desc"
+msgstr "When all players click on continue button, which is added automatically, they go to the scenario below. (This option is only available if this scenario doesn\'t contain activities)"
+
+msgid "scenario-jump-skip"
+msgstr "When all click on skip"
+
+msgid "scenario-jump-skip-desc"
+msgstr "When all players click on skip button, which is added automatically, they go to the scenario below. (This option is only available if this scenario contains activities and it is usually used to send the player to a scenario with easier activities)"
+
+msgid "scenario-jump-timeout"
+msgstr "When time is over"
+
+msgid "scenario-jump-timeout-desc"
+msgstr "After a certain time the players are sent to the scenario below."
+
+msgid "scenario-jump-allFinished"
+msgstr "When all finished the scenario"
+
+msgid "scenario-jump-allFinished-desc"
+msgstr "When all players finish this scenario activities they go to the scenario specified below. (This option is only available if this scenario contains activities)"
+
+msgid "player-status-default"
+msgstr "Playing"
+
+msgid "player-status-help"
+msgstr "Asking for Help"
+
+msgid "player-status-helping"
+msgstr "Helping you"
+
+msgid "player-status-continue"
+msgstr "Ready to Continue"
+
+msgid "player-status-skip"
+msgstr "Wants to Skip"
+
+msgid "player-status-timeout"
+msgstr "Timed Out"
+
+msgid "player-status-allFinished"
+msgstr "Finished all Activities"
+
+# HELPS TYPES LABELS
+msgid "activity-help-resource"
+msgstr "Consult Learning Materials"
+
+msgid "activity-help-resource-project-desc-1"
+msgstr "When a player requests this help the resource associated to this question will be displayed to him. (For questions groups a random resource is chosen if the chosen question is associated to any)"
+
+msgid "activity-help-resource-project-desc-2"
+msgstr "When a player requests this help the resource associated to this question will be displayed to him. (For questions groups a random resource is chosen if the chosen question is associated to any)"
+
+msgid "activity-help-hints"
+msgstr "Request Hints"
+
+msgid "activity-help-hints-request-title"
+msgstr "Choose a Hint"
+
+msgid "activity-help-hints-response-title"
+msgstr "Hint Chosen"
+
+msgid "activity-help-hints-project-desc-1"
+msgstr "When a player requests this help a hint from the list below is displayed to him. (For questions groups its always used all hints associated to the question)"
+
+msgid "activity-help-hints-project-desc-2"
+msgstr "When a player requests this help other player that already answered to the question is chosen to select a hint for him from the ones selected below. (For questions groups its always used all hints associated to the question)"
+
+msgid "activity-help-hints-request-desc"
+msgstr "Choose a hint for the question below that may help your colleague."
+
+msgid "activity-help-hints-response-desc"
+msgstr "The requested hint for the following question can be found below:"
+
+msgid "activity-help-remove"
+msgstr "Request Answers Removal"
+
+msgid "activity-help-remove-request-title"
+msgstr "Select Answers"
+
+msgid "activity-help-remove-response-title"
+msgstr "Removed Answers"
+
+msgid "activity-help-remove-project-desc-1"
+msgstr "When a player requests this help two answers will be removed from the list of possibilities. (This is only applicable for multiple choice questions)"
+
+msgid "activity-help-remove-project-desc-2"
+msgstr "When a player requests this help other player that already answered to the question is chosen to remove two answers from the list of possibilities. (This is only applicable for multiple choice questions)"
+
+msgid "activity-help-remove-request-desc"
+msgstr "Select the answers to be removed from the question below in order to help your colleague answering."
+
+msgid "activity-help-remove-response-desc"
+msgstr "Below are the removed answers for the following question:"
+
+msgid "activity-help-timeout"
+msgstr "If you solve this activity before the timeout you won't be penalized."
+
+# PLAYERS TYPES LABELS
+msgid "properties-players-bar"
+msgstr "Bar Color"
+
+msgid "properties-players-normal"
+msgstr "Normal Color"
+
+msgid "properties-players-current"
+msgstr "Current Color"
+
+msgid "properties-players-collaborating"
+msgstr "Collaborating Color"
+
+# SOUNDS TYPES LABELS
+msgid "properties-sounds-background"
+msgstr "Background music"
+
+msgid "properties-sounds-background-desc"
+msgstr "Background music played throughout the game."
+
+msgid "properties-sounds-correct"
+msgstr "Correct answer sound"
+
+msgid "properties-sounds-correct-desc"
+msgstr "Sound played when the player answers correctly to a question."
+
+msgid "properties-sounds-incorrect"
+msgstr "Incorrect answer sound"
+
+msgid "properties-sounds-incorrect-desc"
+msgstr "Sound played when the player answers incorrectly to a question."
+
+msgid "properties-sounds-help"
+msgstr "Asking for help sound"
+
+msgid "properties-sounds-help-desc"
+msgstr "Sound played when other player is asking for help."
+
+
+# TOOLS TITLE
+msgid "tool-heading"
+msgstr "Insert Heading"
+
+msgid "tool-paragraph"
+msgstr "Insert Paragraph"
+
+msgid "tool-line"
+msgstr "Insert Line"
+
+msgid "tool-square"
+msgstr "Insert Square"
+
+msgid "tool-circle"
+msgstr "Insert Circle"
+
+msgid "tool-balloon"
+msgstr "Insert Balloon"
+
+msgid "tool-audio"
+msgstr "Insert Audio"
+
+msgid "tool-image"
+msgstr "Insert Image"
+
+msgid "tool-video"
+msgstr "Insert Video"
+
+msgid "tool-pdf"
+msgstr "Insert PDF"
+
+msgid "tool-question"
+msgstr "Insert Question"
+
+msgid "tool-group"
+msgstr "Insert Questions Group"
+
+
+# SESSIONS
+msgid "session-highest-score"
+msgstr "Highest Score"
+
+msgid "session-best-score"
+msgstr "Best Player Score"
+
+msgid "session-score-team"
+msgstr "Team Score"
+
+msgid "session-helps-used"
+msgstr "Helps Used"
+
+msgid "session-helps-given"
+msgstr "Helps Given"
+
+msgid "session-score-reward"
+msgstr "Rewards"
+
+msgid "session-score-penalty"
+msgstr "Penalties"
+
+msgid "session-score-collaboration"
+msgstr "Collaborations"
+
+msgid "session-score-total"
+msgstr "Total"
+
+msgid "session-bonus-scenario"
+msgstr "Scenario Name"
+
+msgid "session-bonus-collaboration"
+msgstr "Helped Others"
+
+msgid "session-bonus-firstToFinish"
+msgstr "First to Finish the Scenario"
+
+msgid "session-activity-name"
+msgstr "Activity Name"
+
+msgid "session-activity-reward"
+msgstr "Reward"
+
+msgid "session-activity-penalty"
+msgstr "Penalty"
+
+msgid "session-activity-attempts"
+msgstr "Number of Attempts"
+
+msgid "session-not-logged"
+msgstr "Not logged"
+
+
+# USERS
+msgid "users-signup-title"
+msgstr "Create Account"
+
+msgid "users-signin-title"
+msgstr "Sign In"
+
+msgid "users-oauthentication-title"
+msgstr "Login from LMS"
+
+msgid "users-view-title"
+msgstr "User Profile"
+
+msgid "users-edit-title"
+msgstr "Edit User"
+
+msgid "users-reset-title"
+msgstr "Reset Password"
+
+msgid "user-lti-title"
+msgstr "ACCESSING FROM YOUR LMS"
+
+msgid "user-lti-desc"
+msgstr "If your LMS supports the IMS LTI standard you can access %s through it. You just need to create a new tool provider with the following information:"

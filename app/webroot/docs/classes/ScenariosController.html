@@ -1,0 +1,586 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \ScenariosController</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/app.html"><i class="icon-folder-open"></i> app</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">110</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public inherited"><a href="#method__blackHole" title="_blackHole :: Security blackhole method."><span class="description">Security blackhole method.</span><pre>_blackHole()</pre></a></li>
+<li class="method public "><a href="#method_beforeFilter" title="beforeFilter :: Extends the parent method."><span class="description">Extends the parent method.</span><pre>beforeFilter()</pre></a></li>
+<li class="method public "><a href="#method_beforeRender" title="beforeRender :: Extends the parent method."><span class="description">Extends the parent method.</span><pre>beforeRender()</pre></a></li>
+<li class="method public "><a href="#method_choose" title="choose :: Choose Section"><span class="description">Choose Section</span><pre>choose()</pre></a></li>
+<li class="method public "><a href="#method_choose_type" title="choose_type :: Choose Scenario to be added to Project"><span class="description">Choose Scenario to be added to Project</span><pre>choose_type()</pre></a></li>
+<li class="method public "><a href="#method_get" title="get :: Get scenario template data"><span class="description">Get scenario template data</span><pre>get()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method_checkItemNameForCurrentUser" title="checkItemNameForCurrentUser :: Checks if the current user already has an item of type $model with $item['name']."><span class="description">Checks if the current user already has an item of type $model with $item['name'].</span><pre>checkItemNameForCurrentUser()</pre></a></li>
+<li class="method protected inherited"><a href="#method_chooser" title="chooser :: Creates the logic for a chooser window."><span class="description">Creates the logic for a chooser window.</span><pre>chooser()</pre></a></li>
+<li class="method protected inherited"><a href="#method_dashboard" title="dashboard :: Creates the logic for a dashboard section."><span class="description">Creates the logic for a dashboard section.</span><pre>dashboard()</pre></a></li>
+<li class="method protected inherited"><a href="#method_itemBelongsToUser" title="itemBelongsToUser :: Checks if an item belongs to the currently logged in user."><span class="description">Checks if an item belongs to the currently logged in user.</span><pre>itemBelongsToUser()</pre></a></li>
+<li class="method protected inherited"><a href="#method_itemIsVisibleToUser" title="itemIsVisibleToUser :: Checks if an item is visible to a certain user."><span class="description">Checks if an item is visible to a certain user.</span><pre>itemIsVisibleToUser()</pre></a></li>
+<li class="method protected inherited"><a href="#method_logData" title="logData :: Adds a row to the Logs table with information about an operation performed on other table row."><span class="description">Adds a row to the Logs table with information about an operation performed on other table row.</span><pre>logData()</pre></a></li>
+<li class="method protected inherited"><a href="#method_options" title="options :: Creates the Options List
+The options list is used to create the icons for display on views."><span class="description">Creates the Options List
+The options list is used to create the icons for display on views.</span><pre>options()</pre></a></li>
+<li class="method protected inherited"><a href="#method_paginator" title="paginator :: Creates the logic for a listing section."><span class="description">Creates the logic for a listing section.</span><pre>paginator()</pre></a></li>
+<li class="method protected inherited"><a href="#method_selector" title="selector :: Creates the logic for a selector window."><span class="description">Creates the logic for a selector window.</span><pre>selector()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul>
+<li class="property public "><a href="#property_Scenario" title="$Scenario :: "><span class="description"></span><pre>$Scenario</pre></a></li>
+<li class="property public inherited"><a href="#property_components" title="$components :: "><span class="description">Components used by this Controller</span><pre>$components</pre></a></li>
+<li class="property public inherited"><a href="#property_helpers" title="$helpers :: "><span class="description">Helpers used by this Controller Actions</span><pre>$helpers</pre></a></li>
+<li class="property public "><a href="#property_uses" title="$uses :: "><span class="description">Models used by this Controller</span><pre>$uses</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\ScenariosController"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/ScenariosController.html">ScenariosController</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Scenarios Controller</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/app.Controller.html">app.Controller</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Bruno Sampaio</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method__blackHole"></a><div class="element clickable method public method__blackHole" data-toggle="collapse" data-target=".method__blackHole .collapse">
+<h2>Security blackhole method.</h2>
+<pre>_blackHole($type) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Executed when a security error occurs, cancelling the last request.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::_blackHole()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4><ul>
+<li>the type of error.</li>
+</ul>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SecurityBreachException.html">\SecurityBreachException</a></code></th>
+<td>if a security breach occurs.</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_beforeFilter"></a><div class="element clickable method public method_beforeFilter" data-toggle="collapse" data-target=".method_beforeFilter .collapse">
+<h2>Extends the parent method.</h2>
+<pre>beforeFilter() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>Sets the Auth, Session and Security components properties.
+Also sets default view variables.</p></div></div></div>
+</div>
+<a id="method_beforeRender"></a><div class="element clickable method public method_beforeRender" data-toggle="collapse" data-target=".method_beforeRender .collapse">
+<h2>Extends the parent method.</h2>
+<pre>beforeRender() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_choose"></a><div class="element clickable method public method_choose" data-toggle="collapse" data-target=".method_choose .collapse">
+<h2>Choose Section</h2>
+<pre>choose() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This action prepares the options to be sent to the chooser method.
+It is invoked on a situation where the user must select one or more projects to continue.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>- list of values to be sent to an element view.</div>
+</div></div>
+</div>
+<a id="method_choose_type"></a><div class="element clickable method public method_choose_type" data-toggle="collapse" data-target=".method_choose_type .collapse">
+<h2>Choose Scenario to be added to Project</h2>
+<pre>choose_type(int $genre_id) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$genre_id</h4>
+<code>int</code><ul>
+<li>project genre id.</li>
+</ul>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/InvalidRequestException.html">\InvalidRequestException</a></code></th>
+<td>if the request type is not supported.</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_get"></a><div class="element clickable method public method_get" data-toggle="collapse" data-target=".method_get .collapse">
+<h2>Get scenario template data</h2>
+<pre>get(int $id) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$id</h4>
+<code>int</code><ul>
+<li>the scenario template id.</li>
+</ul>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered">
+<tr>
+<th><code>\NotFoundException</code></th>
+<td>if the scenario template doesn't exist.</td>
+</tr>
+<tr>
+<th><code><a href="../classes/InvalidRequestException.html">\InvalidRequestException</a></code></th>
+<td>if the request type is not supported.</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>- returns a string in json format.</div>
+</div></div>
+</div>
+<a id="method_checkItemNameForCurrentUser"></a><div class="element clickable method protected method_checkItemNameForCurrentUser" data-toggle="collapse" data-target=".method_checkItemNameForCurrentUser .collapse">
+<h2>Checks if the current user already has an item of type $model with $item['name'].</h2>
+<pre>checkItemNameForCurrentUser(object $model, array $item) : int</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::checkItemNameForCurrentUser()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code><ul>
+<li>the model object.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$item</h4>
+<code>array</code><ul>
+<li>the item array (must contain the fields: id, name, user_id).</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>- number of ocurrences of an item with same name and same user.</div>
+</div></div>
+</div>
+<a id="method_chooser"></a><div class="element clickable method protected method_chooser" data-toggle="collapse" data-target=".method_chooser .collapse">
+<h2>Creates the logic for a chooser window.</h2>
+<pre>chooser(string $name, string $controller, object $model, array $options) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The chooser is used to select one or more items from a list.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::chooser()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><ul>
+<li>the model name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$controller</h4>
+<code>string</code><ul>
+<li>the controller name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code><ul>
+<li>the model object.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$options</h4>
+<code>array</code><ul>
+<li>the options to be used. Available options are:
+    - filters: array with default values for all filters (filter_name => default_value);
+    - unbind: array with relations and respective models to unbind from current model.
+    - list: array to be used on find operation which contains the fields, the conditions, the sort, etc.
+    - selected: array with options to merge with the $selected array.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>with the list of items, the fields to store, the selected items and a bool to determine the type of selection allowed.</div>
+</div></div>
+</div>
+<a id="method_dashboard"></a><div class="element clickable method protected method_dashboard" data-toggle="collapse" data-target=".method_dashboard .collapse">
+<h2>Creates the logic for a dashboard section.</h2>
+<pre>dashboard() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A dashboard section provides the user with options to manage his data.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::dashboard()</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_itemBelongsToUser"></a><div class="element clickable method protected method_itemBelongsToUser" data-toggle="collapse" data-target=".method_itemBelongsToUser .collapse">
+<h2>Checks if an item belongs to the currently logged in user.</h2>
+<pre>itemBelongsToUser(array $item) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::itemBelongsToUser()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$item</h4>
+<code>array</code><ul>
+<li>the item array (must contain the user_id field).</li>
+</ul>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/PermissionDeniedException.html">\PermissionDeniedException</a></code></th>
+<td>if the user hasn't permission to access this item.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>- if true the item belongs to the user.</div>
+</div></div>
+</div>
+<a id="method_itemIsVisibleToUser"></a><div class="element clickable method protected method_itemIsVisibleToUser" data-toggle="collapse" data-target=".method_itemIsVisibleToUser .collapse">
+<h2>Checks if an item is visible to a certain user.</h2>
+<pre>itemIsVisibleToUser(array $item) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::itemIsVisibleToUser()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$item</h4>
+<code>array</code><ul>
+<li>the item array (must contain the visibility_id and user_id fields).</li>
+</ul>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/PermissionDeniedException.html">\PermissionDeniedException</a></code></th>
+<td>if the user hasn't permission to access this item.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>- if true the item is visible to the user.</div>
+</div></div>
+</div>
+<a id="method_logData"></a><div class="element clickable method protected method_logData" data-toggle="collapse" data-target=".method_logData .collapse">
+<h2>Adds a row to the Logs table with information about an operation performed on other table row.</h2>
+<pre>logData(string $table, int $id, string $name, string $operation, int $userId) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::logData()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><ul>
+<li>table where operation was made.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$id</h4>
+<code>int</code><ul>
+<li>the table row id.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><ul>
+<li>the table row name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$operation</h4>
+<code>string</code><ul>
+<li>the operation type: Add, Edit, Delete.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$userId</h4>
+<code>int</code><ul>
+<li>the identifier for the user that performed the operation.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_options"></a><div class="element clickable method protected method_options" data-toggle="collapse" data-target=".method_options .collapse">
+<h2>Creates the Options List
+The options list is used to create the icons for display on views.</h2>
+<pre>options(array $list, bool $edit, bool $delete) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Each option can contain the following params:
+        - title: the value for the title attribute;
+        - model: the option related model;
+        - fields: the fields to be tested;
+        - action: the controller action;
+        - modal: determines if the option uses the modal window;
+        - post: determines if the option requires a post request.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::options()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$list</h4>
+<code>array</code><ul>
+<li>the extra options list.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$edit</h4>
+<code>bool</code><ul>
+<li>use edit option.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$delete</h4>
+<code>bool</code><ul>
+<li>use delete option.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>$list</div>
+</div></div>
+</div>
+<a id="method_paginator"></a><div class="element clickable method protected method_paginator" data-toggle="collapse" data-target=".method_paginator .collapse">
+<h2>Creates the logic for a listing section.</h2>
+<pre>paginator(string $name, string $controller, object $model, string $keyword, array $options) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The paginator is used to list a page of items of the current user.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::paginator()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><ul>
+<li>the model name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$controller</h4>
+<code>string</code><ul>
+<li>the controller name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code><ul>
+<li>the model object.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$keyword</h4>
+<code>string</code><ul>
+<li>the search parameter.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$options</h4>
+<code>array</code><ul>
+<li>the options to be used. Available options are:
+    - conditions: conditions for the pagination operation;
+    - recursive: the recursive property value;
+    - unbind: array with relations and respective models to unbind from current model.
+    - use: the items properties to be used (modal - sets all items with modal links; icon - sets an icon before items name);
+    - options: the options to be displayed for each item.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>with the list of items, the keyword parameter, the paging options, the properties to use and the options to display.</div>
+</div></div>
+</div>
+<a id="method_selector"></a><div class="element clickable method protected method_selector" data-toggle="collapse" data-target=".method_selector .collapse">
+<h2>Creates the logic for a selector window.</h2>
+<pre>selector(string $title, string $entity, string $operation, object $model) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The selector is used to choose the kind of action the user wants to perform.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::selector()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><ul>
+<li>the word for the selector title.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$entity</h4>
+<code>string</code><ul>
+<li>the word for the selector message.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$operation</h4>
+<code>string</code><ul>
+<li>the kind of operation.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code><ul>
+<li>the model object.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_Scenario"> </a><div class="element clickable property public property_Scenario" data-toggle="collapse" data-target=".property_Scenario .collapse">
+<h2></h2>
+<pre>$Scenario : \Scenario</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>magic</th>
+<td></td>
+</tr>
+<tr>
+<th>property</th>
+<td></td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_components"> </a><div class="element clickable property public property_components" data-toggle="collapse" data-target=".property_components .collapse">
+<h2>Components used by this Controller</h2>
+<pre>$components : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::$$components</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_helpers"> </a><div class="element clickable property public property_helpers" data-toggle="collapse" data-target=".property_helpers .collapse">
+<h2>Helpers used by this Controller Actions</h2>
+<pre>$helpers : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\AppController::$$helpers</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_uses"> </a><div class="element clickable property public property_uses" data-toggle="collapse" data-target=".property_uses .collapse">
+<h2>Models used by this Controller</h2>
+<pre>$uses : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-02T23:27:11+01:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \ElementsHelper</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/app.html"><i class="icon-folder-open"></i> app</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">110</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_explorerItem" title="explorerItem :: Creates a Explorer Item"><span class="description">Creates a Explorer Item</span><pre>explorerItem()</pre></a></li>
+<li class="method public "><a href="#method_featured" title="featured :: Creates a Featured Item."><span class="description">Creates a Featured Item.</span><pre>featured()</pre></a></li>
+<li class="method public "><a href="#method_filePreview" title="filePreview :: Creates a file preview element for file display and removal on edit forms."><span class="description">Creates a file preview element for file display and removal on edit forms.</span><pre>filePreview()</pre></a></li>
+<li class="method public "><a href="#method_imsLtiTable" title="imsLtiTable :: Creates the IMS LTI information table."><span class="description">Creates the IMS LTI information table.</span><pre>imsLtiTable()</pre></a></li>
+<li class="method public "><a href="#method_menu" title="menu :: Creates a Menu Item."><span class="description">Creates a Menu Item.</span><pre>menu()</pre></a></li>
+<li class="method public "><a href="#method_options" title="options :: Creates Options Links"><span class="description">Creates Options Links</span><pre>options()</pre></a></li>
+<li class="method public "><a href="#method_paragraphs" title="paragraphs :: Parses a text field as a list of HTML paragraphs."><span class="description">Parses a text field as a list of HTML paragraphs.</span><pre>paragraphs()</pre></a></li>
+<li class="method public "><a href="#method_separator" title="separator :: Creates a Separator Item."><span class="description">Creates a Separator Item.</span><pre>separator()</pre></a></li>
+<li class="method public "><a href="#method_tip" title="tip :: Creates the contents for a TipTip box."><span class="description">Creates the contents for a TipTip box.</span><pre>tip()</pre></a></li>
+<li class="method public "><a href="#method_tool" title="tool :: Creates a Tool Item."><span class="description">Creates a Tool Item.</span><pre>tool()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul><li class="property public "><a href="#property_helpers" title="$helpers :: "><span class="description">Helpers used by this Helper</span><pre>$helpers</pre></a></li></ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\ElementsHelper"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/ElementsHelper.html">ElementsHelper</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Elements Helper</p>
+<div class="details">
+<div class="long_description"><p>Add your application-wide methods in the class below, your helpers will inherit them.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/app.View.Helper.html">app.View.Helper</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Bruno Sampaio</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructor</h2>
+<pre>__construct(\View $view, array $settings) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$view</h4>
+<code>\View</code>
+</div>
+<div class="subelement argument">
+<h4>$settings</h4>
+<code>array</code>
+</div>
+</div></div>
+</div>
+<a id="method_explorerItem"></a><div class="element clickable method public method_explorerItem" data-toggle="collapse" data-target=".method_explorerItem .collapse">
+<h2>Creates a Explorer Item</h2>
+<pre>explorerItem(string $name, string $type, string $icon, string $tag, bool $arrow) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><ul>
+<li>the name to display.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><ul>
+<li>the type class (first class).</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$icon</h4>
+<code>string</code><ul>
+<li>the icon name (third class).</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$tag</h4>
+<code>string</code><ul>
+<li>the item tag.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$arrow</h4>
+<code>bool</code><ul>
+<li>determines if must display a arrow.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_featured"></a><div class="element clickable method public method_featured" data-toggle="collapse" data-target=".method_featured .collapse">
+<h2>Creates a Featured Item.</h2>
+<pre>featured(string $title, string $highlight, string $description, bool $picture, array $classes) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><ul>
+<li>element title.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$highlight</h4>
+<code>string</code><ul>
+<li>element title highlight.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$description</h4>
+<code>string</code><ul>
+<li>element descriptions.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$picture</h4>
+<code>bool</code><ul>
+<li>contains or not picture element.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$classes</h4>
+<code>array</code><ul>
+<li>element classes (can contain the keys: before, color and after).</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_filePreview"></a><div class="element clickable method public method_filePreview" data-toggle="collapse" data-target=".method_filePreview .collapse">
+<h2>Creates a file preview element for file display and removal on edit forms.</h2>
+<pre>filePreview(string $file, string $type, string $input, bool $filesFolder, bool $external) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$file</h4>
+<code>string</code><ul>
+<li>file path.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><ul>
+<li>file type.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$input</h4>
+<code>string</code><ul>
+<li>hidden input element which stores the file path.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$filesFolder</h4>
+<code>bool</code><ul>
+<li>determines if the file is inside the default files folder or not.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$external</h4>
+<code>bool</code><ul>
+<li>determines if the file is external or not.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_imsLtiTable"></a><div class="element clickable method public method_imsLtiTable" data-toggle="collapse" data-target=".method_imsLtiTable .collapse">
+<h2>Creates the IMS LTI information table.</h2>
+<pre>imsLtiTable(string $title, string $desc, string $url, string $icon, string $key, string $secret, string $help) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><ul>
+<li>the section title.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$desc</h4>
+<code>string</code><ul>
+<li>the section description.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><ul>
+<li>the url to send the request.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$icon</h4>
+<code>string</code><ul>
+<li>the tool icon url.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><ul>
+<li>the tool key.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$secret</h4>
+<code>string</code><ul>
+<li>the tool secret.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$help</h4>
+<code>string</code><ul>
+<li>the howtos section from pages controller.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_menu"></a><div class="element clickable method public method_menu" data-toggle="collapse" data-target=".method_menu .collapse">
+<h2>Creates a Menu Item.</h2>
+<pre>menu(string $name, bool $modal, string $title, string $code, string $url, string $desc) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><ul>
+<li>menu item name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$modal</h4>
+<code>bool</code><ul>
+<li>determines if must use a modal window when clicked.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><ul>
+<li>the menu item title.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><ul>
+<li>tool keyboard code.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><ul>
+<li>link url.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$desc</h4>
+<code>string</code><ul>
+<li>menu description.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_options"></a><div class="element clickable method public method_options" data-toggle="collapse" data-target=".method_options .collapse">
+<h2>Creates Options Links</h2>
+<pre>options(array $item, string $model, string $controller, array $data, string $size) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$item</h4>
+<code>array</code><ul>
+<li>the item data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>string</code><ul>
+<li>the model name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$controller</h4>
+<code>string</code><ul>
+<li>the controller name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><ul>
+<li>the options data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$size</h4>
+<code>string</code><ul>
+<li>the icons size (default: normal size).</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_paragraphs"></a><div class="element clickable method public method_paragraphs" data-toggle="collapse" data-target=".method_paragraphs .collapse">
+<h2>Parses a text field as a list of HTML paragraphs.</h2>
+<pre>paragraphs(string $text, string $class) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$text</h4>
+<code>string</code><ul>
+<li>the text to be parsed.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$class</h4>
+<code>string</code><ul>
+<li>the class(es) to be used on each paragraph element.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_separator"></a><div class="element clickable method public method_separator" data-toggle="collapse" data-target=".method_separator .collapse">
+<h2>Creates a Separator Item.</h2>
+<pre>separator(string $tag) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tag</h4>
+<code>string</code><ul>
+<li>item tag.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_tip"></a><div class="element clickable method public method_tip" data-toggle="collapse" data-target=".method_tip .collapse">
+<h2>Creates the contents for a TipTip box.</h2>
+<pre>tip(string $title, string $descs) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><ul>
+<li>the title.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$descs</h4>
+<code>string</code><ul>
+<li>the descriptions.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_tool"></a><div class="element clickable method public method_tool" data-toggle="collapse" data-target=".method_tool .collapse">
+<h2>Creates a Tool Item.</h2>
+<pre>tool(string $name, string $title, string $type, string $url) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><ul>
+<li>tool name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><ul>
+<li>tool title.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><ul>
+<li>tool type (button or expand).</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><ul>
+<li>link url.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_helpers"> </a><div class="element clickable property public property_helpers" data-toggle="collapse" data-target=".property_helpers .collapse">
+<h2>Helpers used by this Helper</h2>
+<pre>$helpers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-02T23:27:12+01:00.<br></footer></div>
+</div>
+</body>
+</html>

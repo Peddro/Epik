@@ -1,0 +1,151 @@
+{
+	"scenario": {
+		"width": 980,
+		"height": 800,
+		"name": "2 Lectures + 2 Questions",
+		"type": "activities",
+		"styles": {
+			"background": {
+				"color": "#FFFFFF"
+			}
+		}
+	},
+	"texts": {
+		"heading": [
+			{ 
+				"name": "Title", 
+				"content": "Lecture Name", 
+				"position": {
+					"absolute": {
+						"point": {
+							"x": "center",
+							"y": 100
+						}
+					}
+				},
+				"styles": { 
+					"font": { 
+						"size": 48, 
+						"style": "bold", 
+						"color": "#000000" 
+					},
+					"width": 600,
+					"height": 100,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					},
+					"background": {
+						"color": "transparent"
+					}
+				}
+			}
+		]
+	},
+	"shapes": {
+		"circle": [
+			{
+				"name": "First Description",
+				"content": "Text with the lecture description.",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 230,
+							"y": 570
+						}
+					}
+				},
+				"styles": { 
+					"font": { 
+						"size": 14, 
+						"style": "normal", 
+						"color": "#000000" 
+					},
+					"radius": 180,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					}
+				}
+			}
+		]
+	},
+	"resources": { 
+		"image": [
+			{
+				"name": "Second Description",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 770,
+							"y": 570
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"height": 200,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					}
+				}
+			}
+		]
+	},
+	"activities": {
+		"question": [
+			{
+				"name": "Question",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 200,
+							"y": 300
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "bottom-right"
+				}
+			},
+			{
+				"name": "Question",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 770,
+							"y": 300
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"rotation": 0,
+					"border": {
+						"thickness": 2,
+						"color": "#000000"
+					},
+					"background": {
+						"color": "#FFFFFF"
+					},
+					"tail": "bottom-left"
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,537 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \ModalHelper</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/app.html"><i class="icon-folder-open"></i> app</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">110</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_activityButtons" title="activityButtons :: Creates the buttons for the Activities actions Complete Pages."><span class="description">Creates the buttons for the Activities actions Complete Pages.</span><pre>activityButtons()</pre></a></li>
+<li class="method public "><a href="#method_baseItemForm" title="baseItemForm :: Creates a form with the basic fields for an item."><span class="description">Creates a form with the basic fields for an item.</span><pre>baseItemForm()</pre></a></li>
+<li class="method public "><a href="#method_buttons" title="buttons :: Creates the page buttons."><span class="description">Creates the page buttons.</span><pre>buttons()</pre></a></li>
+<li class="method public "><a href="#method_insertButton" title="insertButton :: Creates a Insert Button"><span class="description">Creates a Insert Button</span><pre>insertButton()</pre></a></li>
+<li class="method public "><a href="#method_linkButton" title="linkButton :: Creates a link button."><span class="description">Creates a link button.</span><pre>linkButton()</pre></a></li>
+<li class="method public "><a href="#method_lmsConnectionForm" title="lmsConnectionForm :: Creates a form with the basic fields to connect with a LMS."><span class="description">Creates a form with the basic fields to connect with a LMS.</span><pre>lmsConnectionForm()</pre></a></li>
+<li class="method public "><a href="#method_nextButton" title="nextButton :: Creates a Next Button"><span class="description">Creates a Next Button</span><pre>nextButton()</pre></a></li>
+<li class="method public "><a href="#method_previousButton" title="previousButton :: Creates a Previous Button"><span class="description">Creates a Previous Button</span><pre>previousButton()</pre></a></li>
+<li class="method public "><a href="#method_questionAnswers" title="questionAnswers :: Creates a question answers list."><span class="description">Creates a question answers list.</span><pre>questionAnswers()</pre></a></li>
+<li class="method public "><a href="#method_redirectButton" title="redirectButton :: Creates a Redirect Button"><span class="description">Creates a Redirect Button</span><pre>redirectButton()</pre></a></li>
+<li class="method public "><a href="#method_selectorItem" title="selectorItem :: Creates a selector item to be displayed on a Select Section."><span class="description">Creates a selector item to be displayed on a Select Section.</span><pre>selectorItem()</pre></a></li>
+<li class="method public "><a href="#method_setSections" title="setSections :: Set previous and current sections fields."><span class="description">Set previous and current sections fields.</span><pre>setSections()</pre></a></li>
+<li class="method public "><a href="#method_successMessage" title="successMessage :: Creates a success message to display on a Complete Section."><span class="description">Creates a success message to display on a Complete Section.</span><pre>successMessage()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="method private "><a href="#method_ajaxLinkOptions" title="ajaxLinkOptions :: Options for a ajax link."><span class="description">Options for a ajax link.</span><pre>ajaxLinkOptions()</pre></a></li></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul>
+<li class="property public "><a href="#property_helpers" title="$helpers :: "><span class="description">Helpers used by this Helper</span><pre>$helpers</pre></a></li>
+<li class="property public "><a href="#property_update" title="$update :: Modal Window Default Content Area"><span class="description"></span><pre>$update</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\ModalHelper"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/ModalHelper.html">ModalHelper</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Modal Helper</p>
+<div class="details">
+<div class="long_description"><p>Add your application-wide methods in the class below, your helpers will inherit them.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/app.View.Helper.html">app.View.Helper</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Bruno Sampaio</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructor</h2>
+<pre>__construct(\View $view, array $settings) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$view</h4>
+<code>\View</code>
+</div>
+<div class="subelement argument">
+<h4>$settings</h4>
+<code>array</code>
+</div>
+</div></div>
+</div>
+<a id="method_activityButtons"></a><div class="element clickable method public method_activityButtons" data-toggle="collapse" data-target=".method_activityButtons .collapse">
+<h2>Creates the buttons for the Activities actions Complete Pages.</h2>
+<pre>activityButtons(array $buttons, int $id, string $controller, bool $allows_hints, bool $allows_resources) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$buttons</h4>
+<code>array</code><ul>
+<li>the buttons array.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$id</h4>
+<code>int</code><ul>
+<li>the activity id;</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$controller</h4>
+<code>string</code><ul>
+<li>the controller for this type of activity.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$allows_hints</h4>
+<code>bool</code><ul>
+<li>determines if activity allows hints.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$allows_resources</h4>
+<code>bool</code><ul>
+<li>determines if activity allows resources.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_baseItemForm"></a><div class="element clickable method public method_baseItemForm" data-toggle="collapse" data-target=".method_baseItemForm .collapse">
+<h2>Creates a form with the basic fields for an item.</h2>
+<pre>baseItemForm(string $model, bool $editing, array $hidden, bool $hideAll) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The basic fields are id, name and description.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>string</code><ul>
+<li>the model name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$editing</h4>
+<code>bool</code><ul>
+<li>the type of action being realized.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$hidden</h4>
+<code>array</code><ul>
+<li>the list of fields to set as hidden.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$hideAll</h4>
+<code>bool</code><ul>
+<li>determines if all fields must be hidden.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_buttons"></a><div class="element clickable method public method_buttons" data-toggle="collapse" data-target=".method_buttons .collapse">
+<h2>Creates the page buttons.</h2>
+<pre>buttons(array $buttons) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$buttons</h4>
+<code>array</code><ul>
+<li>the buttons properties:
+        - ajax: ajax button or normal button;
+        - color: the button color;
+        - display: the button name to be displayed;
+        - name: the button name HTML attribute.
+        - type: the button type (link, button, or submit);
+        - url: the button url.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_insertButton"></a><div class="element clickable method public method_insertButton" data-toggle="collapse" data-target=".method_insertButton .collapse">
+<h2>Creates a Insert Button</h2>
+<pre>insertButton(array $buttons) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Used along side with chooser to insert a activity or resource into a project.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$buttons</h4>
+<code>array</code><ul>
+<li>the buttons array.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_linkButton"></a><div class="element clickable method public method_linkButton" data-toggle="collapse" data-target=".method_linkButton .collapse">
+<h2>Creates a link button.</h2>
+<pre>linkButton(array $buttons, string $display, array $url, bool $ajax, string $color) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$buttons</h4>
+<code>array</code><ul>
+<li>the buttons array.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$display</h4>
+<code>string</code><ul>
+<li>the button display text.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>array</code><ul>
+<li>the button url.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$ajax</h4>
+<code>bool</code><ul>
+<li>determines if the button uses the ajax helper.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$color</h4>
+<code>string</code><ul>
+<li>the button color.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_lmsConnectionForm"></a><div class="element clickable method public method_lmsConnectionForm" data-toggle="collapse" data-target=".method_lmsConnectionForm .collapse">
+<h2>Creates a form with the basic fields to connect with a LMS.</h2>
+<pre>lmsConnectionForm(string $list, bool $lms, array $choose, bool $hideAll) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The basic fields are LMS.id, LMS.url, User.username and User.password.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$list</h4>
+<code>string</code><ul>
+<li>the list of supported LMS.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$lms</h4>
+<code>bool</code><ul>
+<li>the LMS data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$choose</h4>
+<code>array</code><ul>
+<li>determines if the user must be able to choose the type of LMS or not.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$hideAll</h4>
+<code>bool</code><ul>
+<li>determines if all fields must be hidden (in this case the password field isn't set).</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_nextButton"></a><div class="element clickable method public method_nextButton" data-toggle="collapse" data-target=".method_nextButton .collapse">
+<h2>Creates a Next Button</h2>
+<pre>nextButton(array $buttons, bool $finish, bool $ajax) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Usually it is the button on the Modal Window bottom right corner.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$buttons</h4>
+<code>array</code><ul>
+<li>the buttons array.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$finish</h4>
+<code>bool</code><ul>
+<li>determines if is a continue or finish button.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$ajax</h4>
+<code>bool</code><ul>
+<li>determines if the button uses the ajax helper.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_previousButton"></a><div class="element clickable method public method_previousButton" data-toggle="collapse" data-target=".method_previousButton .collapse">
+<h2>Creates a Previous Button</h2>
+<pre>previousButton(array $buttons, bool $previous) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Usually it is the button on the Modal Window bottom left corner.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$buttons</h4>
+<code>array</code><ul>
+<li>the buttons array.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$previous</h4>
+<code>bool</code><ul>
+<li>determines if is a cancel or previous button.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_questionAnswers"></a><div class="element clickable method public method_questionAnswers" data-toggle="collapse" data-target=".method_questionAnswers .collapse">
+<h2>Creates a question answers list.</h2>
+<pre>questionAnswers(array $answer, bool $small) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$answer</h4>
+<code>array</code><ul>
+<li>the answer data;</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$small</h4>
+<code>bool</code><ul>
+<li>icon size.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_redirectButton"></a><div class="element clickable method public method_redirectButton" data-toggle="collapse" data-target=".method_redirectButton .collapse">
+<h2>Creates a Redirect Button</h2>
+<pre>redirectButton(array $buttons) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Used along side with chooser to redirect the page to the seleted destination.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$buttons</h4>
+<code>array</code><ul>
+<li>the buttons array.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_selectorItem"></a><div class="element clickable method public method_selectorItem" data-toggle="collapse" data-target=".method_selectorItem .collapse">
+<h2>Creates a selector item to be displayed on a Select Section.</h2>
+<pre>selectorItem(string $title, string $icon, array $url) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><ul>
+<li>the item content.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$icon</h4>
+<code>string</code><ul>
+<li>the item icon.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>array</code><ul>
+<li>the url to where the item shall redirect when clicked.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_setSections"></a><div class="element clickable method public method_setSections" data-toggle="collapse" data-target=".method_setSections .collapse">
+<h2>Set previous and current sections fields.</h2>
+<pre>setSections(string $previous, string $current) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$previous</h4>
+<code>string</code><ul>
+<li>the previous section (-1: redirect to other action, null: no previous action).</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$current</h4>
+<code>string</code><ul>
+<li>the current section.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_successMessage"></a><div class="element clickable method public method_successMessage" data-toggle="collapse" data-target=".method_successMessage .collapse">
+<h2>Creates a success message to display on a Complete Section.</h2>
+<pre>successMessage(string $item, string $actionPerformed, string $actionToPerform, string $list, bool $plural) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$item</h4>
+<code>string</code><ul>
+<li>the type of icon being managed.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$actionPerformed</h4>
+<code>string</code><ul>
+<li>the action performed, such as create, update, upload, or import.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$actionToPerform</h4>
+<code>string</code><ul>
+<li>the action to perform, such as view or open.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$list</h4>
+<code>string</code><ul>
+<li>the dashboard section.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$plural</h4>
+<code>bool</code><ul>
+<li>determines if sentence must be singular or plural.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_ajaxLinkOptions"></a><div class="element clickable method private method_ajaxLinkOptions" data-toggle="collapse" data-target=".method_ajaxLinkOptions .collapse">
+<h2>Options for a ajax link.</h2>
+<pre>ajaxLinkOptions(string $classes) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$classes</h4>
+<code>string</code><ul>
+<li>the link classes.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>of options.</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_helpers"> </a><div class="element clickable property public property_helpers" data-toggle="collapse" data-target=".property_helpers .collapse">
+<h2>Helpers used by this Helper</h2>
+<pre>$helpers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_update"> </a><div class="element clickable property public property_update" data-toggle="collapse" data-target=".property_update .collapse">
+<h2></h2>
+<pre>$update : \$update</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-02T23:27:12+01:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+{
+	"scenario": {
+		"width": 980,
+		"height": 800,
+		"name": "2 Lectures + 2 Images",
+		"type": "lecture",
+		"styles": {
+			"background": {
+				"color": "#FFFFFF"
+			}
+		}
+	},
+	"texts": {
+		"heading": [
+			{ 
+				"name": "Title 1", 
+				"content": "Lecture Name 1", 
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 250,
+							"y": 150
+						}
+					}
+				},
+				"styles": { 
+					"font": { 
+						"size": 36, 
+						"style": "bold", 
+						"color": "#000000" 
+					},
+					"width": 450,
+					"height": 100,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					},
+					"background": {
+						"color": "transparent"
+					}
+				}
+			},
+			{ 
+				"name": "Title 2", 
+				"content": "Lecture Name 2", 
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 740,
+							"y": 150
+						}
+					}
+				},
+				"styles": { 
+					"font": { 
+						"size": 36, 
+						"style": "bold", 
+						"color": "#000000" 
+					},
+					"width": 450,
+					"height": 100,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					},
+					"background": {
+						"color": "transparent"
+					}
+				}
+			}
+		],
+		"paragraph": [
+			{
+				"name": "Description 1",
+				"content": "Text with the lecture description.",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 250,
+							"y": 375
+						}
+					}
+				},
+				"styles": {
+					"font": { 
+						"size": 14, 
+						"style": "normal", 
+						"color": "#000000" 
+					},
+					"width": 450,
+					"height": 350,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					},
+					"background": {
+						"color": "transparent"
+					}
+				}
+			},
+			{
+				"name": "Description 2",
+				"content": "Text with the lecture description.",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 740,
+							"y": 375
+						}
+					}
+				},
+				"styles": {
+					"font": { 
+						"size": 14, 
+						"style": "normal", 
+						"color": "#000000" 
+					},
+					"width": 450,
+					"height": 350,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					},
+					"background": {
+						"color": "transparent"
+					}
+				}
+			}
+		]
+	},
+	"shapes": {
+	   "line" : [
+	       {
+	           "name" : "Separator",
+	           "position" : {
+	               "absolute": {
+						"point": {
+							"x": 485,
+							"y": 445
+						}
+					}
+	           },
+	           "styles": {
+					"length": 600,
+					"rotation": 90,
+					"border": {
+						"thickness": 6,
+						"color": "#000000"
+					}
+				}
+	       }
+	   ]  
+	},
+	"resources": { 
+		"image": [
+			{
+				"name": "Image 1",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 250,
+							"y": 680
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"height": 200,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					}
+				}
+			},
+			{
+				"name": "Image 2",
+				"position": {
+					"absolute": {
+						"point": {
+							"x": 740,
+							"y": 680
+						}
+					}
+				},
+				"styles": {
+					"width": 300,
+					"height": 200,
+					"rotation": 0,
+					"border": {
+						"thickness": 0,
+						"color": "transparent"
+					}
+				}
+			}
+		]
+	}
+}

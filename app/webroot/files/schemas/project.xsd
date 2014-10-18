@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://epik.com/project"
+    targetNamespace="http://epik.com/project" elementFormDefault="qualified" version="1.0">
+
+    <xs:element name="project">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="start">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" ref="scenario_reference"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="status">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="selected">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:sequence>
+                                            <xs:element ref="scenario_reference" minOccurs="1"/>
+                                            <xs:element minOccurs="0" name="element"
+                                                type="ElementsReferences"/>
+                                        </xs:sequence>
+                                        <xs:element minOccurs="1" name="property"
+                                            type="PropertiesTypes"/>
+                                        <xs:element name="screen" type="ScreensTypes"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="properties">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="logo">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="styles">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="corner" type="Corners"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="scores">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="score" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element ref="name"/>
+                                                  <xs:element ref="log"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="type" type="ScoreType"
+                                                  use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                                <xs:unique name="UniqueScore">
+                                    <xs:selector xpath="player_score"/>
+                                    <xs:field xpath="@type"/>
+                                </xs:unique>
+                            </xs:element>
+                            <xs:element name="helps" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="name"/>
+                                        <xs:element ref="value"/>
+                                        <xs:element ref="log"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>                            
+                            <xs:element name="players">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="max" type="xs:positiveInteger" default="1"/>
+                                        <xs:element name="styles">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="side" type="Sides"/>
+                                                  <xs:element ref="border"/>
+                                                  <xs:element name="background" minOccurs="2"
+                                                  maxOccurs="4">
+                                                  <xs:complexType>
+                                                  <xs:complexContent>
+                                                  <xs:extension base="Background">
+                                                  <xs:attribute name="element"
+                                                  type="PlayersElements"/>
+                                                  </xs:extension>
+                                                  </xs:complexContent>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                            <xs:unique name="UniqueBackgroundElement">
+                                                <xs:selector xpath="background"/>
+                                                <xs:field xpath="@element"/>
+                                            </xs:unique>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                                <xs:unique name="UniquePlayer">
+                                    <xs:selector xpath="player"/>
+                                    <xs:field xpath="@type"/>
+                                </xs:unique>
+                            </xs:element>
+                            <xs:element name="sounds">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="sound">
+                                            <xs:complexType>
+                                                <xs:attribute name="type" type="SoundType"
+                                                  use="required"/>
+                                                <xs:attribute name="source_id"
+                                                  type="xs:positiveInteger" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="sync" minOccurs="0" maxOccurs="1" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="scenarios">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="scenario">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="name"/>
+                                        <xs:element name="contents">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="0" maxOccurs="unbounded"
+                                                  name="element">
+                                                  <xs:complexType>
+                                                  <xs:complexContent>
+                                                  <xs:extension base="ElementsReferences">
+                                                  <xs:sequence>
+                                                  <xs:element ref="position"/>
+                                                  </xs:sequence>
+                                                  </xs:extension>
+                                                  </xs:complexContent>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="rules" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="0" name="helps"
+                                                  type="xs:nonNegativeInteger"/>
+                                                  <xs:element maxOccurs="unbounded" minOccurs="0"
+                                                  name="bonus">
+                                                  <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element ref="value"/>
+                                                  <xs:element ref="log"/>
+                                                  </xs:sequence>
+                                                  <xs:attribute name="type" type="BonusType"
+                                                  use="required"/>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                            <xs:unique name="UniqueBonus">
+                                                <xs:selector xpath="bonus"/>
+                                                <xs:field xpath="@type"/>
+                                            </xs:unique>
+                                        </xs:element>
+                                        <xs:element name="jumps">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element maxOccurs="unbounded" minOccurs="0"
+                                                  name="jump">
+                                                  <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element ref="scenario_reference" minOccurs="0"/>
+                                                  <xs:element minOccurs="0" ref="text_reference"/>
+                                                  </xs:sequence>
+                                                  <xs:attribute name="type" type="JumpType"
+                                                  use="required"/>
+                                                  <xs:attribute name="time"
+                                                  type="xs:positiveInteger"/>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                            <xs:unique name="UniqueJump">
+                                                <xs:selector xpath="jump"/>
+                                                <xs:field xpath="@type"/>
+                                            </xs:unique>
+                                        </xs:element>
+                                        <xs:element name="styles">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element ref="background"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                            <xs:unique name="UniqueScenarioElement">
+                                                <xs:selector xpath="position"/>
+                                                <xs:field xpath="@element"/>
+                                            </xs:unique>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="ScenarioID" use="required"/>
+                                    <xs:attribute name="type" type="ScenarioType" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="count" type="xs:nonNegativeInteger" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="texts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                <xs:element maxOccurs="1" minOccurs="1" name="heading">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element ref="content"/>
+                                            <xs:element name="styles" type="TextStyles"/>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="TextAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element maxOccurs="1" minOccurs="1" name="paragraph">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element ref="content"/>
+                                            <xs:element name="styles" type="TextStyles"/>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="TextAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element maxOccurs="1" minOccurs="1" name="button">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element ref="content"/>
+                                            <xs:element name="styles" type="TextStyles"/>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="TextAttributes"/>
+                                        <xs:attribute name="type" type="ButtonType" use="required"/>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:sequence>
+                        <xs:attribute name="count" type="xs:nonNegativeInteger" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="shapes">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                <xs:element name="line">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element name="styles">
+                                                <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element ref="length"/>
+                                                  <xs:element ref="rotation"/>
+                                                  <xs:element ref="border"/>
+                                                  </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ShapeAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="square">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element minOccurs="0" ref="content"/>
+                                            <xs:element name="styles" type="ShapeStyles"/>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ShapeAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="circle">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element minOccurs="0" ref="content"/>
+                                            <xs:element name="styles" minOccurs="1">
+                                                <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element ref="font"/>
+                                                  <xs:element name="radius" type="nonNegativeDouble"/>
+                                                  <xs:element ref="border"/>
+                                                  <xs:element ref="background"/>
+                                                  </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ShapeAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="balloon">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element minOccurs="0" ref="content"/>
+                                            <xs:element name="styles">
+                                                <xs:complexType>
+                                                  <xs:complexContent>
+                                                  <xs:extension base="ShapeStyles">
+                                                  <xs:sequence>
+                                                  <xs:element ref="tail"/>
+                                                  </xs:sequence>
+                                                  </xs:extension>
+                                                  </xs:complexContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ShapeAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:sequence>
+                        <xs:attribute name="count" type="xs:nonNegativeInteger" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="resources">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                <xs:element name="audio">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element name="styles" type="ResourceStyles">
+                                            </xs:element>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ResourceAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="image">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element name="styles" type="ResourceStyles"/>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ResourceAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="video">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element name="styles" type="ResourceStyles"/>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ResourceAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="pdf">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element name="styles" type="ResourceStyles"/>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ResourceAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:sequence>
+                        <xs:attribute name="count" type="xs:nonNegativeInteger" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="activities">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                <xs:element name="question">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="name"/>
+                                            <xs:element name="scores">
+                                                <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element name="reward">
+                                                  <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element ref="value"/>
+                                                  <xs:element ref="log"/>
+                                                  </xs:sequence>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="penalty">
+                                                  <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element ref="value"/>
+                                                  <xs:element ref="log"/>
+                                                  </xs:sequence>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="timeout"
+                                                  type="xs:positiveInteger" minOccurs="0"/>
+                                                  </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="helps" minOccurs="1">
+                                                <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element name="resource" type="Helps"
+                                                  minOccurs="0"/>
+                                                  <xs:element name="hints" type="Helps"
+                                                  minOccurs="0"/>
+                                                  <xs:element name="remove" type="Helps"
+                                                  minOccurs="0"/>
+                                                  </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="styles">
+                                                <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element ref="width"/>
+                                                  <xs:element ref="rotation"/>
+                                                  <xs:element ref="border"/>
+                                                  <xs:element ref="background"/>
+                                                  <xs:element ref="tail"/>
+                                                  </xs:sequence>
+                                                </xs:complexType>
+                                                <xs:unique name="UniqueQuestionElement">
+                                                  <xs:selector xpath="font"/>
+                                                  <xs:field xpath="@element"/>
+                                                </xs:unique>
+                                            </xs:element>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="ActivityAttributes"/>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:sequence>
+                        <xs:attribute name="count" type="xs:nonNegativeInteger" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="name">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="150"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="content">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="2500"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="width" type="nonNegativeDouble"> </xs:element>
+    <xs:element name="height" type="nonNegativeDouble"> </xs:element>
+    <xs:element name="length" type="nonNegativeDouble"> </xs:element>
+    <xs:element name="thickness" type="xs:nonNegativeInteger"/>
+    <xs:element name="rotation" type="Degree"/>
+    <xs:element name="color" type="ColorCode"/>
+    <xs:element name="font" type="Font"/>
+    <xs:element name="position" type="Position"/>
+    <xs:element name="border" type="Border"/>
+    <xs:element name="background" type="Background"/>
+    <xs:element name="tail" type="Corners"> </xs:element>
+    <xs:element name="log" type="xs:boolean"/>
+    <xs:element name="value" type="xs:positiveInteger"/>
+    <xs:element name="scenario_reference">
+        <xs:complexType>
+            <xs:attribute name="id" type="ScenarioIDREF" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="text_reference">
+        <xs:complexType>
+            <xs:attribute name="id" type="TextIDREF" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="shape_reference">
+        <xs:complexType>
+            <xs:attribute name="id" type="ShapeIDREF" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resource_reference">
+        <xs:complexType>
+            <xs:attribute name="id" type="ResourceIDREF" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="activity_reference">
+        <xs:complexType>
+            <xs:attribute name="id" type="ActivityIDREF" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="TextAttributes">
+        <xs:attribute name="id" type="TextID" use="required"/>
+        <xs:attribute name="locked" type="xs:boolean" use="required"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="ShapeAttributes">
+        <xs:attribute name="id" type="ShapeID" use="required"/>
+        <xs:attribute name="locked" type="xs:boolean" use="required"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="ResourceAttributes">
+        <xs:attribute name="id" type="ResourceID" use="required"/>
+        <xs:attribute name="source_id" type="xs:nonNegativeInteger" use="required"/>
+        <xs:attribute name="locked" type="xs:boolean" use="required"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="ActivityAttributes">
+        <xs:attribute name="id" type="ActivityID" use="required"/>
+        <xs:attribute name="source_id" type="xs:nonNegativeInteger" use="required"/>
+        <xs:attribute name="locked" type="xs:boolean" use="required"/>
+        <xs:attribute name="group" type="xs:boolean" use="required"/>
+    </xs:attributeGroup>
+    <xs:group name="aligns">
+        <xs:sequence>
+            <xs:element default="left" name="horizontal" type="AlignH"/>
+            <xs:element default="top" name="vertical" type="AlignV"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="Helps">
+        <xs:sequence>
+            <xs:element name="use" type="xs:boolean"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="selected">
+                <xs:complexType>
+                    <xs:attribute name="source_id" type="xs:positiveInteger"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ElementsReferences">
+        <xs:choice maxOccurs="1" minOccurs="1">
+            <xs:element ref="text_reference"/>
+            <xs:element ref="shape_reference"/>
+            <xs:element ref="resource_reference"/>
+            <xs:element ref="activity_reference"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="TextStyles">
+        <xs:sequence>
+            <xs:element ref="font"/>
+            <xs:element ref="width"/>
+            <xs:element ref="height"/>
+            <xs:element ref="rotation"/>
+            <xs:element ref="border"/>
+            <xs:element ref="background"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ShapeStyles">
+        <xs:sequence>
+            <xs:element ref="font"/>
+            <xs:element ref="width"/>
+            <xs:element ref="height"/>
+            <xs:element ref="rotation"/>
+            <xs:element ref="border"/>
+            <xs:element ref="background"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ResourceStyles">
+        <xs:sequence>
+            <xs:element ref="width"/>
+            <xs:element ref="height"/>
+            <xs:element ref="rotation"/>
+            <xs:element ref="border"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Font">
+        <xs:sequence>
+            <xs:element name="size" type="xs:positiveInteger"/>
+            <xs:element name="style" type="FontStyleType"/>
+            <xs:element ref="color"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Position">
+        <xs:choice>
+            <xs:element name="absolute">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="point">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="x"/>
+                                    <xs:element name="y"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="aligned">
+                <xs:complexType>
+                    <xs:group ref="aligns"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="Border">
+        <xs:sequence>
+            <xs:element ref="thickness"/>
+            <xs:element ref="color"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Background">
+        <xs:sequence>
+            <xs:element ref="color"/>
+            <xs:element minOccurs="0" name="image">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="resource_reference"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="ScenarioID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="S_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ScenarioIDREF">
+        <xs:restriction base="xs:IDREF">
+            <xs:pattern value="S_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TextID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="T_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TextIDREF">
+        <xs:restriction base="xs:IDREF">
+            <xs:pattern value="T_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ShapeID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="F_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ShapeIDREF">
+        <xs:restriction base="xs:IDREF">
+            <xs:pattern value="F_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ResourceID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="R_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ResourceIDREF">
+        <xs:restriction base="xs:IDREF">
+            <xs:pattern value="R_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ActivityID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="A_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ActivityIDREF">
+        <xs:restriction base="xs:IDREF">
+            <xs:pattern value="A_[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GameMode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="singleplayer"/>
+            <xs:enumeration value="multiplayer"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BonusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="firstToFinish"/>
+            <xs:enumeration value="collaboration"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ButtonType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="continue"/>
+            <xs:enumeration value="skip"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="JumpType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="timeout"/>
+            <xs:enumeration value="allFinished"/>
+            <xs:enumeration value="skip"/>
+            <xs:enumeration value="continue"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="QuestionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="short-answer"/>
+            <xs:enumeration value="multichoice"/>
+            <xs:enumeration value="complete"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ScenarioType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="lecture"/>
+            <xs:enumeration value="activities"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ScoreType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="total"/>
+            <xs:enumeration value="reward"/>
+            <xs:enumeration value="penalty"/>
+            <xs:enumeration value="collaboration"/>
+            <xs:enumeration value="team"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SoundType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="background"/>
+            <xs:enumeration value="correct"/>
+            <xs:enumeration value="incorrect"/>
+            <xs:enumeration value="help"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PlayersElements">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="bar"/>
+            <xs:enumeration value="normal"/>
+            <xs:enumeration value="current"/>
+            <xs:enumeration value="collaborating"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FontStyleType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="normal"/>
+            <xs:enumeration value="bold"/>
+            <xs:enumeration value="italic"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AlignH">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="right"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AlignV">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="top"/>
+            <xs:enumeration value="middle"/>
+            <xs:enumeration value="bottom"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ColorCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="#[0-9a-fA-F]*"/>
+            <xs:pattern value="transparent"/>
+            <xs:minLength value="7"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Corners">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="top-left"/>
+            <xs:enumeration value="top-right"/>
+            <xs:enumeration value="bottom-left"/>
+            <xs:enumeration value="bottom-right"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Degree">
+        <xs:restriction base="xs:int">
+            <xs:maxExclusive value="359"/>
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="nonNegativeDouble">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="9999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Sides">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="top"/>
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="right"/>
+            <xs:enumeration value="bottom"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PropertiesTypes">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="logo"/>
+            <xs:enumeration value="players"/>
+            <xs:enumeration value="scores"/>
+            <xs:enumeration value="sounds"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ScreensTypes">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="start"/>
+            <xs:enumeration value="instructions"/>
+            <xs:enumeration value="wait"/>
+            <xs:enumeration value="rankings"/>
+            <xs:enumeration value="gameover"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

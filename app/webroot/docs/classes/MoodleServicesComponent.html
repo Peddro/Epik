@@ -1,0 +1,514 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \MoodleServicesComponent</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/app.html"><i class="icon-folder-open"></i> app</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">110</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_connect" title="connect :: Connect to Moodle"><span class="description">Connect to Moodle</span><pre>connect()</pre></a></li>
+<li class="method public inherited"><a href="#method_getLMS" title="getLMS :: Get Current User LMS"><span class="description">Get Current User LMS</span><pre>getLMS()</pre></a></li>
+<li class="method public "><a href="#method_request" title="request :: Request Data from Moodle"><span class="description">Request Data from Moodle</span><pre>request()</pre></a></li>
+<li class="method public inherited"><a href="#method_sendLTIResponse" title="sendLTIResponse :: Sends the Response of a IMS LTI Request received before."><span class="description">Sends the Response of a IMS LTI Request received before.</span><pre>sendLTIResponse()</pre></a></li>
+<li class="method public inherited"><a href="#method_validateLTIRequest" title="validateLTIRequest :: Validates LTI Request"><span class="description">Validates LTI Request</span><pre>validateLTIRequest()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected "><a href="#method_parseCourseContents" title="parseCourseContents :: Parse Course Contents"><span class="description">Parse Course Contents</span><pre>parseCourseContents()</pre></a></li>
+<li class="method protected "><a href="#method_parseCourses" title="parseCourses :: Parse Courses"><span class="description">Parse Courses</span><pre>parseCourses()</pre></a></li>
+<li class="method protected "><a href="#method_parseQuestionsData" title="parseQuestionsData :: Parse Questions Data"><span class="description">Parse Questions Data</span><pre>parseQuestionsData()</pre></a></li>
+<li class="method protected "><a href="#method_parseQuestionsInfo" title="parseQuestionsInfo :: Parse Questions Info"><span class="description">Parse Questions Info</span><pre>parseQuestionsInfo()</pre></a></li>
+<li class="method protected "><a href="#method_parseResourcesInfo" title="parseResourcesInfo :: Parse Resource Info"><span class="description">Parse Resource Info</span><pre>parseResourcesInfo()</pre></a></li>
+<li class="method protected inherited"><a href="#method_requestURL" title="requestURL :: Request a External URL"><span class="description">Request a External URL</span><pre>requestURL()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="method private "><a href="#method_sendRequest" title="sendRequest :: Send Request"><span class="description">Send Request</span><pre>sendRequest()</pre></a></li></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul>
+<li class="property public inherited"><a href="#property_components" title="$components :: "><span class="description">Components used by this Component.</span><pre>$components</pre></a></li>
+<li class="property public inherited"><a href="#property_requests" title="$requests :: Types of Data to be Requested"><span class="description"></span><pre>$requests</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\MoodleServicesComponent"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/MoodleServicesComponent.html">MoodleServicesComponent</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">LMSServices Component</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/app.Controller.Component.html">app.Controller.Component</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Bruno Sampaio</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_connect"></a><div class="element clickable method public method_connect" data-toggle="collapse" data-target=".method_connect .collapse">
+<h2>Connect to Moodle</h2>
+<pre>connect(array $lms, array $user) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Given the LMS type, url and user credentials checks if its possible to
+communicate with the LMS and sets the data provided in the Session.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$lms</h4>
+<code>array</code><ul>
+<li>lms id and url.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$user</h4>
+<code>array</code><ul>
+<li>user data.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_getLMS"></a><div class="element clickable method public method_getLMS" data-toggle="collapse" data-target=".method_getLMS .collapse">
+<h2>Get Current User LMS</h2>
+<pre>getLMS(array $lms, array $user) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\LMSServicesComponent::getLMS()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$lms</h4>
+<code>array</code><ul>
+<li>array with the lms id and url.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$user</h4>
+<code>array</code><ul>
+<li>array with the user username and password.</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_request"></a><div class="element clickable method public method_request" data-toggle="collapse" data-target=".method_request .collapse">
+<h2>Request Data from Moodle</h2>
+<pre>request(string $data_type, array $params, array $args) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Retrieves a certain type of data from a LMS and parses it before returning.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data_type</h4>
+<code>string</code><ul>
+<li>the type of data to be requested (must belong to $requests array).</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><ul>
+<li>the params to be passed to the external service function.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$args</h4>
+<code>array</code><ul>
+<li>the arguments to be passed to parsing function.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>- parsed information.</div>
+</div></div>
+</div>
+<a id="method_sendLTIResponse"></a><div class="element clickable method public method_sendLTIResponse" data-toggle="collapse" data-target=".method_sendLTIResponse .collapse">
+<h2>Sends the Response of a IMS LTI Request received before.</h2>
+<pre>sendLTIResponse(string $url, string $id, string $consumerKey, string $sharedSecret, string $grade) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\LMSServicesComponent::sendLTIResponse()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><ul>
+<li>the url to send the response to.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$id</h4>
+<code>string</code><ul>
+<li>the request id.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$consumerKey</h4>
+<code>string</code><ul>
+<li>the consumer key.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$sharedSecret</h4>
+<code>string</code><ul>
+<li>the shared secret.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$grade</h4>
+<code>string</code><ul>
+<li>the grade (value between 0.0 and 1.0).</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_validateLTIRequest"></a><div class="element clickable method public method_validateLTIRequest" data-toggle="collapse" data-target=".method_validateLTIRequest .collapse">
+<h2>Validates LTI Request</h2>
+<pre>validateLTIRequest(object $model, string $keyField, string $secretField, array $requestParams, array $fields) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\LMSServicesComponent::validateLTIRequest()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code><ul>
+<li>the model object.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$keyField</h4>
+<code>string</code><ul>
+<li>the key field name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$secretField</h4>
+<code>string</code><ul>
+<li>the secret field name.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$requestParams</h4>
+<code>array</code><ul>
+<li>the request data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><ul>
+<li>the query fields.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>- entity data from database and the error if any.</div>
+</div></div>
+</div>
+<a id="method_parseCourseContents"></a><div class="element clickable method protected method_parseCourseContents" data-toggle="collapse" data-target=".method_parseCourseContents .collapse">
+<h2>Parse Course Contents</h2>
+<pre>parseCourseContents(array $contents, string $type) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$contents</h4>
+<code>array</code><ul>
+<li>the course contents XML received from the server.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><ul>
+<li>the type of content to store.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>with parsed information containing just the type of contents specified.</div>
+</div></div>
+</div>
+<a id="method_parseCourses"></a><div class="element clickable method protected method_parseCourses" data-toggle="collapse" data-target=".method_parseCourses .collapse">
+<h2>Parse Courses</h2>
+<pre>parseCourses(array $contents) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$contents</h4>
+<code>array</code><ul>
+<li>the courses XML received from the server.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>with parsed information.</div>
+</div></div>
+</div>
+<a id="method_parseQuestionsData"></a><div class="element clickable method protected method_parseQuestionsData" data-toggle="collapse" data-target=".method_parseQuestionsData .collapse">
+<h2>Parse Questions Data</h2>
+<pre>parseQuestionsData(array $contents, array $lms) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$contents</h4>
+<code>array</code><ul>
+<li>the questions data XML received from the server.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$lms</h4>
+<code>array</code><ul>
+<li>the current lms data.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>with parsed information.</div>
+</div></div>
+</div>
+<a id="method_parseQuestionsInfo"></a><div class="element clickable method protected method_parseQuestionsInfo" data-toggle="collapse" data-target=".method_parseQuestionsInfo .collapse">
+<h2>Parse Questions Info</h2>
+<pre>parseQuestionsInfo(array $contents) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$contents</h4>
+<code>array</code><ul>
+<li>the questions info XML received from the server.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>with parsed information.</div>
+</div></div>
+</div>
+<a id="method_parseResourcesInfo"></a><div class="element clickable method protected method_parseResourcesInfo" data-toggle="collapse" data-target=".method_parseResourcesInfo .collapse">
+<h2>Parse Resource Info</h2>
+<pre>parseResourcesInfo(array $contents, array $lms, bool $download) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$contents</h4>
+<code>array</code><ul>
+<li>the resource info XML received from the server.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$lms</h4>
+<code>array</code><ul>
+<li>the current lms data.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$download</h4>
+<code>bool</code><ul>
+<li>determines if the resource must be downloaded to the server.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>with parsed information.</div>
+</div></div>
+</div>
+<a id="method_requestURL"></a><div class="element clickable method protected method_requestURL" data-toggle="collapse" data-target=".method_requestURL .collapse">
+<h2>Request a External URL</h2>
+<pre>requestURL(string $method, string $url, array $params) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\LMSServicesComponent::requestURL()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$method</h4>
+<code>string</code><ul>
+<li>HTTP Method to use.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><ul>
+<li>the url to request.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><ul>
+<li>the parameters to send with the request.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>- the data received converted to array format.</div>
+</div></div>
+</div>
+<a id="method_sendRequest"></a><div class="element clickable method private method_sendRequest" data-toggle="collapse" data-target=".method_sendRequest .collapse">
+<h2>Send Request</h2>
+<pre>sendRequest(string $method, string $domain, string $token, string $function, array $params, string $format) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Creates the request URL and sends it. When the answer is received converts it into array format.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$method</h4>
+<code>string</code><ul>
+<li>HTTP Method to use.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$domain</h4>
+<code>string</code><ul>
+<li>the lms base url.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$token</h4>
+<code>string</code><ul>
+<li>the user token.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$function</h4>
+<code>string</code><ul>
+<li>the external service function to be requested.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><ul>
+<li>the parameters to send with the request.</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$format</h4>
+<code>string</code><ul>
+<li>the output format.</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>- the data received already converted to array.</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_components"> </a><div class="element clickable property public property_components" data-toggle="collapse" data-target=".property_components .collapse">
+<h2>Components used by this Component.</h2>
+<pre>$components : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\LMSServicesComponent::$$components</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_requests"> </a><div class="element clickable property public property_requests" data-toggle="collapse" data-target=".property_requests .collapse">
+<h2></h2>
+<pre>$requests : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\LMSServicesComponent::$$requests</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-02T23:27:11+01:00.<br></footer></div>
+</div>
+</body>
+</html>

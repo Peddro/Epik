@@ -1,0 +1,1887 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"extende",
+				"extendedGameId"
+			],
+			[
+				"ID_aa",
+				"ID_atividade2"
+			],
+			[
+				"ID_atividade",
+				"ID_atividade1"
+			],
+			[
+				"col-sm",
+				"col-sm-2"
+			],
+			[
+				"field",
+				"fields_for"
+			],
+			[
+				"la",
+				"label_tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/webroot/js/projects/Quiz/converter.js",
+			"settings":
+			{
+				"buffer_size": 14167,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/webroot/js/games/Quiz/logic.js",
+			"settings":
+			{
+				"buffer_size": 34505,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Lib/Games/games.js",
+			"settings":
+			{
+				"buffer_size": 10099,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Lib/Games/Quiz/quiz.js",
+			"settings":
+			{
+				"buffer_size": 2176,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\nvar games_list = {}; // List of games with open sessions\nvar players_list = {}; // List of players with open sessions\nvar manager_list = {}; // List of Game Managers\nvar session_to_manager = {};\n\n/**\n * Game Constructor\n *\n * @param int id - the game id.\n * @param object data - the game data.\n */\nexports.Games_Manager = function(gameId, managerId) {\n\n  this.id = managerId;\n  this.gameId = gameId;\n  this.sessions = 0;\n  this.removed = false;\n\n  this.score = 0; // Team score\n\n}\n\nexports.Games_Manager.prototype = {\n\n  /**\n   * Get Session Game\n   *\n   * @return Game\n   */\n  getGame : function() {\n    return E.games_manager.getGame(this.gameId);\n  },\n\n  setSessionId : function(sessionId) {\n    this.sessionId = sessionId;\n  },\n\n  getScenarioBonus : function(scenario, bonusType) {\n    var game = this.getGame();\n    if (game) {\n      return game.getScenarioBonus(scenario, bonusType);\n    }\n    return null;\n  },\n\n  /**\n   * Send Game Start Information\n   *\n   * @param object data - the data to send to the client. \n   */\n  startGame : function(data, socket) {\n    // data = { scenarioId : string, players : [{ id : string, name : string, image : string }], helps : int, timeout : int };\n    socket.emit('start game', data);\n  },\n\n  /**\n   * Send Data to Load\n   *\n   * @param object data - the data to send to the client. \n   */\n  startLoading : function(data, socket) {\n    // data = { activities : {}, resources : {} };\n    socket.emit('start loading', data);\n  },\n\n  /**\n   * Send Player Updated Status\n   *\n   * @param object data - the data to send to the client. \n   */\n  updateStatus : function(data, socket) {\n    // data = { playerId : string, status : string };\n    socket.emit('update status', data);\n  },\n\n  clickButton : function(data, session, playerId, scenario) { \n    if(data && typeof data.buttonId === 'string' && typeof data.buttonType === 'string') {  \n      var self = this;  \n\n      // Get Game and Verify if it has the specified Jump\n      var game = this.getGame();\n      if(game && game.hasJump(scenario, data.buttonType, data.buttonId)) {\n\n        if (game.isSync())\n          session.addJump(data.buttonType);\n\n        // Notify Status to other Players\n        var send = { playerId : playerId, status : data.buttonType };\n        session.forEachPlayer(function(player) {\n          self.updateStatus(send, player.getSocket());\n        }, playerId);\n\n        // Switch Scenario\n        self.setCurrentScenario(data.buttonType, session, playerId, scenario);\n        \n      }\n    }\n  },\n\n  hasJump : function(scenario, type) {\n    var game = this.getGame();\n    if (game) \n      return game.hasJump(scenario, type);\n\n    return null;\n  },\n\n  /**\n   * Add Session to Counter\n   */\n  addSession : function() {\n    this.sessions++;\n  },\n\n  /**\n   * Remove Session from Counter\n   */\n  removeSession : function() {\n    this.sessions--;\n\n    if(this.sessions < 1) {\n      E.games_manager.removeGame(this.gameId);\n    }\n  },\n\n  /**\n   * Set Current Scenario\n   * \n   * @return bool\n   */\n  setCurrentScenario : function(jump, session, playerId, prevScenario) {\n    var manager = this;\n    var game = this.getGame();\n    var currentPlayer = E.games_manager.getPlayer(playerId, \"currentScenario\");\n\n    if(game) {\n      if(jump = session.mustJump(jump, game.isSync())) {\n\n        setTimeout(function() {\n\n          // Get Scenario\n          var scenarioId = game.getJumpTo(prevScenario, jump);\n\n          if(scenarioId) {\n\n            // Switch Scenario\n            session.howManyFinishedActivities = 0;\n            var send = game.getScenarioHelpsAndTimeout(scenarioId);\n            send.scenarioId = scenarioId;\n            \n            if (game.isSync()) {\n              session.resetFlow();\n\n              // Notify Players             \n              session.forEachPlayer(function(player) {\n                player.setScenario(scenarioId);\n                manager.switchScenario(send, player);                \n              });\n            }\n\n            // Game not Sync\n            else {\n\n              // Switch Scenario\n              manager.switchScenario(send, currentPlayer);\n              currentPlayer.setScenario(scenarioId);\n            }            \n          }\n          else {\n            if (!game.isSync()) {\n              session.addPlayerWhoFinishedGame();\n\n              do {\n                  //nothing, wait for others to finish\n              } while(session.howManyPlayersFinishedGame() < session.getPlayers().length);\n            }\n            manager.finish(true, session);\n          }\n        }, 300);\n        \n        return true;\n      }\n    }\n    \n    return false;\n  },\n\n  /**\n   * Reset Player Attributes and Send the Next Scenario Data\n   *\n   * @param object data - the data to send to the client. \n   */\n  switchScenario : function(data, player) {\n    var game = this.getGame();\n    if (game.isSync()) player.resetVariables();\n    var socket = player.getSocket();\n    \n    // data = { scenarioId : string, helps : int, timeout : int };\n    socket.emit('switch scenario', data);\n  },\n\n getPlayers : function() {\n    return players_list;\n  },\n\n  /**\n   * Update Team Score\n   *\n   * @param double value - the value to increment to the team score.\n   */\n  updateScore : function(value) {\n    this.score+= value;\n  },\n\n  getScore : function() {\n    return this.score;\n  },\n\n  answerQuestion : function(data, session, finished, playerId, scenario) {\n\n    if(data && typeof data.activityId === 'string' && typeof data.answer !== 'undefined' && typeof data.helps !== 'undefined' && typeof finished[data.activityId] === 'undefined') { \n      // Get Game and Verify if it has the specified Question\n      // Get Game Type (Quiz, Puzzle, ...) and subs E.quiz... E.puzzle... etc\n      var game = this.getGame(), currentScenario = scenario, question;\n      if(game && (question = game.getActivity(currentScenario, data.activityId))) {\n\n        // Get Question Source\n        var source = question.group? session.getGroupSource(question.source) : question.source;\n        if(source) {\n\n          var self = this;\n          var player = E.games_manager.getPlayer(playerId, \"Answer Question\");\n\n          E.db.getAnswer(source, game.id, function(answerData) {\n            if(typeof answerData.id != 'undefined' && typeof answerData.content != 'undefined') {\n              var send = { players : {} };\n              send.players[playerId] = {activityId : data.activityId, solution : data.answer, finished : false };\n\n              // Check if Answer is Correct\n              var isCorrect = false, allFinished = false;\n              if(typeof data.answer === 'number') {\n                isCorrect = answerData.id == data.answer;\n              }\n              else {\n                isCorrect = answerData.content.toLowerCase() == data.answer.toLowerCase();\n              }\n\n              // Get Player Points obtained with this Question\n              var obtainedPoints = player.getActivityLog(data.activityId);\n              obtainedPoints.attempts++;\n              \n              var askedForHelp = false, // Determines that the player asked for a help after last attempt to solve this activity\n                failedHelpTimeout = false, // Determines that the player failed the help timeout\n                giveBonusTo = []; // Determines how many players must receive a collaboration bonus if the answer is correct and the timeout was respected\n              \n              for(var helpType in obtainedPoints.helps) {\n                var usedHelp = obtainedPoints.helps[helpType];\n                // If help was used after last attempt to answer\n                if(typeof usedHelp === 'object') {\n                  // If is help with timeout\n                  if(helpType in data.helps) {\n                    // If answered before the timeout\n                    if(data.helps[helpType]) {\n                      if(typeof usedHelp.playerId !== 'undefined') {\n                        giveBonusTo.push(usedHelp.playerId);\n                      }\n                    }\n                    \n                    // If failed the timeout\n                    else failedHelpTimeout = true;\n                  }\n\n                  askedForHelp = true;\n                  obtainedPoints.helps[helpType] = true;\n                }\n              }\n              \n              // Set Scores\n              var questionScores = question.scores;\n\n              if(isCorrect) {\n                \n                // If player failed any help timeout\n                if(failedHelpTimeout) {\n                  player.setPenalty(session, questionScores, obtainedPoints, send);\n                }\n\n                player.setReward(session, game, questionScores, obtainedPoints, send, giveBonusTo);\n\n              }\n              else {\n                player.setPenalty(session, questionScores, obtainedPoints, send, (askedForHelp? 2 : 1));\n              }\n              self.updateScores(session, send, player.getSocket(), player.getScores());\n              \n              // If the answer is correct, the player finished all actvities, and the current scenario has a 'allFinished' jump\n              if(isCorrect && send.players[playerId].finished) {\n                if (game.isSync()) {\n                  session.addJump('allFinished');\n\n                     // Notify Status to other Players\n                  var send = { playerId : playerId, status : 'allFinished' };\n                  session.forEachPlayer(function(player) {\n                    self.updateStatus(send, player.getSocket());\n                  }, playerId);\n                }\n  \n                // Switch Scenario\n                self.setCurrentScenario('allFinished', session, playerId, scenario);\n              }\n            }\n          });\n        }\n      }\n    }\n  },\n\n  getScenarioActivitiesCount : function(scenario) {\n    var game = this.getGame();\n    if (game) {\n      return game.getScenarioActivitiesCount(scenario);\n    }\n    return null;\n  },\n\n  /**\n   * Send Players Updated Scores\n   *\n   * @param Session session - the session object.\n   * @param object data - the data to send to the client.\n   */\n  updateScores : function(session, data, socket, scores) {\n    data.team = E.utils.roundScore(this.getScore());\n    data.players[socket.id].total = E.utils.roundScore(scores.total);\n    \n    // Send Scores to All Players\n    session.forEachPlayer(function(player) {\n      // data = { team: float, players : { playerId : { activityId : string, reward : float, penalty : float, collaboration : float, total : float, activityPoints : float, finished : bool } } }\n      player.getSocket().emit('update scores', data);\n    });\n  },\n\n  /**\n   * Get Team Score\n   *\n   * @return double\n   */\n  getScore : function() {\n    return this.score;\n  },\n\n  useHelp : function(data, session, beingHelped, helping, helps, playerId, scenario) {\n    if(data && typeof data.activityId === 'string' && typeof data.helpType === 'string') {\n      var send = {}, used = false;\n      var self = this;\n\n      var this_player = E.games_manager.getPlayer(playerId, \"use Help\");\n      var this_player_id = this_player.getSocket().id;\n\n      // If Player isn't being Helped and isn't Helping\n      if(!beingHelped && !helping) {\n        \n        // If Player has Helps\n        if(helps.total > 0) {\n\n          // Get Game and Verify if the specified Activity has the specified Help\n          var game = this.getGame(), currentScenario = scenario, help;\n          var gameId = game.getID();\n          if(game && (help = game.getActivityHelp(currentScenario, data.activityId, data.helpType))) {\n           \n            // If help wasn't yet used and Player has enough Helps\n            var helpsLog = this_player.getActivityLog(data.activityId).helps, maxHelps = game.getScenarioHelps(currentScenario);\n            if(!(data.helpType in helpsLog) && (!maxHelps || helps.used < maxHelps)) {\n              activity = game.getActivity(currentScenario, data.activityId);\n              var activitySource = activity.group? session.getGroupSource(activity.source) : activity.source;\n\n              if (game.isMultiplayer()) {\n                var availablePlayers = [];\n                   // Get available players to help                 \n                  session.forEachPlayer(function(player) {\n                    console.log(player.hasSolvedActivity(data.activityId));\n                    if(player.hasSolvedActivity(data.activityId) && !player.getHelping() && !player.getBeingHelped()) {\n                      availablePlayers.push(player);\n                    }\n                  }, this_player_id);\n\n                      // If any player available send help data to him\n                if(availablePlayers.length > 0) {\n                  var player = availablePlayers[E.utils.random(availablePlayers.length - 1)];\n                  var toSend = { \n                    helpType: data.helpType,  \n                    activityId : data.activityId, \n                    activitySource : activitySource, \n                    playerId : this_player_id,\n                    gameId : gameId, \n                    help : help };\n\n                  game.useHelp(toSend, function(request) {\n                      self.sendHelpRequest(request, player.getSocket());               \n                  }); \n\n                  this_player.setBeingHelped(player.socket.id, data.activityId, data.helpType);\n                  player.setHelping(this_player_id, data.activityId);\n                  send.playerId = player.socket.id;\n                  used = true;\n                  }\n                  else {\n                    send.warning = 'WH4';\n                  }     \n              }\n\n              // If is Singleplayer\n              else {\n                var toSend = { \n                    helpType: data.helpType,  \n                    activityId : data.activityId, \n                    activitySource : activitySource, \n                    gameId : gameId, \n                    help : help };\n\n                game.useHelp(toSend, function(response) {\n                  this_player.answerHelpRequest(response); \n                });\n                \n                used = true;\n                \n              }\n             \n              // If can use then update helps\n              if(used) {\n                this_player.updateHelps();\n                helpsLog[data.helpType] = { used : true };\n                \n                if(typeof send.playerId != 'undefined') {\n                  helpsLog[data.helpType].playerId = send.playerId;\n                }\n              }\n            }\n            else {\n              send.warning = 'WH3';\n            }\n          }\n          \n        }\n        else {\n          send.warning = 'WH2';\n        }\n      }\n      else {\n        send.warning = 'WH1';\n      }\n      \n      // Send Helps Data\n      send.helps = this_player.getTotalHelps();\n      this.updateHelps(send, this_player.getSocket());\n    }\n  },\n\n  updateHelps : function(data, socket) {\n    socket.emit('update helps', data);\n  },\n\n  /**\n   * Send Help Request\n   *\n   * @param object data - the data to send to the client. \n   */\n  sendHelpRequest : function(data, socket) {\n    // data = { playerId : string, activityId : string, type: string, options : array(object), select : int };\n    socket.emit('help request', data);\n  },\n\n  sendHelpData : function(data, socket) {\n    socket.emit('help response', data);\n  },\n\n  /**\n   * Other Player Disconnected\n   *\n   * @param object data - the data to send to the client.\n   */\n  otherDisconnected : function(data, socket) {\n    socket.emit('other disconnected', data);\n  },\n\n  /**\n   * On Answer to Help Request\n   *\n   * @param object data - the data received from the client.\n   */\n  answerHelpRequest : function(data, session, playerId, scenario) {\n    if(data && data.list instanceof Array) {\n      var self = this;\n      var this_player = E.games_manager.getPlayer(playerId, \"Answer Help Request\");\n\n        // Get Game\n        var game = this.getGame();\n        if(game) {\n\n          if(typeof data.activityId === 'string' && typeof data.helpType === 'string' && data.list.length > 0) {\n            var other_player = this_player;\n          }\n          \n          // If help data wasn't yet set (for Multiplayer)\n          if(game.isMultiplayer()) {\n            // If this player is helping other\n            if(this_player.getHelping()) {\n\n              // Get the other player and make sure he is still being helped by this player\n              other_player = E.games_manager.getPlayer(this_player.getHelping().playerId, \"Second Answer Help Request\");\n              if(other_player && other_player.getBeingHelped() && other_player.getBeingHelped().playerId == this_player.getSocket().id) {\n                \n                // Set Help Data to send to Other Player\n                data.playerId = this_player.getSocket().id;\n                data.activityId = this_player.getHelping().activityId;\n                data.helpType = other_player.getBeingHelped().helpType;\n                \n                other_player.beingHelped = false;\n                this_player.incHelpsGiven();\n              }\n\n              this_player.helping = false;\n            }\n          }\n\n          // If the activity belongs to the current scenario\n          var currentScenario = scenario;\n          if(this_player && game.getActivity(currentScenario, data.activityId)) {\n            \n            // Get Help Timeout\n            if(game.isMultiplayer()) {\n              var timeout = game.getActivityHelpsTimeout(currentScenario, data.activityId);\n              if(timeout) data.timeout = timeout;\n            }\n            \n            var callback = function(results) {\n              if(results) \n                data.list = results;\n              self.sendHelpData(data, other_player.getSocket());\n            };\n            \n            if(game.isMultiplayer()) {\n              var activity = game.getActivity(currentScenario, data.activityId);\n              var activitySource = activity.group? session.getGroupSource(activity.source) : activity.source;\n              \n              // Get Help Data\n              switch(data.helpType) {\n\n                case 'hints':\n                  E.db.getHints(data.list, activitySource, game.id, callback);\n                  break;\n\n                case 'remove':\n                  E.db.getIncorrectAnswers(data.list, activitySource, game.id, callback);\n                  break;\n                  \n                default:\n                  callback();\n                  break;\n              }\n            }\n            else {\n              \n              // Send Help Data to the Player\n              callback();\n            }\n          }\n        }\n      \n    }\n  },\n\n  setReady : function(playerId) {\n    var player = E.games_manager.getPlayer(playerId);\n    if (player) {\n      player.setReady();\n    }\n  },\n\n  cancelHelpRequest : function(socket) {\n    socket.emit('cancel help', true);\n  },\n\n  /**\n   * Finish Game\n   *\n   * @param object data - the data to send to the client.\n   */\n  finishGame : function(data, socket) {\n    if(typeof this.sessionId !== 'undefined') {\n      delete this.sessionId;\n    }\n    socket.emit('finish game', data);\n    socket.disconnect();\n  },\n\n  timedOut : function(playerId, session, scenario) {\n    var jumpType = 'timeout';\n    var self = this;\n\n    // Get Game and Verify if it has the timeout Jump\n    var game = this.getGame();\n    if(game && game.hasJump(scenario, jumpType)) {\n\n      //Verificar sincronização\n      if (game.isSync())\n        game.addJump(jumpType);\n\n      // Notify Status to other Players\n      var send = { playerId : playerId, status : jumpType };\n      session.forEachPlayer(function(player) {\n        self.updateStatus(send, player.getSocket());\n      }, playerId);\n\n      // Switch Scenario\n      this.setCurrentScenario(jumpType, session, playerId, scenario);\n    }\n  },\n\n  /**\n   * Remove Player\n   *\n   * @param string playerId - the player id.\n   */\n  removePlayer : function(playerId, session) {\n    var manager = this;\n\n    // Remove Player from Session\n    var sessionPlayers = session.getPlayers();\n    var index = sessionPlayers.indexOf(playerId);\n    if(index != -1) {\n      sessionPlayers.splice(index, 1);\n    }\n\n    if (!this.removed) {\n      var game = this.getGame();\n      if(game) {\n        // Remove session if it is still waiting and it becomes empty\n        if(!this.getScenario() && sessionPlayers.length == 0) {\n          if(E.sessions.removeWaiting(session.getLMS(), session.getContext().id, this.gameId)) {\n            \n            // Remove Session from List and Game\n            E.sessions.remove(this.sessionId);\n            this.removeSession();\n            game.remove();\n          }\n        }\n        \n        // Remove session if it has already started and the number of players is below minimum\n        else if(this.getScenario() && sessionPlayers.length < game.getPlayers().min) {\n          this.finish(false, session);\n        }\n        \n        // Tell other players that this player disconnected\n        else if(this.getScenario()) {\n          // Remove Disconnected Player Score from Team Score\n          var dPlayer = E.games_manager.getPlayer(playerId, \"Remove Player\");\n          if(dPlayer) this.updateScore(-dPlayer.getTotalScore());\n          \n          // Notify other Players\n          var send = { id : playerId, team : manager.getScore() };\n          session.forEachPlayer(function(player) {\n            manager.otherDisconnected(send, player.getSocket());\n          });\n          \n          // Check Jumps\n          for(var jumpType in session.resetFlow()) {\n            if(this.setCurrentScenario(jumpType, session, playerId)) break;\n          }\n        }\n      }\n    }\n  },\n\n    /**\n   * Finish Session\n   *\n   * @param bool log - determines if session must be logged.\n   */\n  finish : function(log, session) {\n    var self = this, send = {};\n    var game = this.getGame();\n    var thisGameId = this.gameId;\n\n    if(game) {\n\n      //Removed nao pode ser assim tem que tar numa lista para caso haja mais que um jogo?\n\n       if (!this.removed) {\n        // Remove Session from List\n        E.sessions.remove(session.sessionId);\n\n        // Remove Session from Game\n        this.removeSession();\n\n        //Remove Games\n        game.remove();\n\n        if(typeof this.sessionId !== 'undefined') {\n          delete this.sessionId;\n      }\n\n        this.removed = true;\n      }\n\n      var lms = session.getLMS();\n      var context = session.getContext();\n\n      // If session must be logged and team score greater than zero\n      if(log && this.score >= 1) {\n        send.thisTeam = { score : Math.round(self.score) };\n        send.complete = true;\n\n        // Get best sessions\n        E.db.getTopSessionsAndCurrentSessionPosition(send.thisTeam.score, thisGameId, function(topTeams, position) {\n          send.thisTeam.position = position;\n          send.topTeams = topTeams;\n\n          // Create this session\n          var gameScores = game.getScores();\n          var scoreToStore = (typeof gameScores.team === 'undefined' || gameScores.team)? send.thisTeam.score : null;\n          E.db.createSession(lms, context.id, context.name, scoreToStore, self.gameId, function(sessionId) {\n\n            // Get Bonus and Scores Types List (name : id)\n            E.db.getBonusAndScoresTypesList(function(bonusTypes, scoresTypes) {\n\n              session.forEachPlayer(function(player) {\n                (function() {\n                  var playerBonus = player.logs.bonus;\n                  var playerScores = player.scores;\n                  var playerActivities = player.logs.activities;\n\n                  // Create Player\n                  var gameHelps = game.getHelps();\n                  var playerHelps = gameHelps.log? (gameHelps.value - player.getTotalHelps()) : null;\n                  var givenHelps = (game.isMultiplayer())? player.getHelpsGiven() : null;\n                  E.db.createPlayer(player.name, playerHelps, givenHelps, player.instance, player.userId, sessionId, function(playerId) {\n                    send.playerId = playerId;\n                    self.finishGame(send, player.getSocket());\n\n                    // Create Players Bonus Logs\n                    E.db.createPlayerBonus(playerId, playerBonus, bonusTypes, game.getScenarios());\n\n                    // Create Players Scores Logs\n                    E.db.createPlayerScores(playerId, playerScores, scoresTypes, gameScores);\n\n                    // Create Players Activities Logs\n                    E.db.createPlayerActivities(playerId, self.gameId, playerActivities, game.getActivities(), session.groups);\n\n                  });\n\n                })();\n              });\n            });\n          });\n\n        });\n\n      }\n\n      // If session must not be logged, means the players left or some error ocurred\n      else {\n        send.complete = false;\n        session.forEachPlayer(function(player) {\n          self.finishGame(send, player.getSocket());\n        });\n      } \n     \n    }\n  }\n\n};\n\nexports.register = function(socket, data){\n  var self = this, send = {};\n\n  // If Player not yet Registered\n  if(!(socket.id in players_list)) {\n    \n    // Validate Player Name and Avatar\n    if(data && typeof data.name === 'string' && data.name.length > 0 && typeof data.avatar === 'string' && data.avatar.length > 0) {\n      \n      // Validate LMS Data\n      if(typeof data.lms !== 'undefined' && typeof data.contextId !== 'undefined' && typeof data.contextName !== 'undefined' && typeof data.instance !== 'undefined' && typeof data.userId !== 'undefined') {\n        \n        // Validate Game ID\n        if(typeof data.gameId !== 'undefined' && data.gameId > 0) {\n\n          var managerId;\n          if (!(E.games_manager.checkManager(self.id))) {\n            var managerId = \"m\"+new Date().getTime();\n            games_manager = manager_list[managerId] = new self.Games_Manager(data.gameId, managerId);\n          }\n          else {\n            games_manager = manager_list[managerId];\n          }\n\n          console.log(managerId);\n\n          E.games.load(data.gameId, data.genreCode, function(game, err) {\n            games_list[data.gameId] = game;\n\n            if (game) {\n              // Create or Get Existing Session\n              var session;\n              do {\n                session = E.sessions.getWaiting(data.lms, data.contextId, managerId);\n\n              } while(!session.addPlayer(socket.id, game.getPlayers().max));\n\n              session.setManagerId(managerId);\n              games_manager.setSessionId(session.id);\n\n              //Set Player Data\n              E.players.register(socket, game.getHelps().value, data, session.id, function(player, err) {\n                if (player) {\n                  players_list[socket.id] = player;\n\n                  // Set Player Scores\n                  for(var score in game.getScores()) {\n                    if(score != 'team') player.setScores(score, 0);\n                  }\n\n                  // Player already Loaded Data\n                  if(typeof data.ready !== 'undefined' && data.ready) {\n                    player.setReady();\n                  }\n                  else {\n                    // Send to Load List\n                    game.getToLoadList(session.getGroups(), function(toLoad) {\n                      games_manager.startLoading(toLoad, player.getSocket()); \n\n                      var activities = toLoad.activities;\n                      if(typeof activities.question !== 'undefined' && typeof activities.question[1] !== 'undefined') {\n                        session.setGroups(activities.question[1]);\n                      }\n                    });\n                  }\n                }\n                else send.error = 'EP1'; //TODO: Ver o erro a enviar\n              });\n\n              // Set Session \n              session.setContextName(data.contextName);\n\n            } \n            else send.error = 'EG2';\n          });\n        }\n        else send.error = 'EG1';\n      }\n      else send.error = 'EP2';\n    }\n    else send.error = 'EP1';\n  }\n\n   // Send Errors if Any --------- CHECK SOCKET\n  if(typeof send.error !== 'undefined') {\n    E.games_manager.getPlayer(socket.id, \"Error Load Game\").getSocket().socket.emit('unexpected', send);\n  }\n}\n\n/**\n * Get Game from List\n *\n * @param int id - the game id.\n * @return Game\n */\nexports.getGame = function(id) {\n  if(id in games_list) {\n    return games_list[id];\n  }\n  console.error('Invalid Game');\n  return null;\n}\n\n/**\n\n*/\nexports.checkGame = function(id) {\n  if(id in games_list) {\n    return true;\n  }\n  return false;\n}\n\nexports.checkManager = function(id) {\n  if(id in manager_list) {\n    return true;\n  }\n  return false;\n}\n\n/**\n * Get Game Manager\n *\n * @param int id - the game manager id.\n * @return Game Manager id\n */\nexports.getManager = function(id) {\n   if(id in manager_list) {\n    return manager_list[id];\n  }\n  console.error('Invalid Manager');\n  return null;\n}\n\n/**\n * Get Game Manager\n *\n * @param int id - the game manager id.\n * @return Game Manager id\n */\nexports.checkSessionManager = function(id) {\n   if(id in session_to_manager) {\n    return true;\n  }\n  return false;\n}\n\nexports.mapManagerFromPlayer = function(id, callback) {\n  var player = E.games_manager.getPlayer(id);\n  if (player) {\n    var session = player.getSession();\n    if (session) {\n      var manager = session.getManager();\n      if (manager){\n        callback(manager);\n      }\n    }\n  }\n}\n\n/**\n * Get Player from List\n *\n * @param int id - the player id.\n * @return Player\n */\nexports.getPlayer = function(id, error) {\n  if(id in players_list) {\n    return players_list[id];\n  }\n  else {\n    console.error('Invalid Player');\n  return null;\n  }\n\n}\n\n/**\n * Remove Game from List\n *\n * @param int id - the game id.\n */\nexports.removeGame = function(id) {\n  if(id in games_list) {\n    delete games_list[id];\n  }\n}\n\n/**\n * Remove Player from List\n *\n * @param int id - the player id.\n */\nexports.unregister = function(id) {\n  var player = this.getPlayer(id);\n  if(player) {\n    player.handleDisconnect();\n    delete players_list[id];\n  }\n}\n",
+			"file": "app/Lib/Games/games_manager.js",
+			"file_size": 30158,
+			"file_write_time": 130561188353308025,
+			"settings":
+			{
+				"buffer_size": 30130,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Lib/Games/players.js",
+			"settings":
+			{
+				"buffer_size": 10515,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Lib/Games/server.js",
+			"settings":
+			{
+				"buffer_size": 2148,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Lib/Games/sessions.js",
+			"settings":
+			{
+				"buffer_size": 8078,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Nodejs/Nodejs.sublime-build",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"in",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 610.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/Quiz/cquiz.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/test/integration/connection/test-callback-errors-are-not-caught.js",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/Fixture/UnconventionalTreeFixture.php",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/Case/AllLogTest.php",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/docs/packages/app.Lib.html",
+		"/opt/lampp/htdocs/epik_v2/app/Config/acl.php",
+		"/opt/lampp/htdocs/epik_v2/app/View/Questions/import.ctp",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/docs/classes/QuizConverterComponent.html",
+		"/home/pedro/Desktop/epik_stuff/alteracoes.txt",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/lib/protocol/packets/ComQueryPacket.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/communication.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/games/1/server.json",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/games/17/server.json",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/games/18/server.json",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/server.js",
+		"/opt/lampp/htdocs/epik_v2/app/Controller/PlayersController.php",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/projects/9.xml",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Config/unicode/casefolding/0080_00ff.php",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/games/1/client.json",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Log/CakeLogInterface.php",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Log/CakeLog.php",
+		"/opt/lampp/htdocs/epik_v2/app/Config/Schema/sessions.php",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/test_app/Plugin/TestPlugin/View/Elements/sub_dir/sub_element.ctp",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Console/Command/SchemaShell.php",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/sessions.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/projects/8.xml",
+		"/opt/lampp/htdocs/epik_v2/app/Controller/Component/QuizConverterComponent.php",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/schemas/project.xsd",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/projects/Quiz/html.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/Quiz/logic.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/general.js",
+		"/opt/lampp/htdocs/epik_v2/app/Controller/GamesController.php",
+		"/opt/lampp/htdocs/epik_v2/app/View/Layouts/game.ctp",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/games/10/client.json",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/test/unit/compress/expected/issue10.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/benchmark/parse-100k-blog-rows.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/scenarios/1.json",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/docs/classes/GamesController.html",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/test/integration/connection/test-escape-id.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/games.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/lib/protocol/packets/ComPingPacket.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/projects/5.xml",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/projects/Quiz/sections.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/projects/sections.js",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/test_app/Vendor/sample/configure_test_vendor_sample.php",
+		"/opt/lampp/htdocs/epik_v2/app/Model/ScoreType.php",
+		"/opt/lampp/htdocs/epik_v2/app/Controller/SessionsController.php",
+		"/opt/lampp/htdocs/epik_v2/app/Model/GenreActivity.php",
+		"/opt/lampp/htdocs/epik_v2/app/Controller/GenresController.php",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/tool/generate-error-constants.js",
+		"/opt/lampp/htdocs/epik_v2/app/Model/GameSession.php",
+		"/opt/lampp/htdocs/epik_v2/app/View/Games/add_edit.ctp",
+		"/opt/lampp/htdocs/epik_v2/app/Model/GameMode.php",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/Fixture/BiddingMessageFixture.php",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/Quiz/properties.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/Quiz/elements.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/players.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/docs/classes/PlayerScore.html",
+		"/opt/lampp/htdocs/epik_v2/app/Controller/Component/ProjectConverterComponent.php",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/config.json",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/games_manager.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/Quiz/quiz.js",
+		"/opt/lampp/htdocs/epik_v2/epik_v2.sublime-project",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/extensions.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/test/integration/connection/test-multiple-statements.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/test/integration/connection/test-multiple-statements-streaming.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/projects/html.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/projects/Quiz/converter.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/templates/3.xml",
+		"/opt/lampp/htdocs/epik_v2/.htaccess",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/projects/init.js",
+		"/opt/lampp/htdocs/epik_v2/app/View/Helper/ElementsHelper.php",
+		"/opt/lampp/htdocs/epik_v2/app/View/Projects/view.ctp",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/Case/Model/ModelTestBase.php",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Log/Engine/BaseLog.php",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/basics.php",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Network/Http/BasicAuthentication.php",
+		"/opt/lampp/htdocs/epik_v2/build.properties",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/Fixture/SyfileFixture.php",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/test/integration/connection/test-select-empty-string.js",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/Case/Utility/SecurityTest.php",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/embed-tokens.js",
+		"/opt/lampp/htdocs/epik_v2/app/View/Games/view.ctp",
+		"/opt/lampp/htdocs/epik_v2/app/Model/VisibilityType.php",
+		"/home/pedro/Desktop/epik_stuff/aletracoes.txt",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/test_app/Model/Behavior/PersisterOneBehaviorBehavior.php",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/socket.io/node_modules/socket.io-client/node_modules/ws/examples/serverstats/server.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/Quiz/iquiz.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/docs/js/sidebar.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/libs/kinetic.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/projects/loader.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/libs/jquery.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/docs/js/SVGPan.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/utils.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/modal.js",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/database.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/time.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/games/init.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/js/default.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/docs/js/menu.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/scenarios/6.json",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/scenarios/5.json",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/scenarios/4.json",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/scenarios/3.json",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/scenarios/2.json",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/utils.js",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/test_app/Vendor/img/test_2.JPG",
+		"/opt/lampp/htdocs/epik_v2/app/Model/Game.php",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/docs/classes/Game.html",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/test_app/Config/htmlhelper_minimized.ini",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/test_app/Config/htmlhelper_tags.php",
+		"/opt/lampp/htdocs/epik_v2/app/View/Activities/hints.ctp",
+		"/opt/lampp/htdocs/epik_v2/app/Model/Project.php",
+		"/home/pedro/Desktop/teste.php",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/collaborative.js",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/.htaccess",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/node_modules/mysql/lib/protocol/packets/HandshakeInitializationPacket.js",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Configure/IniReader.php",
+		"/opt/lampp/htdocs/epik_v2/index.php",
+		"/opt/lampp/htdocs/epik_v2/app/Config/email.php.default",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Configure/ConfigReaderInterface.php",
+		"/opt/lampp/htdocs/epik_v2/app/View/Layouts/flash.ctp",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Utility/Folder.php",
+		"/opt/lampp/htdocs/epik_v2/lib/Cake/Test/Fixture/UuiditemsUuidportfolioNumericidFixture.php",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/fonts/Galindo/galindo.otf",
+		"/opt/lampp/htdocs/epik_v2/app/Config/database.php",
+		"/opt/lampp/htdocs/epik_v2/app/webroot/files/games/10/server.json",
+		"/opt/lampp/htdocs/epik_v2/app/Lib/Games/epik_stuff/Jogador.rb"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 100.0,
+		"where_history":
+		[
+			"/opt/lampp/htdocs/epik_v2/app,-*.min.*,-*.html,-*.io.js",
+			"/opt/lampp/htdocs/epik/app,-*.min.*,-*.html,-*.io.js",
+			"/opt/lampp/htdocs/epik/app,-*.min.*,-*.html,-*.io.js,-*.json",
+			"/opt/lampp/htdocs/epik/app,-*.min.*,-*.html,-*.io.js,-*.json, -ui.js",
+			"/opt/lampp/htdocs/epik/app,-*.min.*,-*.html,-*.io.js,-*.json, -jquery.js, -*ui.js",
+			"/opt/lampp/htdocs/epik/app,-*.min.*,-*.html,-*.io.js",
+			"/opt/lampp/htdocs/epik/app,-*.min.*,-*.html",
+			"/opt/lampp/htdocs/epik/app,-*.min.*,*.html",
+			"/opt/lampp/htdocs/epik/app,-*.min.*",
+			"/opt/lampp/htdocs/epik/app",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getsess",
+			"mapmanagerfromplayer",
+			"setsessionid",
+			"checkSessionManager",
+			"player_to_manager",
+			"setReady",
+			"invalid manager",
+			"playerId",
+			"list",
+			"getPlayer",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"Player",
+			"player",
+			"cl",
+			"clear",
+			"getPlayer",
+			"foreachplayer",
+			"'Invalid Player'",
+			"setCurrentcenario :",
+			"setCurrent",
+			"setCurrentScenario",
+			"getPlayer",
+			"setCurrentScenario",
+			"console.log",
+			"setCurrentScenario",
+			"getScenario",
+			"getPlayer",
+			"setScenario",
+			"setCurrentScenario",
+			"updateStatus",
+			"getCurrentScenario",
+			"getCurrent",
+			"setCurrentScenario",
+			"setScenario",
+			"setCurrentScenario",
+			"getCurrent",
+			"setCurrentScenario",
+			"getCurrent",
+			"this.scenario",
+			"scenario",
+			"setScenario",
+			"setcurrent",
+			"getGame",
+			"setcurrentScenario",
+			"console.log",
+			"resetFlow",
+			"getFlow",
+			"mustjump",
+			"addJump",
+			"setCurrent",
+			"finish",
+			"setCurrentScenario",
+			"play",
+			"setReady",
+			"loadProperties",
+			"logic.js",
+			"setIcon",
+			"Scores :",
+			"Scores = {",
+			"Scores =",
+			"E.scores",
+			"validateboolean",
+			"play",
+			"$player",
+			"setHelps",
+			"E.game = {",
+			"loadProperties",
+			"E.game",
+			"setHelps",
+			"validateboolean",
+			"validateBoolean",
+			"parse",
+			"parsea",
+			"parse",
+			"boolean",
+			"$usedHelps",
+			"helps",
+			"boolean",
+			"explorerItem",
+			"explorer",
+			"Scores and Helps",
+			"__('sync')",
+			"parseProperties",
+			"Save",
+			"converter",
+			"$defaults",
+			"getGameDefaults",
+			"$defaults"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/webroot/js/projects/Quiz/converter.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1797,
+								1797
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 700.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/webroot/js/games/Quiz/logic.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34505,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20413,
+								20413
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 12253.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Lib/Games/games.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10099,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8877,
+								8877
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6316.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Lib/Games/Quiz/quiz.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1384,
+								1384
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Lib/Games/games_manager.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30130,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25127,
+								25127
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 13870.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Lib/Games/players.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10515,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2003,
+								2003
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5407.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/Lib/Games/server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2146,
+								2146
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1017.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Lib/Games/sessions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8078,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								174,
+								174
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 110.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "epik_v2.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"cquiz",
+				"app/Lib/Games/Quiz/cquiz.js"
+			],
+			[
+				"server",
+				"app/Lib/Games/server.js"
+			],
+			[
+				"server.json",
+				"app/webroot/files/games/17/server.json"
+			],
+			[
+				"communia",
+				"app/webroot/js/games/communication.js"
+			],
+			[
+				"9.xml",
+				"app/webroot/files/projects/9.xml"
+			],
+			[
+				"client",
+				"app/webroot/files/games/1/client.json"
+			],
+			[
+				"logic.js",
+				"app/webroot/js/games/Quiz/logic.js"
+			],
+			[
+				"ssessions.js",
+				"app/Lib/Games/sessions.js"
+			],
+			[
+				"quiz.js",
+				"app/Lib/Games/Quiz/quiz.js"
+			],
+			[
+				"games.js",
+				"app/Lib/Games/games.js"
+			],
+			[
+				"gamescont",
+				"app/Controller/GamesController.php"
+			],
+			[
+				"server.js",
+				"app/Lib/Games/server.js"
+			],
+			[
+				"sections.js",
+				"app/webroot/js/projects/Quiz/sections.js"
+			],
+			[
+				"logic.",
+				"app/webroot/js/games/Quiz/logic.js"
+			],
+			[
+				"scores",
+				"lib/Cake/Test/test_app/Vendor/sample/configure_test_vendor_sample.php"
+			],
+			[
+				"general",
+				"app/webroot/js/games/general.js"
+			],
+			[
+				"game.ctp",
+				"app/View/Layouts/game.ctp"
+			],
+			[
+				"html.js",
+				"app/webroot/js/projects/Quiz/html.js"
+			],
+			[
+				"5.xml",
+				"app/webroot/files/projects/5.xml"
+			],
+			[
+				"quizconver",
+				"app/Controller/Component/QuizConverterComponent.php"
+			],
+			[
+				"games_manager",
+				"app/Lib/Games/games_manager.js"
+			],
+			[
+				"players.js",
+				"app/Lib/Games/players.js"
+			],
+			[
+				"converter.js",
+				"app/webroot/js/projects/Quiz/converter.js"
+			],
+			[
+				"project.xs",
+				"app/webroot/files/schemas/project.xsd"
+			],
+			[
+				"quizvon",
+				"app/Controller/Component/QuizConverterComponent.php"
+			],
+			[
+				"sessions.js",
+				"app/Lib/Games/sessions.js"
+			],
+			[
+				"quiz",
+				"app/Controller/Component/QuizConverterComponent.php"
+			],
+			[
+				"games_ma",
+				"app/Lib/Games/games_manager.js"
+			],
+			[
+				"projectconver",
+				"app/Controller/Component/ProjectConverterComponent.php"
+			],
+			[
+				".xml",
+				"app/webroot/files/projects/5.xml"
+			],
+			[
+				"view.ctp",
+				"app/View/Games/view.ctp"
+			],
+			[
+				"quizconve",
+				"app/Controller/Component/QuizConverterComponent.php"
+			],
+			[
+				"converter",
+				"app/webroot/js/projects/Quiz/converter.js"
+			],
+			[
+				"projectco",
+				"app/Controller/Component/ProjectConverterComponent.php"
+			],
+			[
+				"sections.",
+				"app/webroot/js/projects/sections.js"
+			],
+			[
+				"converter.",
+				"app/webroot/js/projects/Quiz/converter.js"
+			],
+			[
+				"projectconvertercomponent",
+				"app/Controller/Component/ProjectConverterComponent.php"
+			],
+			[
+				"project.x",
+				"app/webroot/files/schemas/project.xsd"
+			],
+			[
+				"gamescontroller",
+				"app/Controller/GamesController.php"
+			],
+			[
+				"gamescontroll",
+				"app/Controller/GamesController.php"
+			],
+			[
+				"game.c",
+				"app/View/Layouts/game.ctp"
+			],
+			[
+				"database",
+				"app/Lib/Games/database.js"
+			],
+			[
+				"init.",
+				"app/webroot/js/games/init.js"
+			],
+			[
+				"init",
+				"app/webroot/js/games/init.js"
+			],
+			[
+				"database.js",
+				"app/Lib/Games/database.js"
+			],
+			[
+				"gamescontr",
+				"app/webroot/docs/classes/GamesController.html"
+			],
+			[
+				"player.js",
+				"app/Lib/Games/players.js"
+			],
+			[
+				"projectc",
+				"app/Controller/Component/ProjectConverterComponent.php"
+			],
+			[
+				"qui",
+				"app/webroot/docs/classes/QuizConverterComponent.html"
+			],
+			[
+				"quizc",
+				"app/Controller/Component/QuizConverterComponent.php"
+			],
+			[
+				"quizcon",
+				"app/webroot/docs/classes/QuizConverterComponent.html"
+			],
+			[
+				"communi",
+				"app/webroot/js/games/communication.js"
+			],
+			[
+				"games_mana",
+				"app/Lib/Games/games_manager.js"
+			],
+			[
+				"config.",
+				"app/Lib/Games/config.json"
+			],
+			[
+				"comm",
+				"app/webroot/js/games/communication.js"
+			],
+			[
+				"logic",
+				"app/webroot/js/games/Quiz/logic.js"
+			],
+			[
+				"utils",
+				"app/Lib/Games/utils.js"
+			],
+			[
+				"databse.js",
+				"app/Lib/Games/database.js"
+			],
+			[
+				"session",
+				"app/Lib/Games/sessions.js"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"captain",
+				"db/migrate/20140320171707_add_captain_name_to_teams.rb"
+			],
+			[
+				"layout",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"rename",
+				"db/migrate/20140318164956_rename_team_name_from_teams.rb"
+			],
+			[
+				"teamscon",
+				"app/controllers/teams_controller.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/Projects/SeedManager/seed.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 224.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
